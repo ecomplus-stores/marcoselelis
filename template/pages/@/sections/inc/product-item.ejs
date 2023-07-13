@@ -1,5 +1,4 @@
 <%
-const stamps = _.cms('stamps') || {}
 const itemData = {}
 let itemDataFields = ['_id', 'sku', 'slug', 'quantity']
 if (Array.isArray(_.itemDataFields)) {
@@ -8,6 +7,7 @@ if (Array.isArray(_.itemDataFields)) {
 itemDataFields.forEach(field => itemData[field] = opt.item[field])
 itemData.name = _.ecomUtils.name(opt.item)
 itemData.price = _.ecomUtils.price(opt.item)
+itemData.variationsGrids = _.ecomUtils.variationsGrids(opt.item, {}, true)
 
 const imgObj = _.ecomUtils.img(opt.item)
 if (imgObj) {
@@ -16,18 +16,15 @@ if (imgObj) {
     normal: imgObj
   }]
 }
-let stampsList
-if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
-  stampsList = stamps.stamps_list
-}
 
 %>
 
-<article class="product-item" data-product="<%= JSON.stringify(itemData) %>">
+<!-- <article class="product-item" > -->
   <div
     class="product-card"
     data-product-id="<%= itemData._id %>"
     data-sku="<%= itemData.sku %>"
+    data-product="<%= JSON.stringify(itemData) %>"
     <% if (!opt.static) { %>
       data-to-render="true"
     <% } %>
@@ -36,54 +33,40 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
       `ProductCard` should be rendered (hydrated) here:
       https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/ProductCard.html
     -->
-    <div data-slot="stamps">
-      <% if (Array.isArray(stampsList) && stampsList.length) { %>
-        <div class="product-card__stamps">
-          <% for (stamp of stampsList) { 
-            if (stamp.img && (!stamp.skus || !stamp.skus.length || stamp.skus.includes(itemData.sku))) {
-              %>
-              <span class="product-card__stamps-<%= stamp.id && stamp.id.toLowerCase().replace(/\s/g, '-') %>">
-                <img src="<%= stamp.img %>" alt="<%= stamp.id %>">
-              </span>
-            <% } %>
+    
+      <a
+        href="/<%= itemData.slug %>"
+        class="product-card__link"
+        title="<%= itemData.name %>"
+      >
+        <!-- Custom code on product card top wrapped by link:
+        <span data-slot="header">
+        </span>
+        -->
+
+        <div class="product-card__pictures">
+          <!-- Picture(s) will be inserted and loaded dynamically within `ProductCard` -->
+          <% if (imgObj) { %>
+            <picture class="product-card__picture">
+              <img
+                data-src="<%= imgObj.url %>"
+                alt="<%= imgObj.alt %>"
+                class="lozad-delay fade"
+                <% if (imgObj.url.startsWith('https://ecoms1.com/')) { %>
+                  crossorigin="anonymous"
+                <% } %>
+              >
+            </picture>
           <% } %>
         </div>
-      <% } %>
-    </div>
 
-    <a
-      href="/<%= itemData.slug %>"
-      class="product-card__link"
-      title="<%= itemData.name %>"
-    >
-      <!-- Custom code on product card top wrapped by link:
-      <span data-slot="header">
-      </span>
-      -->
-
-      <div class="product-card__pictures">
-        <!-- Picture(s) will be inserted and loaded dynamically within `ProductCard` -->
-        <% if (imgObj) { %>
-          <picture class="product-card__picture">
-            <img
-              data-src="<%= imgObj.url %>"
-              alt="<%= imgObj.alt %>"
-              class="lozad-delay fade"
-              <% if (imgObj.url.startsWith('https://ecoms1.com/')) { %>
-                crossorigin="anonymous"
-              <% } %>
-            >
-          </picture>
-        <% } %>
-      </div>
-
-      <div data-slot="title">
-        <h3 class="product-card__name">
-          <%= itemData.name %>
-        </h3>
-      </div>
-    </a>
-
+        <div data-slot="title">
+          <h3 class="product-card__name">
+            <%= itemData.name %>
+          </h3>
+        </div>
+      </a>
+      
     <div class="product-card__prices prices">
       <strong class="prices__value">
         <% if (opt.item.available && opt.item.visible && _.ecomUtils.inStock(opt.item)) { %>
@@ -113,4 +96,4 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
   <%- await include('@/helpers/widgets-append', {
     _, opt, field: 'productItemAppend'
   }) %>
-</article>
+<!-- </article> -->

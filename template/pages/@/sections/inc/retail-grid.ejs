@@ -22,10 +22,13 @@ if (!opt.items) {
 } else {
   items = opt.items
 }
+
+const apx_category = _.cms('apx_category') || {}
+
 %>
 
 <section class="retail-grid">
-  <div class="container">
+  <!-- <div class="<%= apx_category.container %> <%= apx_category.padding_sm %> <%= apx_category.padding_md %>"> -->
     <div
       id="search-engine"
       <% if (opt.category_names) { %>
@@ -54,11 +57,12 @@ if (!opt.items) {
 
         <div id="search-engine-snap">
           <article class="search-engine__retail">
-            <div class="row">
+            <div class="row mx-0">
               <% for (let i = 0; i < items.length; i++) { %>
-                <div class="col-6 col-md-4 col-lg-3">
+                <!-- <div class="col-6 col-md-4 col-lg-3"> -->
+                <div class="col-md-<%= 12 / apx_category.num_col_md  %> col-<%= 12 / apx_category.num_col_sm  %> <%= apx_category.padding_md %> <%= apx_category.padding_sm %> mb-4">
                   <%- await include('@/sections/inc/product-item', {
-                    _, opt: { item: items[i] }
+                    _, opt: { item: items[i], config: 'category' }
                   }) %>
                 </div>
               <% } %>
@@ -66,7 +70,7 @@ if (!opt.items) {
           </article>
         </div>
       <% } %>
-    </div>
+    <!-- </div> -->
 
     <div id="search-pagination">
       <!--
