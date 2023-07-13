@@ -1,28 +1,20 @@
 {
   "marketing_stripe": {
-    "text": "Aproveite nossos descontos de até 50%!",
-    "link": "/promotion"
+    "text": "Garanta R$ 100 de desconto em seu primeiro pedido ",
+    "link": "/promotion",
+    "color": "#000000"
   },
   "contacts_stripe": {
-    "pages": [
-      {
-        "title": "Sobre nós",
-        "link": "/pages/sobre-nos"
-      },
-      {
-        "title": "Esta loja é um PWA",
-        "link": "/posts/esta-loja-e-um-pwa"
-      }
-    ],
-    "phone_wpp": true,
-    "socials": true
+    "pages": [],
+    "phone_wpp": false,
+    "socials": false
   },
   "categories_list": {
     "featured": [],
-    "random": 6,
+    "random": 0,
     "full_width": false
   },
-  "centralized_logo": false,
+  "centralized_logo": true,
   "desktop_megamenu": false,
   "search_input": true,
   "alphabetical_order_submenu": false,
