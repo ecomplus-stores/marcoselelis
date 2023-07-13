@@ -14,6 +14,26 @@
       "type": "apx_responsive-banner",
       "title_color": "#000000",
       "description": "Explore nossa coleção exclusiva e encontre o par de óculos que reflete sua personalidade"
+    },
+    {
+      "description_color": "#848484",
+      "animate": "fadeIn",
+      "btn_text_2": "Secundário",
+      "img": "/img/uploads/rectangle-5.png",
+      "btn_background_2": "#ffffff",
+      "btn_text_color_2": "#000000",
+      "content_order": "left_image",
+      "content_position": "center_left",
+      "btn_text": "Principal",
+      "btn_background": "#000000",
+      "link_text": "Aqui um link relacionado aos CTAs ",
+      "btn_text_color": "#ffffff",
+      "link_text_color": "#000000",
+      "mask_opacity": 0,
+      "title": "Designs icônicos  e qualidade excepcional",
+      "type": "apx_responsive-banner",
+      "title_color": "#000000",
+      "description": "Explore nossa coleção exclusiva e encontre o par de óculos que reflete sua personalidade"
     }
   ]
 }
