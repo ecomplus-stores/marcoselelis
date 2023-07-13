@@ -36,6 +36,28 @@
       "description": "Explore nossa coleção exclusiva e encontre o par de óculos que reflete sua personalidade"
     },
     {
+      "carrossel_sm": "Sim",
+      "container": "container-fluid",
+      "products": [
+        "64af5f505e60690370620947",
+        "64af60825e60690370620af0",
+        "64af60915e60690370620afc"
+      ],
+      "carrossel_dots_md": "Não",
+      "carrossel_arrows_md": "Não",
+      "carrossel_dots_sm": "Sim",
+      "carrossel_arrows_sm": "Sim",
+      "padding_sm": "px-3",
+      "num_col_md": "3",
+      "padding": "px-md-3",
+      "num_col_sm": "1",
+      "title": "Óculos de Grau",
+      "type": "apx_productList_A",
+      "description": "Descubra nossa variedade de óculos de grau para uma visão clara e elegante.",
+      "list": "description_last",
+      "carrossel_md": "Não"
+    },
+    {
       "description_color": "#848484",
       "animate": "fadeIn",
       "btn_text_2": "Secundário",
@@ -49,6 +71,29 @@
       "type": "apx_cta",
       "title_color": "#000000",
       "description": "Proteja seus olhos com estilo escolhendo entre nossos óculos solares de alta qualidade"
+    },
+    {
+      "carrossel_sm": "Sim",
+      "container": "container-fluid",
+      "products": [
+        "64af60a45e60690370620b11",
+        "64af60ab5e60690370620b19",
+        "64af60b25e60690370620b22",
+        "64af5f505e60690370620947"
+      ],
+      "carrossel_dots_md": "Sim",
+      "carrossel_arrows_md": "Sim",
+      "carrossel_dots_sm": "Sim",
+      "carrossel_arrows_sm": "Sim",
+      "padding_sm": "px-2",
+      "num_col_md": "3",
+      "padding": "px-md-3",
+      "num_col_sm": "1",
+      "title": "Óculos de Sol",
+      "type": "apx_productList_A",
+      "description": "Descubra nossa variedade de óculos de grau para uma visão clara e elegante.",
+      "list": "description_last",
+      "carrossel_md": "Sim"
     },
     {
       "description_color": "#848484",
