@@ -70,7 +70,7 @@ if (opt.img) {
       <% if (opt.btn_text || opt.title || opt.description){ %>
         <div class="apx_banner-content <%= opt.content_order %> <%= opt.content_position %> animate__animated animate__<%= opt.animate %> ">
         <% if (opt.title) {%>
-          <h3 style="color:<%= opt.title_color %>;"><%- opt.title %></h3>
+          <h3 class="mb-md-5" style="color:<%= opt.title_color %>;"><%- opt.title %></h3>
         <% } %>    
         <% if (opt.description) {%>
           <p style="color:<%= opt.description_color %>;"><%- opt.description %></p>

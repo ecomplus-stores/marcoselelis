@@ -308,16 +308,24 @@ header#header{
 
 .apx_banner{position:relative}
 .apx_banner .apx_banner-content h3{
-    font-size:var(--bn_title);
-    font-weight:bold;
+    font-size:var(--f-size-2);
+    font-family:var(--f-family-1), sans-serif;
+    font-weight:normal;
     text-transform: initial;
-    letter-spacing: 0.1em;
+}
+.apx_banner .apx_banner-content.inside_image h3{
+    font-size:var(--f-size-1);
+}
+.apx_banner .apx_banner-content.inside_image{
+    width: 570px;
+    max-width: 100%;
 }
 .apx_banner .apx_banner-content p{
-    font-size:var(--bn_description);
-    line-height:calc(var(--bn_description) * 2)!important;
-    font-family: 'Source Sans Pro';
+    font-size:var(--f-size-4);
+    line-height:calc(var(--f-size-4) * 1.4)!important;
+    font-family:var(--f-family-2), sans-serif;
     line-height:initial;
+    font-weight: 400;
     margin:1rem 0 0 0;
     max-width:80%;
     display: block;

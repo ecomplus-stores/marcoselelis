@@ -242,7 +242,7 @@ export default options => {
       label: '[ALPIX] - Banner responsivo',
       name: 'apx_responsive-banner',
       widget: 'object',
-      fields: [...bannerFields,spacer]
+      fields: [...bannerFields,...spacer]
     },
     {
       label: '[ALPIX] - Sessão CTA',
