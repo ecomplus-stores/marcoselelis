@@ -1,0 +1,81 @@
+{
+  "links": [
+    {
+      "title": "Compre",
+      "list": [
+        {
+          "item": {
+            "title": "Óculos de Sol",
+            "url": "/"
+          }
+        },
+        {
+          "item": {
+            "title": "Óculos de Grau",
+            "url": "/"
+          }
+        },
+        {
+          "item": {
+            "title": "Armação Gatinho",
+            "url": "/"
+          }
+        },
+        {
+          "item": {
+            "title": "Armação Aviador",
+            "url": "/"
+          }
+        },
+        {
+          "item": {
+            "title": "Óculos de Sol Masculino",
+            "url": "/"
+          }
+        },
+        {
+          "item": {
+            "title": "Óculos de Sol Feminino",
+            "url": "/"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Sobre",
+      "list": [
+        {
+          "item": {
+            "title": "Quem somos",
+            "url": "/pages/quem-somos"
+          }
+        },
+        {
+          "item": {
+            "title": "Política de Envio",
+            "url": "/pages/politica-de-envio"
+          }
+        },
+        {
+          "item": {
+            "title": "Política de Privacidade",
+            "url": "/pages/politica-de-privacidade"
+          }
+        },
+        {
+          "item": {
+            "title": "Trocas e Devoluções",
+            "url": "/pages/trocas-e-devolucoes"
+          }
+        },
+        {
+          "item": {
+            "title": "Fale Conosco",
+            "url": "/pages/contato"
+          }
+        }
+        
+      ]
+    }
+  ]
+}

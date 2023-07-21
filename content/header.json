@@ -1,6 +1,6 @@
 {
   "marketing_stripe": {
-    "text": "Garanta R$ 100 de desconto em seu primeiro pedido ",
+    "text": "Garanta <b>R$ 100 de desconto</b> em seu primeiro pedido ",
     "link": "/promotion",
     "color": "#000000"
   },

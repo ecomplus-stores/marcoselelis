@@ -1,0 +1,62 @@
+{
+  "links": [
+    {
+      "title": "Óculos de Grau",
+      "url": "/roupas",
+      "image": "",
+      "list": [
+        {
+          "item": {
+            "title": "Masculino",
+            "url": "/",
+            "image": ""
+          }
+        },
+        {
+          "item": {
+            "title": "Feminino",
+            "url": "/"
+          }
+        },
+        {
+          "item": {
+            "title": "Unissex",
+            "url": "/",
+            "image": ""
+          }
+        }        
+      ]
+    },
+    {
+      "title": "Óculos de Sol",
+      "url": "/roupas",
+      "image": "",
+      "list": [
+        {
+          "item": {
+            "title": "Masculino",
+            "url": "/",
+            "image": ""
+          }
+        },
+        {
+          "item": {
+            "title": "Feminino",
+            "url": "/"
+          }
+        },
+        {
+          "item": {
+            "title": "Unissex",
+            "url": "/",
+            "image": ""
+          }
+        }        
+      ]
+    },
+    {
+      "title": "Acessórios",
+      "url": "/"
+    }
+  ]
+}

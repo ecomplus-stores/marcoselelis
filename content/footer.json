@@ -14,7 +14,7 @@
     "list": []
   },
   "contacts": {
-    "title": "Contatos",
+    "title": "Precisa de ajuda?",
     "phone_wpp": true,
     "socials": true,
     "email": true,
@@ -37,5 +37,5 @@
     "hipercard": true,
     "boleto": true
   },
-  "credits": ""
+  "credits": "HERA - CNPJ: 99.99.999/00001-99 © Todos os direitos reservados. 2023"
 }

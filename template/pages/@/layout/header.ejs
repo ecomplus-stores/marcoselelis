@@ -1,6 +1,7 @@
 <%
 // load header options and contacts from content
 const header = _.cms('header') || {}
+const apx_header = _.cms('apx_header') || {}
 const contacts = _.cms('contacts') || {}
 const themeCustom = _.settings.theme.custom || ''
 
@@ -23,36 +24,190 @@ let marketingStripeStyle = ''
   }
 })
 
-// list featured categories
-let categories = []
-let isCategoriesNavFull
-if (header.categories_list) {
-  if (header.categories_list.featured.length) {
-    // selected categories/collections/brands
-    categories = header.categories_list.featured.map(pathAndName => {
-      const [path, name] = pathAndName.split('?')
-      return { slug: path.slice(1), name }
-    })
-  }
-  if (header.categories_list.random) {
-    // add up to `random` main categories
-    const mainCategories = _.categories.filter(({ parent }) => !parent || !parent.slug)
-    for (let i = 0; i < header.categories_list.random && i < mainCategories.length; i++) {
-      if (!categories.find(({ slug }) => mainCategories[i].slug === slug)) {
-        categories.push(mainCategories[i])
-      }
-    }
-  }
-  isCategoriesNavFull = header.categories_list.full_width
-}
-const hasMegamenu = header.desktop_megamenu
-const isAlphabeticalOrderSubmenu = header.alphabetical_order_submenu
-const fullWidthSubmenu = header.full_width_submenu
-const isCentralizedLogo = header.centralized_logo
 %>
 
 <div id="overlay" class="fade"></div>
-
+<header class="header py-0 px-0" id="header">
+  <div class="container-fluid px-md-5 px-2">
+    <div class="row align-items-center py-4">
+      <div class="col-md col-12">
+        <div class="apx_top_cta">
+        <% if (header.marketing_stripe) { %>
+          <% if (header.marketing_stripe.text) { %>
+            <% if (header.marketing_stripe.link) { %>
+              <a
+                style="<%= marketingStripeStyle %>"
+                href="<%= header.marketing_stripe.link %>"
+              >
+                <%- header.marketing_stripe.text %>
+              </a>
+            <% } else { %>
+              <div class="top-bar__countdown" style="<%= marketingStripeStyle %>">
+                <%- header.marketing_stripe.text %>
+              </div>
+            <% } %>
+          <% } %>
+        <% } %>
+        </div>
+      </div>
+      <div class="col-md col d-block d-md-none" id="apx-mobile-functions">
+        <div class="d-flex">
+          <button type="button" onclick="$('#apx-menu').toggleClass('active')">            
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1H17M1 6H17M1 11H17" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>  
+          </button>
+          <button
+            class="d-lg-none btn btn-lg"
+            id="mobile-search-btn"
+            type="button"
+            data-toggle="collapse"
+            data-target="#search-bar"
+            aria-expanded="true"
+            aria-controls="search-bar"
+            aria-controls="search-bar"
+            title="<%= _.dictionary('searchProducts') %>"
+          >
+            <img src="/assets/Search-Outline.svg"/>
+          </button>
+        </div>
+      </div>
+      
+      <div class="col-auto" id="apx-logo">
+        <a href="/">
+          <%- await include('@/layout/inc/logo', { _ }) %>
+        </a>
+      </div>
+      <div class="col-md col justify-content-end" id="apx-functions">       
+        <div
+          class="header__buttons"
+          role="group"
+          aria-label="<%= _.dictionary('myAccount') %>"
+        >          
+          <button
+            type="submit"
+            class="apx_search-trigger"
+            aria-label="<%= _.dictionary('searchProducts') %>"
+          >
+            <img src="/assets/search.svg"/>
+          </button>
+          <span class="divider"></span>
+          <a
+            role="button"
+            href="/page/onde-encontrar"
+            title="Onde Encontrar"
+          >
+            Onde Encontrar
+          </a>
+          <span class="divider"></span>
+          <a
+            id="user-button"
+            class="btn btn-lg"
+            role="button"
+            href="/app/#/account/"
+            title="<%= _.dictionary('myAccount') %>"
+          >
+            Entrar
+          </a>
+          <span class="divider"></span>
+          <a
+            id="cart-button"
+            class="btn btn-lg"
+            role="button"
+            href="/app/#/cart"
+            title="<%= _.dictionary('openCart') %>"
+          >
+            <img src="/assets/cart.svg"/>
+            <span id="cart-count" class="badge badge-primary"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div id="login-modal">
+      <!--
+        `LoginModal` should be rendered here:
+        https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/LoginModal.html
+      -->
+    </div>
+    <div id="cart-quickview">
+      <!--
+        `CartQuickview` should be rendered here:
+        https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/CartQuickview.html
+      -->
+    </div>
+  </div>   
+  
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md" id="apx-menu">
+        <div class="d-flex justify-content-between align-items-center d-md-none apx-menu-header">
+          <span>            
+            <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line y1="8.5" x2="29" y2="8.5" stroke="black" stroke-width="3"/>
+              <line y1="19.5" x2="29" y2="19.5" stroke="black" stroke-width="3"/>
+              <path d="M21 0H25L7.5 27.5H4L21 0Z" fill="black"/>
+            </svg>  
+          </span>
+          <button type="button" onclick="$('#apx-menu').toggleClass('active')">            
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 1L1 15M1.00001 1L15 15" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>  
+          </button>
+        </div>
+        <% if (apx_header.links) { %>
+          <ul class="level_1">
+            <% apx_header.links.forEach(({ url, title, image, list })=> { %>
+              <li class="<%= list ? 'dropdown' : ''%>">
+                
+                <a href="<%= url %>" data-image="<%= image ? image : 'empty' %>">
+                  <%= title %>
+                </a>
+                <% if (list) { %>
+                  <button type="button" onclick="$(this).closest('li').toggleClass('open')">                    
+                      <svg width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="0.353553" y1="0.646447" x2="3.35355" y2="3.64645" stroke="black"/>
+                      <line y1="-0.5" x2="4.24264" y2="-0.5" transform="matrix(-0.707107 0.707107 0.707107 0.707107 6 1)" stroke="black"/>
+                      </svg>  
+                  </button>
+                <% } %>
+                
+                <% if (list) { %>
+                  <div class="level_2">
+                    <ul class="">
+                      <% list.forEach(({ item })=> { 
+                        %>
+                        
+                        <li>
+                          <a href="<%= item.url %>" data-image="<%= item.image ? item.image : 'empty' %>">
+                            <%= item.title %>
+                          </a>
+                        </li>
+                      <% }) %>
+                    </ul>
+                    <% if(image || list.find(el => el.image)){ %>
+                    <div class="apx_dropbanner">
+                      <% if (image){ %>
+                      <img src="<%= image %>" data-original="<%= image %>"/>
+                      <% } %>
+                    </div>
+                    <% } %>
+                    
+                    
+                  </div>
+                <% } %>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div id="search-bar-mobile" class="d-block d-lg-none">
+    
+  </div>
+</header>
+<!--
 <div class="top-bar">
   <% if (header.marketing_stripe) { %>
     <% if (header.marketing_stripe.text) { %>
@@ -71,266 +226,47 @@ const isCentralizedLogo = header.centralized_logo
       <% } %>
     <% } %>
   <% } %>
-
-  <div class="top-bar__nav d-none d-md-block">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col d-flex">
-          <nav class="top-bar__page-links">
-            <% if (header.contacts_stripe.pages) { %>
-              <div class="<%= (themeCustom === 'ecom-beauty' && isCategoriesNavFull) ? 'd-lg-none' : '' %>">
-                <% header.contacts_stripe.pages.forEach(({ link, title }) => { %>
-                  <a href="<%= link %>"><%= title %></a>
-                <% }) %>
-              </div>
-            <% } %>
-          </nav>
-          <% if (header.contacts_stripe.phone_wpp) { %>
-            <div class="top-bar__contacts-container">
-              <% if (contacts.whatsapp) { %>
-                <a href="javascript:;" target="_blank" rel="noopener" class="whatsapp-link"
-                  data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>">
-                  <i class="i-whatsapp"></i>
-                  <%= contacts.whatsapp %>
-                </a>
+</div>
+-->
+<div class="top-bar">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div
+          class="glide"
+          data-wait-mutation="false"
+          data-autoplay="4000"
+          data-per-view="1"
+          data-per-view-md="1"
+          data-per-view-sm="1"
+        >
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+          <% if (apx_header.stripe_slider) { %>
+            <% apx_header.stripe_slider.forEach(({ text, url })=> { %>
+              <li class="glide__slide">
+              <% if (text) { %>
+                <% if (url) { %>
+                  <a
+                    class="top-bar__countdown"
+                    style="<%= marketingStripeStyle %>"
+                    href="<%= url %>"
+                  >
+                    <%- text %>
+                  </a>
+                <% } else { %>
+                  <div class="top-bar__countdown" style="<%= marketingStripeStyle %>">
+                    <%- text %>
+                  </div>
                 <% } %>
-              <% if (contacts.phone) { %>
-                <a href="tel:+<%= contacts.phone.replace(/\D/g, '') %>" target="_blank" rel="noopener">
-                  <i class="i-phone"></i>
-                  <%= contacts.phone %>
-                </a>
               <% } %>
-            </div>
-            
-          <% } %>
-        </div>
-        <% if (header.contacts_stripe.socials) { %>
-          <div class="col-auto">
-            <% networks.forEach(network => { %>
-              <% if (contacts[network]) { %>
-                <a href="<%= contacts[network] %>" target="_blank" rel="noopener">
-                  <i class="i-<%= network %>"></i>
-                </a>
-              <% } %>
+              </li>
             <% }) %>
-          </div>
-        <% } %>
+          <% } %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<header class="header" id="header">
-  <div class="header__container container-fluid">
-    <div class="header__row row<%= isCentralizedLogo ? ' header__row--centralized-logo' : '' %><%= isCentralizedLogo && isCategoriesNavFull ? ' header__row--full-width' : '' %>">
-      <div class="col-auto p-0 header__toggler-block">
-        <button
-          class="btn header__toggler<%= hasMegamenu ? ' d-lg-none' : '' %>"
-          type="button"
-          onclick="toggleSidenav()"
-          aria-label="Toggle side navigation"
-        >
-          <i class="header__toggler-icon i-bars"></i>
-          <% if (!categories.length) { %>
-            <span class="d-none d-lg-inline">
-              Menu
-            </span>
-          <% } %>
-        </button>
-      </div>
-
-      <div class="col col-lg-auto pl-1 pl-md-2 pl-lg-3 header__logo-block">
-        <a href="/">
-          <%- await include('@/layout/inc/logo', { _ }) %>
-        </a>
-      </div>
-
-      <div class="order-lg-last col-auto p-0 header__buttons-block">
-        <div
-          class="header__buttons"
-          role="group"
-          aria-label="<%= _.dictionary('myAccount') %>"
-        >
-          <button
-            class="d-lg-none btn btn-lg"
-            id="mobile-search-btn"
-            type="button"
-            data-toggle="collapse"
-            data-target="#search-bar"
-            aria-expanded="true"
-            aria-controls="search-bar"
-            aria-controls="search-bar"
-            title="<%= _.dictionary('searchProducts') %>"
-          >
-            <i class="i-search"></i>
-          </button>
-
-          <a
-            id="user-button"
-            class="btn btn-lg"
-            role="button"
-            href="/app/#/account/"
-            title="<%= _.dictionary('myAccount') %>"
-          >
-            <i class="i-user"></i>
-          </a>
-          <a
-            id="cart-button"
-            class="btn btn-lg"
-            role="button"
-            href="/app/#/cart"
-            title="<%= _.dictionary('openCart') %>"
-          >
-            <i class="i-shopping-bag"></i>
-            <span id="cart-count" class="badge badge-primary"></span>
-          </a>
-        </div>
-
-        <div id="login-modal">
-          <!--
-            `LoginModal` should be rendered here:
-            https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/LoginModal.html
-          -->
-        </div>
-        <div id="cart-quickview">
-          <!--
-            `CartQuickview` should be rendered here:
-            https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/CartQuickview.html
-          -->
-        </div>
-      </div>
-
-      <% if (header.search_input) {
-        const searchColSize = !isCategoriesNavFull && categories.length ? '-3' : ''
-        %>
-        <div
-          class="d-none d-lg-block col-12 col-lg<%= searchColSize %> collapse show"
-          id="search-bar"
-        >
-          <form
-            class="header__search mt-2 mt-md-3 mt-lg-0"
-            id="search-form"
-            action="/search"
-            method="get"
-          >
-            <input
-              type="search"
-              name="term"
-              placeholder="<%= _.dictionary('searchProducts') %>"
-              aria-label="<%= _.dictionary('searchProducts') %>"
-              class="header__search-input form-control"
-              id="search-input"
-            >
-            <button
-              type="submit"
-              class="header__search-btn"
-              aria-label="<%= _.dictionary('searchProducts') %>"
-            >
-              <i class="i-search"></i>
-            </button>
-            <div id="instant-search">
-              <!--
-                `InstantSearch` should be open on input focus:
-                https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/InstantSearch.html
-              -->
-            </div>
-          </form>
-
-          <% if (_.settings.domain) { %>
-            <script type="application/ld+json"><%-
-              JSON.stringify({
-                '@context': 'http://schema.org',
-                '@type': 'WebSite',
-                url: `https://${_.settings.domain}/`,
-                potentialAction: {
-                  '@type': 'SearchAction',
-                  target: `https://${_.settings.domain}/search?term={search_term_string}`,
-                  'query-input': 'required name=search_term_string'
-                }
-              })
-            %></script>
-          <% } %>
-        </div>
-      <% } %>
-
-      <% if (themeCustom === 'ecom-beauty' && isCategoriesNavFull) { %>
-        <% if (header.contacts_stripe.pages) { %>
-          <div class="header__page-links d-none d-lg-inline-block">
-            <% header.contacts_stripe.pages.forEach(({ link, title })=> { %>
-              <a href="<%= link %>">
-                <%= title %>
-              </a>
-            <% }) %>
-          </div>
-        <% } %>
-      <% } %>
-
-      <% if (categories && categories.length) { %>
-        <div class="d-none d-lg-block <%= isCategoriesNavFull ? 'col-12 order-lg-last' : 'col' %> header__nav-block">
-          <nav class="header__nav<%= isCategoriesNavFull ? ' header__nav--full' : '' %>">
-            <% categories.forEach(({ slug, name, _id}) => { %>
-              <% let $categoryLink %>
-              <div class="d-inline-block">
-                <a
-                  href="javascript:;"
-                  class="header__category"
-                  id="cd-<%= _id %>"
-                  <%- hasMegamenu
-                    ? `onmouseover="toggleSubmenu('${slug}', this)" onclick="toggleSubmenu('${slug}', this, true)"`
-                    : `onclick="toggleSidenav('${slug}')"` %>
-                >
-                  <%= name %>
-                </a>
-                <%- $categoryLink %>
-                <%  if (slug && hasMegamenu) { %>
-                  <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
-                  <% if (subcategories.length) { %>
-                    <%
-                      if (isAlphabeticalOrderSubmenu) {
-                        subcategories.sort((a, b)=> {
-                          return b.name > a.name ? -1 : 1
-                        })
-                      }
-                    %>
-                    <nav class="header__submenu<%= fullWidthSubmenu ? ' header__submenu--full' : '' %>" id="<%= `s-${slug.replace(/\//g, '_')}` %>">
-                      <% subcategories.forEach(subcategory => { %>
-                        <div>               
-                          <a id="sd-<%= subcategory._id %>" href="/<%= subcategory.slug %>"><%= subcategory.name %></a>
-                          <% const thirdCategories = _.categories.filter(({ parent }) => parent && parent.slug === subcategory.slug) %>
-                          <%
-                            if (isAlphabeticalOrderSubmenu) {
-                              thirdCategories.sort((a, b)=> {
-                                return b.name > a.name ? -1 : 1
-                              })
-                            }
-                          %>
-                          <% thirdCategories.forEach(thirdCategory => { %>
-                            <a id="td-<%= thirdCategory._id %>" class="header__submenu-subcategory" href="/<%= thirdCategory.slug %>">
-                              <%= thirdCategory.name %>
-                            </a>
-                          <% }) %>
-                        </div>
-                      <% }) %>
-                    </nav>
-                  <% } %>
-                <% } %>
-              </div>
-            <% }) %>
-          </nav>
-        </div>
-      <% } %>
-    </div>
-  </div>
-</header>
-<% if (header.popup) { %>
-  <div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-labelledby="modal-popup" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <button type="button" id="close-modal-popup" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right: 10px; top: 10px">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <img src="<%- header.popup %>" style="max-width: 100%">
-      </div>
-    </div>
-  </div>
-<% } %> 
+</div>
