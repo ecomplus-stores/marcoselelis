@@ -4,8 +4,8 @@
     "vendors~app-account~app-confirmation~app-order": "chunk.74f8d5f4bc8da100eb3d.js",
     "vendors~app-account~app-checkout": "chunk.31f326153469ab977c60.js",
     "admin": [
-      "admin.53840b1ccf8685e2f20e.js",
-      "admin.53840b1ccf8685e2f20e.js.map"
+      "admin.ece832e348d530684c03.js",
+      "admin.ece832e348d530684c03.js.map"
     ],
     "app-account": "chunk.04169d2edfbadfeda02f.js",
     "app-confirmation": "chunk.54fcf8e5ebaaefc73809.js",
@@ -15,9 +15,9 @@
       "checkout.b801a86cef91df83857f.js.map"
     ],
     "storefront": [
-      "storefront.9406999859cfb5267622.css",
+      "storefront.98a3fad92568890e8599.css",
       "storefront.329965d5c87686153ea8.js",
-      "storefront.9406999859cfb5267622.css.map",
+      "storefront.98a3fad92568890e8599.css.map",
       "storefront.329965d5c87686153ea8.js.map"
     ],
     "vendors~app-cart": "chunk.45652c1c44b8bd146207.js",
