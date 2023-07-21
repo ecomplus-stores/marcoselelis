@@ -53,6 +53,36 @@ const animations = [
   "slideInUp"
 ]
 
+const spacer = [
+  {
+    label: 'Margem Superior',
+    required: true,
+    name: 'margin_top',
+    widget: 'select',
+    options: [0,1,2,3,4,5]
+  },  
+  {
+    label: 'Margem Inferior',
+    required: true,
+    name: 'margin_bottom',
+    widget: 'select',
+    options: [0,1,2,3,4,5]
+  },  
+  {
+    label: 'Espaçamento Superior',
+    required: true,
+    name: 'padding_top',
+    widget: 'select',
+    options: [0,1,2,3,4,5]
+  },  
+  {
+    label: 'Espaçamento Inferior',
+    required: true,
+    name: 'padding_bottom',
+    widget: 'select',
+    options: [0,1,2,3,4,5]
+  },  
+]
 const bannerFields = [
   {
     label: 'Imagem',
@@ -212,7 +242,7 @@ export default options => {
       label: '[ALPIX] - Banner responsivo',
       name: 'apx_responsive-banner',
       widget: 'object',
-      fields: bannerFields
+      fields: [...bannerFields,spacer]
     },
     {
       label: '[ALPIX] - Sessão CTA',
@@ -336,7 +366,8 @@ export default options => {
           name: 'padding',
           widget: 'select',
           options: ["px-0","px-1","px-2","px-3","px-4","px-5"]
-        },  
+        }, 
+        ...spacer, 
         {
           label: 'Banners',
           name: 'banners',
