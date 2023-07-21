@@ -124,45 +124,7 @@ const apx_props = _.cms('apx_props') || {}
                   }
               }) 
             %></ul>
-            <ul id="apx_seals" class=" d-md-flex d-none"><% apx_seals.seals.forEach(({ item })=> {
-                
-                  let flag = false
-                  let categories = item.categories
-                  let products = item.products
-
-                  if(categories && _.state.categories){
-                    categories.forEach(({ category }) => {
-                      if(_.state.categories.find(el => el.slug == category.title.trim().toLowerCase() )){
-                        flag = true
-                        
-                      }
-                    })
-                  }
-
-                  if(products){
-                    products.forEach(({ product }) => {
-                      if(_.state.sku.trim().toLowerCase() == product.title.trim().toLowerCase()){
-                        flag = true
-                      }
-                    })
-                  }
-
-                  if(flag){
-                    let css = ""
-                    css = css + "color:" + item.text_color + ';'
-                    css = css + "background-color:" + item.bg_color + ';'
-                    css = css + "border: 1px solid " + item.border_color + ';'
-                %>
-                    <li style="<%= css %>">
-                    <% if (item.image) {%>
-                      <img src="<%=  item.image %>" alt="<%=  item.title %>"/>
-                    <% } %>
-                    <%- item.title %>      
-                    </li>
-                <% 
-                  }
-              }) 
-            %></ul>
+            
 
             <!-- <p class="product__sku">
               COD: <%= _.state.sku %>
