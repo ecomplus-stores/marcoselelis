@@ -59,6 +59,7 @@ const spacer = [
     required: true,
     name: 'margin_top',
     widget: 'select',
+    required: false,
     options: ["0","1","2","3","4","5"]
   },  
   {
@@ -66,6 +67,7 @@ const spacer = [
     required: true,
     name: 'margin_bottom',
     widget: 'select',
+    required: false,
     options: ["0","1","2","3","4","5"]
   },  
   {
@@ -73,6 +75,7 @@ const spacer = [
     required: true,
     name: 'padding_top',
     widget: 'select',
+    required: false,
     options: ["0","1","2","3","4","5"]
   },  
   {
@@ -80,6 +83,7 @@ const spacer = [
     required: true,
     name: 'padding_bottom',
     widget: 'select',
+    required: false,
     options: ["0","1","2","3","4","5"]
   },  
 ]
@@ -242,7 +246,22 @@ export default options => {
       label: '[ALPIX] - Banner responsivo',
       name: 'apx_responsive-banner',
       widget: 'object',
-      fields: [...bannerFields,...spacer]
+      fields: [
+        {
+          label: 'Container',
+          required: true,
+          name: 'container',
+          widget: 'select',
+          options: ["container","container-fluid","container_90"]
+        },  
+        {
+          label: 'Espaçamento',
+          required: true,
+          name: 'padding',
+          widget: 'select',
+          options: ["px-0","px-1","px-2","px-3","px-4","px-5"]
+        }, 
+        ...bannerFields,...spacer]
     },
     {
       label: '[ALPIX] - Sessão CTA',

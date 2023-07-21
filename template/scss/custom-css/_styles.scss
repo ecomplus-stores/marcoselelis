@@ -316,7 +316,7 @@ header#header{
 .apx_banner .apx_banner-content.inside_image h3{
     font-size:var(--f-size-1);
 }
-.apx_banner .apx_banner-content.inside_image{
+.apx_banner .apx_banner-content{
     width: 570px;
     max-width: 100%;
 }
@@ -326,20 +326,49 @@ header#header{
     font-family:var(--f-family-2), sans-serif;
     line-height:initial;
     font-weight: 400;
-    margin:1rem 0 0 0;
     max-width:80%;
     display: block;
 }
-.apx_banner .apx_banner-content a{
-    line-height:56px;
-    padding:0 2rem;
-    display:inline-block;
-    width:fit-content;
-    text-transform:initial;
-    letter-spacing: 0.1em;
-    font-weight:700;
-    margin-top:2rem;
+.apx_banner .apx_banner-content .buttons{
+    gap: 1rem;
+}
+.apx_banner .apx_banner-content .buttons > a{
+    font-weight: 700;
+    height: 42px;
+    padding: 0 2.5rem;
+    text-transform: none;
+    width: fit-content;
+    font-size: var(--f-size-6);
+    box-sizing: border-box;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
 
+.transition_opacity{opacity: 1;transition: all .3s ease-in-out;}
+.transition_opacity:hover{opacity: .7;}
+.apx_banner .apx_banner-content > .cta a{
+    font-size: var(--f-size-6);
+    font-weight: 700;
+    border-bottom: 1px solid transparent;
+    width: fit-content;
+    text-decoration: none;
+    transition: border .2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.apx_banner .apx_banner-content .cta a:hover{border-bottom-color: initial;}
+.apx_banner .apx_banner-content .cta a:after{
+    background: url("/assets/chevron_cta.svg");
+    background-position: 0 1px;
+    content: "";
+    display: block;
+    height: 16px;
+    width: 15px;
+    background-size: contain;
 }
 .apx_banner .apx_banner-content{margin:var(--banner_spacer) 0}
 .apx_banner .apx_banner-content.inside_image{
@@ -429,3 +458,19 @@ header#header{
 .apx_banner .apx_banner-content.top_right *,
 .apx_banner .apx_banner-content.center_right *,
 .apx_banner .apx_banner-content.bottom_right *{text-align:left}
+
+
+
+.apx_banner.outside .left_image.apx_banner-content{
+    order: -1;    
+}
+.apx_banner.outside .right_image.apx_banner-content{
+    order: 99;    
+}
+.apx_banner.outside.center_left{
+    align-items: center;
+}
+
+
+
+//options: ["top_left","top_center","top_right","center_left","center_center","center_right","bottom_left","bottom_center","bottom_right"]
