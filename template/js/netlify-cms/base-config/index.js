@@ -59,28 +59,28 @@ const spacer = [
     required: true,
     name: 'margin_top',
     widget: 'select',
-    options: [0,1,2,3,4,5]
+    options: ["0","1","2","3","4","5"]
   },  
   {
     label: 'Margem Inferior',
     required: true,
     name: 'margin_bottom',
     widget: 'select',
-    options: [0,1,2,3,4,5]
+    options: ["0","1","2","3","4","5"]
   },  
   {
     label: 'Espaçamento Superior',
     required: true,
     name: 'padding_top',
     widget: 'select',
-    options: [0,1,2,3,4,5]
+    options: ["0","1","2","3","4","5"]
   },  
   {
     label: 'Espaçamento Inferior',
     required: true,
     name: 'padding_bottom',
     widget: 'select',
-    options: [0,1,2,3,4,5]
+    options: ["0","1","2","3","4","5"]
   },  
 ]
 const bannerFields = [
@@ -228,7 +228,7 @@ const bannerFields = [
     widget: 'color'
   },
   {
-    label: 'URL do link [Principal]',
+    label: 'URL do link',
     required: false,
     name: 'link_url',
     widget: 'string'
@@ -341,7 +341,7 @@ export default options => {
           widget: 'color'
         },
         {
-          label: 'URL do link [Principal]',
+          label: 'URL do link',
           required: false,
           name: 'link_url',
           widget: 'string'
