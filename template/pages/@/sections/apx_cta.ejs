@@ -1,1 +1,64 @@
-<div></div>
+
+  <div class="apx_cta mt-<%= opt.margin_top %> mb-<%= opt.margin_bottom %> pt-<%= opt.padding_top %> pb-<%= opt.padding_bottom %>" style="background:<%= opt.background %>;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="apx_banner">
+                <% if (opt.btn_text || opt.title || opt.description){ %>
+                    <div class="apx_banner-content d-flex flex-col align-items-center justify-content-center text-center mx-5 animate__animated animate__<%= opt.animate %> ">
+                    <% if (opt.title) {%>
+                      <h3 class="mb-md-5" style="color:<%= opt.title_color %>;"><%- opt.title %></h3>
+                    <% } %>    
+                    <% if (opt.description) {%>
+                      <p class="mb-md-5" style="color:<%= opt.description_color %>;"><%- opt.description %></p>
+                    <% } %> 
+            
+                      <div class="buttons d-flex align-items-center">
+                        <% if (opt.btn_text_2) {%>
+                          <% 
+                          let style = "";
+                          if(opt.btn_background_2){
+                            style = style + '--background-color:' + opt.btn_background_2 + ';';
+                          }
+                          if(opt.btn_text_color_2){
+                            style = style + 'color:' + opt.btn_text_color_2 + '; border:1px solid ' + opt.btn_text_color_2;
+                          }
+                          
+                          %>
+                          <a style="<%= style %>" href="<%= opt.btn_url_2 || 'javascript:;' %>"><%- opt.btn_text_2 %></a>
+                        <% } %>      
+                        <% if (opt.btn_text) {%>
+                          <% 
+                          let style = "";
+                          if(opt.btn_background){
+                            style = style + 'background-color:' + opt.btn_background + ';';
+                          }
+                          if(opt.btn_text_color){
+                            style = style + 'color:' + opt.btn_text_color + ';';
+                          }
+                          
+                          %>
+                          <a style="<%= style %>" href="<%= opt.btn_url || 'javascript:;' %>"><%- opt.btn_text %></a>
+                        <% } %>      
+                      </div>
+                      
+                      <% if (opt.link_text) {%>
+                        <div class="cta mt-md-5">
+                          <% 
+                          let style = "";
+                          if(opt.link_text_color){
+                            style = style + 'color:' + opt.link_text_color + ';';
+                          }
+                          
+                          %>
+                          <a class="pb-1" style="<%= style %>" href="<%= opt.link_url || 'javascript:;' %>"><%- opt.link_text %></a>
+                        </div>
+                      <% } %> 
+                      
+                    </div>
+                <% } %>
+                </div>
+            </div>
+        </div>        
+    </div>
+  </div>

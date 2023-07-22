@@ -439,7 +439,8 @@ export default options => {
           step: 1000,
           default: 9000,
           widget: 'number'
-        }
+        },
+        ...spacer
       ]
     },
     // {
@@ -710,7 +711,8 @@ export default options => {
           required: false,
           name: 'btn_link',
           widget: 'string'
-        }
+        },
+        ...spacer
       ]
     },
     {
@@ -780,7 +782,8 @@ export default options => {
               ]
             },          
           ]
-        },        
+        },
+        ...spacer        
       ]
     },
     // {

@@ -93,7 +93,13 @@
       "title": "Descubra a HERA",
       "type": "apx_cta",
       "title_color": "#000000",
-      "description": "Proteja seus olhos com estilo escolhendo entre nossos óculos solares de alta qualidade"
+      "description": "Proteja seus olhos com estilo escolhendo entre nossos óculos solares de alta qualidade",
+      "margin_top": "5",
+      "padding_top": "5",
+      "margin_bottom": "5",
+      "padding_bottom": "5",
+      "background":"#F8F8F8"
+      
     },
     {
       "carrossel_sm": "Sim",
@@ -115,7 +121,11 @@
       "type": "apx_productList_A",
       "description": "Descubra nossa variedade de óculos de grau para uma visão clara e elegante.",
       "list": "description_last",
-      "carrossel_md": "Sim"
+      "carrossel_md": "Sim",
+      "margin_top": "5",
+      "padding_top": "5",
+      "margin_bottom": "5",
+      "padding_bottom": "5"
     },
     {
       "description_color": "#848484",
