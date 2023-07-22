@@ -1,26 +1,28 @@
 {
   "assetsByChunkName": {
-    "vendors~app-account~app-checkout~app-confirmation~app-order": "chunk.e8da868662ef70ec0bc8.js",
-    "vendors~app-account~app-confirmation~app-order": "chunk.74f8d5f4bc8da100eb3d.js",
-    "vendors~app-account~app-checkout": "chunk.31f326153469ab977c60.js",
+    "vendors~app-account~app-checkout~app-confirmation~app-order": "chunk.d3c3471a531ba0dbfbd1.js",
+    "vendors~app-account~app-confirmation~app-order": "chunk.839fc6e8d2d4ebc1fad6.js",
+    "vendors~app-account~app-checkout": "chunk.e832ed1774a75fdf77d4.js",
     "admin": [
-      "admin.881124497738cfad1c8b.js",
-      "admin.881124497738cfad1c8b.js.map"
+      "admin.c9953cec007073de876a.js",
+      "admin.c9953cec007073de876a.js.map"
     ],
-    "app-account": "chunk.04169d2edfbadfeda02f.js",
-    "app-confirmation": "chunk.54fcf8e5ebaaefc73809.js",
-    "app-order": "chunk.70a2174b2f3681c43d4f.js",
+    "app-account": "chunk.274171947dfdcf45a6b7.js",
+    "app-cart": "chunk.facda65e7661bc01b418.js",
+    "app-checkout": "chunk.02e4f3aeab400076af6d.js",
+    "app-confirmation": "chunk.2831ad136ab1c2c9118f.js",
+    "app-order": "chunk.51cd9c8ca2e492a1221b.js",
     "checkout": [
-      "checkout.b801a86cef91df83857f.js",
-      "checkout.b801a86cef91df83857f.js.map"
+      "checkout.bf30c742deaf6d875a3c.js",
+      "checkout.bf30c742deaf6d875a3c.js.map"
     ],
     "storefront": [
-      "storefront.ec900db65335e671a392.css",
-      "storefront.329965d5c87686153ea8.js",
-      "storefront.ec900db65335e671a392.css.map",
-      "storefront.329965d5c87686153ea8.js.map"
+      "storefront.45263310fe51e9778a73.css",
+      "storefront.f5d78c05c3380b1b72dc.js",
+      "storefront.45263310fe51e9778a73.css.map",
+      "storefront.f5d78c05c3380b1b72dc.js.map"
     ],
-    "vendors~app-cart": "chunk.45652c1c44b8bd146207.js",
-    "vendors~app-checkout": "chunk.e4bf47b50b8c1d0f8c05.js"
+    "vendors~app-cart": "chunk.f280a860fd008c24e240.js",
+    "vendors~app-checkout": "chunk.8dc4cae56030d959d981.js"
   }
 }
