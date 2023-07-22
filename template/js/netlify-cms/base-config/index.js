@@ -365,6 +365,14 @@ export default options => {
           name: 'link_url',
           widget: 'string'
         },
+        {
+          label: 'Fundo da sessão',
+          required: false,
+          name: 'background',
+          widget: 'color'
+        },
+        ...spacer,
+
       ]
     },
     {

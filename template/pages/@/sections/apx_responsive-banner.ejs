@@ -1,4 +1,6 @@
-<div class="apx_responsive-banner">
-    <%- await include('@/sections/inc/apx_banner', { _, opt }) %>    
+<div class="apx_responsive-banner mt-<%= opt.margin_top %> mb-<%= opt.margin_bottom %> pt-<%= opt.padding_top %> pb-<%= opt.padding_bottom %>">
+    <div class="d-flex justify-content-center <%= opt.container %> <%= opt.padding %>">
+        <%- await include('@/sections/inc/apx_banner', { _, opt }) %>    
+    </div>    
 </div>
   

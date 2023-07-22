@@ -21,7 +21,7 @@ if (opt.img) {
   })
   %>
 
-  <div class="banner apx_banner <%= ['left_image','right_image'].includes(opt.content_order) ? 'd-flex outside justify-content-between' : '' %> <%= opt.content_position %>">
+  <div class="banner apx_banner <%= ['left_image','right_image'].includes(opt.content_order) ? 'd-flex outside justify-content-around' : '' %> <%= opt.content_position %>">
     <a
       href="<%= opt.link || 'javascript:;' %>"
       aria-label="<%= opt.alt %>"
@@ -68,7 +68,7 @@ if (opt.img) {
         
     </a>
       <% if (opt.btn_text || opt.title || opt.description){ %>
-        <div class="apx_banner-content <%= opt.content_order %> <%= opt.content_position %> animate__animated animate__<%= opt.animate %> ">
+        <div class="apx_banner-content mx-5 <%= opt.content_order %> <%= opt.content_position %> animate__animated animate__<%= opt.animate %> ">
         <% if (opt.title) {%>
           <h3 class="mb-md-5" style="color:<%= opt.title_color %>;"><%- opt.title %></h3>
         <% } %>    

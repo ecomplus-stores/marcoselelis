@@ -1,6 +1,6 @@
 <%
 const itemData = {}
-let itemDataFields = ['_id', 'sku', 'slug', 'quantity']
+let itemDataFields = ['_id', 'sku', 'slug', 'quantity','variations', 'pictures']
 if (Array.isArray(_.itemDataFields)) {
   itemDataFields = itemDataFields.concat(_.itemDataFields)
 }
@@ -11,7 +11,7 @@ itemData.variationsGrids = _.ecomUtils.variationsGrids(opt.item, {}, true)
 
 const imgObj = _.ecomUtils.img(opt.item)
 if (imgObj) {
-  itemData.pictures = [{
+  itemData.pictures_ = [{
     _id: _.ecomUtils.randomObjectId(),
     normal: imgObj
   }]
@@ -52,6 +52,7 @@ if (imgObj) {
                 data-src="<%= imgObj.url %>"
                 alt="<%= imgObj.alt %>"
                 class="lozad-delay fade"
+                onload="window.listingImage()"
                 <% if (imgObj.url.startsWith('https://ecoms1.com/')) { %>
                   crossorigin="anonymous"
                 <% } %>
@@ -60,22 +61,40 @@ if (imgObj) {
           <% } %>
         </div>
 
+        
+      </a>
+    <div class="p-3">
+      <div class="d-flex align-items-start justify-content-between">
         <div data-slot="title">
           <h3 class="product-card__name">
-            <%= itemData.name %>
+            <%  
+              let small_text = ['Óculos Solar','Óculos de Grau'];
+              let title = itemData.name;
+              for(let i = 0; i <  small_text.length; i++){
+                if(itemData.name.includes(small_text[i])){
+                  title = title.replace(small_text[i],'');
+                  %><small><%= small_text[i] %></small><%
+                }
+              }
+              
+            %>
+            <%= title %>
           </h3>
         </div>
-      </a>
-      
-    <div class="product-card__prices prices">
-      <strong class="prices__value">
-        <% if (opt.item.available && opt.item.visible && _.ecomUtils.inStock(opt.item)) { %>
-          <%= _.ecomUtils.formatMoney(itemData.price) %>
-        <% } else { %>
-          --
-        <% } %>
-      </strong>
+
+        <div class="product-card__prices prices">
+          <strong class="prices__value">
+            <% if (opt.item.available && opt.item.visible && _.ecomUtils.inStock(opt.item)) { %>
+              <%= _.ecomUtils.formatMoney(itemData.price) %>
+            <% } else { %>
+              --
+            <% } %>
+          </strong>
+        </div>
+      </div>   
+      <div class="product-card_colors"></div>
     </div>
+    
 
     <!-- Customize add to cart button content:
     <div data-slot="buy-button-content">
