@@ -14,6 +14,34 @@
   "customizations": [
     {
       "item": {
+        "title": "lente",
+        "list": [
+          {
+            "option": {
+              "title": "Sem Grau",
+              "type": "Fixo",
+              "value": 0
+            }
+          },
+          {
+            "option": {
+              "title": "Grau Baixo",
+              "type": "Fixo",
+              "value": 0
+            }
+          },
+          {
+            "option": {
+              "title": "Grau Alto",
+              "type": "Fixo",
+              "value": 300
+            }
+          }
+        ]
+      }
+    },
+    {
+      "item": {
         "list": [
           {
             "option": {
