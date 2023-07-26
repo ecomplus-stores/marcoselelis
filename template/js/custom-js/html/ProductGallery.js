@@ -18,8 +18,6 @@ import {
 
 import ecomCart from '@ecomplus/shopping-cart'
 import Glide from '@glidejs/glide'
-import * as PhotoSwipe from 'photoswipe'
-import * as psUi from 'photoswipe/dist/photoswipe-ui-default'
 import APicture from '@ecomplus/storefront-components/src/APicture.vue'
 
 export default {
@@ -43,7 +41,7 @@ export default {
     video: Object,
     videoAspectRatio: {
       type: String,
-      default: '4by3'
+      default: '16by9'
     },
     canAddToCart: {
       type: Boolean,
@@ -72,7 +70,8 @@ export default {
       pswp: null,
       activeIndex: null,
       isSliderMoved: false,
-      elFirstPicture: null
+      elFirstPicture: null,
+      zoomLinkStyle: null
     }
   },
 
@@ -88,7 +87,8 @@ export default {
 
     localPictures () {
       return this.pictures && this.pictures.length
-        ? this.pictures : (this.product.pictures || [])
+        ? this.pictures
+        : (this.product.pictures || [])
     },
 
     videoSrc () {
@@ -164,13 +164,23 @@ export default {
     },
 
     openZoom (index) {
-      if (!this.pswd) {
-        this.pswp = new PhotoSwipe(this.$refs.pswp, psUi, this.pswpItems, {
-          ...this.pswpOptions,
-          index
+      this.zoomLinkStyle = 'cursor: wait'
+      return import(/* webpackPrefetch: true */ 'photoswipe')
+        .then(pack => {
+          const PhotoSwipe = pack.default
+          return import(/* webpackPrefetch: true */ 'photoswipe/dist/photoswipe-ui-default').then(pack => {
+            const psUi = pack.default
+            this.pswp = new PhotoSwipe(this.$refs.pswp, psUi, this.pswpItems, {
+              ...this.pswpOptions,
+              index
+            })
+            this.pswp.init()
+          })
         })
-      }
-      this.pswp.init()
+        .catch(console.error)
+        .finally(() => {
+          this.zoomLinkStyle = null
+        })
     },
 
     buy () {
@@ -213,40 +223,20 @@ export default {
         })
       }
     }
-
-    $('.isMobile #page-products .bz_gallery').slick({
-        centerMode:true,
-        arrows:false,
-        dots:true,
-        infinite:false,
-        autoplay:false,
-        slidesToShow: 1,
-        lazyLoad:true
-    });
-
-    $('.isMobile #page-products .bz_gallery-item').each(function(){
-        let size = $(this).innerWidth() * 1.47
-        let src = $(this).find('picture').attr('data-iesrc')
-        $(this).css('height', size + 'px')
-        //$(this).find('picture').css('height',size + 'px')
-        $(this).find('picture').css('background-image', 'url('+ src +')')        
-        //$(this).find('img').css('opacity',0)
+    const glide = new Glide(this.$refs.glide, this.glideOptions)
+    glide.on('run', () => {
+      this.moveSlider(glide.index)
     })
-    //$('.isMobile #page-products .bz_gallery .picture').append('<img style=""/>')
-    // const glide = new Glide(this.$refs.glide, this.glideOptions)
-    // glide.on('run', () => {
-    //   this.moveSlider(glide.index)
-    // })
-    // glide.mount()
-    // this.glide = glide
+    glide.mount()
+    this.glide = glide
   },
 
   beforeDestroy () {
-    // if (this.glide) {
-    //   this.glide.destroy()
-    // }
-    // if (this.pswp) {
-    //   this.pswp.destroy()
-    // }
+    if (this.glide) {
+      this.glide.destroy()
+    }
+    if (this.pswp) {
+      this.pswp.destroy()
+    }
   }
 }

@@ -2,6 +2,7 @@
   class="product"
   :data-product-id="body._id"
   :data-sku="body.sku"
+  :data-selected-variation="selectedVariationId"
 >
   <a-alert
     :can-show="hasLoadError"
@@ -20,16 +21,18 @@
   <transition enter-active-class="animated fadeIn slower">
     <div
       v-if="body._id"
-      class="row"
+      class="row align-items-center"
     >
       <slot name="gallery-col">
-        <div class="col-12 col-md-6">
+        <div :class="galleryColClassName">
           <component
             :is="isSSR ? 'portal' : 'div'"
             selector="#product-gallery"
-          >
+          > 
+            <slot name="stamps"/>
             <product-gallery
               :product="body"
+              :can-add-to-cart="canAddToCart && body.available && isInStock"
               :current-slide.sync="currentGalleyImg"
               :is-s-s-r="isSSR"
             >
@@ -40,7 +43,10 @@
         </div>
       </slot>
 
-      <div class="col">
+      <div
+        class="col"
+        ref="actions"
+      >
         <slot
           v-if="!isSSR"
           name="heading"
@@ -51,20 +57,11 @@
           >
             {{ name }}
           </component>
-          <p class="product__sku">
+          <p class="product__sku d-none">
             COD: {{ body.sku }}
           </p>
         </slot>
-
-        <slot
-          v-if="!isSSR && body.short_description"
-          name="short-description"
-        >
-          <p class="product__info lead">
-            {{ body.short_description }}
-          </p>
-        </slot>
-
+        
         <component
           :is="isSSR ? 'portal' : 'div'"
           selector="#product-actions"
@@ -77,101 +74,61 @@
             ></div>
           </slot>
 
-          <slot
-            name="unavailable"
+          <div
             v-if="!body.available"
+            class="product__unavailable"
           >
-            <!-- <p class="product__unavailable">
+            <slot name="unavailable">
               {{ i19unavailable }}
-            </p> -->
-            <div class="avise_me apx_form">
-              <div class="row">
-                <div class="col-12">
-                  <div class="d-flex align-items-center justify-content-center" style="justify-content: center;"><strong>Ops!</strong>
-                  <p class="pl-3">Este produto encontra-se indisponível.<br>Deixe seus dados que avisaremos quando chegar.</p>
-                </div>
-                </div>
-              </div>
-              <div class="row px-2 mt-3">
-                <div class="col-12 col-md-4 my-2 px-1">
-                  <label for="">Nome</label>
-                  <input type="text" name="nome" required="">
-                </div>
-                <div class="col-12 col-md-4 my-2 px-1">
-                  <label for="">E-mail</label>
-                  <input type="email" name="email" required="">
-                </div>
-                <div class="col-12 col-md-4 my-2  px-1">
-                  <label for="">WhatsApp</label>
-                  <input type="tel" name="telefone" required="">
-                </div>
-                <div class="col-12 col-md-6 my-2 d-none">
-                  <label for="">Produto</label>
-                  <input type="hidden" :value="name" name="product">
-                </div>                
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <button type="button">Avise-me quando disponível</button>
-                </div>
-              </div>
-            </div>
-          </slot>
+            </slot>
+          </div>
 
-          <slot
-            name="out-of-stock"
+          <div
             v-else-if="!isInStock"
+            class="product__out-of-stock"
           >
-            <p class="product__out-of-stock">
-              {{ i19outOfStock }} 
-            </p>
-          </slot>
+            <slot name="out-of-stock">
+              {{ i19outOfStock }}
+            </slot>
+          </div>
+
+          <div
+            v-else-if="isWithoutPrice"
+            class="product__without-price"
+          >
+            <slot name="without-price">
+              <a 
+                v-if="quoteLink"
+                target="_blank"
+                rel="noopener"
+                :href="quoteLink"
+              >
+                {{ i19quoteProduct }}
+              </a>
+            </slot>
+          </div>
 
           <template v-else>
-            <slot name="prices">
-              <p class="product__prices">
-                <a-prices
-                  :product="{ ...body, ...selectedVariation, ...finalPrices }"
-                  :is-literal="true"
-                  :is-big="true"
-                  @fix-price="price => fixedPrice = price"
-                />
-
-                <slot
-                  name="discount-tag"
-                  v-bind="{ discount }"
-                >
-                  <span
-                    v-if="discount > 0"
-                    class="product__discount"
-                  >
-                    {{ i19discountOf }}
-                    <strong>{{ discount }}%</strong>
-                  </span>
-                </slot>
-              </p>
-            </slot> 
-
             
+
             <slot
               name="variations"
               v-if="hasVariations"
             >
-              <product-variations
-                :product="body"
-                :selected-id.sync="selectedVariationId"
-                @select-option="handleGridOption"
-                :maxOptionsBtns="99"
-              />
-              <a-alert :can-show="hasClickedBuy && !selectedVariationId">
-                {{ i19selectVariationMsg }}
-              </a-alert>
+              <div class="mt-3 pt-3">
+                <product-variations
+                  :product="body"
+                  :selected-id.sync="selectedVariationId"
+                  :max-options-btns="maxVariationOptionsBtns"
+                  @select-option="handleGridOption"
+                />
+                <a-alert :can-show="hasClickedBuy && !selectedVariationId">
+                  {{ i19selectVariationMsg }}
+                </a-alert>
 
-              <slot name="variations-info"/>
+                <slot name="variations-info"/>
+              </div>
             </slot>
-
-            
-            
 
             <slot
               name="customizations"
@@ -202,31 +159,55 @@
                 >
               </div>
             </slot>
+            <slot name="prices">
+              <p class="product__prices mt-3 pt-3">
+                <a-prices
+                  :product="ghostProductForPrices"
+                  :is-literal="true"
+                  :is-big="true"
+                  @fix-price="price => fixedPrice = price"
+                />
+                <slot
+                  name="discount-tag"
+                  v-bind="{ discount }"
+                  v-if="1 != 1"
+                >
+                  <span
+                    v-if="discount > 0"
+                    class="product__discount"
+                  >
+                    {{ i19discountOf }}
+                    <strong>{{ discount }}%</strong>
+                  </span>
+                </slot>
+              </p>
+            </slot>
 
             <div
               v-if="isKit"
               class="product__kit"
             >
-            <!-- <label class="kit__title">Selecione os itens do kit</label> -->
               <slot
                 name="kit"
                 v-bind="{ kitItems }"
-              >                   
-                <quantity-selector
-                  v-if="kitItems.length"
-                  :items="kitItems"
-                  :min="body.min_quantity"
-                  :max="body.quantity"
-                  :slug="body.slug"
-                  :kit-product-id="body._id"
-                  :kit-name="name"
-                  :kit-price="fixedPrice"
-                >
-                  <template #buy-button-content>
-                    <slot name="buy-button-content"/>
-                  </template>
-                </quantity-selector>
-                
+              >
+                <transition enter-active-class="animated fadeInUp">
+                  <quantity-selector
+                    v-if="kitItems.length"
+                    :items="kitItems"
+                    :min="body.min_quantity"
+                    :max="body.quantity"
+                    :slug="body.slug"
+                    :kit-product-id="body._id"
+                    :kit-name="name"
+                    :kit-price="fixedPrice"
+                    @buy="d => $emit('buy', d)"
+                  >
+                    <template #buy-button-content>
+                      <slot name="buy-button-content"/>
+                    </template>
+                  </quantity-selector>
+                </transition>
 
                 <span
                   v-if="!kitItems.length"
@@ -237,70 +218,115 @@
                 </span>
               </slot>
             </div>
+
             <template v-else>
-              <div class="product__buy">
-                <div class="apx_quantity_selector">
-                  <button type="button"
-                  @click="ev => changeQntUn(body, -1,ev)"
-                  ><i class="fas fa-chevron-down"></i></button>
-                  
-                  <input type="tel" 
-                    :min="body.min_quantity"
-                    :max="body.quantity"
-                    :value="body.min_quantity ? body.min_quantity : 1"
-                    :disabled="!isInStock"
-                    :readonly="body.min_quantity === body.max_quantity"
-
-                    @change="ev => changeQntUn(body, null, ev)"
-                    @keyup.up="changeQntUn(body, 1,this)"
-                    @keyup.down="changeQntUn(body, -1, this)"
-
-                    name="form-control apx_quantity-selector__input"/>
-                  
-                  <button type="button"
-                  @click="ev => changeQntUn(body, 1,ev)"
-                  ><i class="fas fa-chevron-up"></i></button>
-                </div>
-                <span @click="buy" class="w-100">
-                  <slot
-                    name="buy"
-                    v-bind="{ hasClickedBuy, isOnCart }"
-                  >
-                    <button
-                      type="button"
-                      class="btn btn-lg btn-primary"
-                      :disabled="hasClickedBuy && !isOnCart"
-                    >
-                      <slot name="buy-button-content">
-                        <i class="fas fa-shopping-bag mr-1"></i>
-                        {{ strBuy }}
-                      </slot>
-                    </button>
-                  </slot>
-                </span>
+              <div
+                v-if="!isVariationInStock"
+                class="product__out-of-stock"
+              >
+                <slot name="out-of-stock">
+                  {{ i19outOfStock }}
+                </slot>
               </div>
+
+              <div
+                v-else-if="hasBuyButton"
+                class="product__buy mt-3 pt-3"
+                ref="buy"
+              >
+                <component
+                  :is="hasQuantitySelector ? 'quantity-selector' : 'div'"
+                  :items="hasQuantitySelector ? [{ _id: body._id, quantity: body.min_quantity || 1 }] : null"
+                  :min="body.min_quantity"
+                  :max="body.quantity"
+                  :has-buy-button="false"
+                  @set-quantity="({ quantity }) => qntToBuy = quantity"
+                >
+                  <span @click="buy">
+                    <slot
+                      name="buy"
+                      v-bind="{ hasClickedBuy, isOnCart }"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-lg btn-primary"
+                        :disabled="hasClickedBuy && !isOnCart"
+                      >
+                        <slot name="buy-button-content">
+                          Adicionar ao Carrinho
+                        </slot>
+                      </button>
+                    </slot>
+                  </span>
+                </component>
+              </div>
+
               <p
                 class="product__short-stock"
                 v-if="isLowQuantity && 1 != 1"
               >
-                <i class="fas fa-forward mr-1"></i>
+                <i class="i-forward mr-1"></i>
                 {{ i19only }}
                 <strong>{{ productQuantity }}</strong>
                 {{ i19unitsInStock }}
               </p>
             </template>
 
-            <transition enter-active-class="animated fadeInUp" v-if="1 != 1">
+            <slot name="sale-timer">
+              <div
+                v-if="isOnSale"
+                class="product__sale-timer mb-3"
+              >
+                <div>
+                  {{ i19offer }}
+                  <br><small>{{ i19endsIn }}</small>
+                </div>
+                <div
+                  class="h1 ml-3 mb-0"
+                  ref="timer"
+                >
+                  00:00:00
+                </div>
+              </div>
+            </slot>
+
+            <slot name="favorite"  v-if="1 != 1">
+              <div>
+                <a
+                  class="btn btn-sm product__favorite"
+                  @click="toggleFavorite"
+                  :href="isLogged ? null : accountUrl"
+                >
+                  <i 
+                    class="i-heart mr-1"
+                    :class="isFavorite ? 'active' : null"
+                  >
+                  </i>
+                  <span>
+                    {{ isFavorite ? i19removeFromFavorites : i19addToFavorites }}
+                  </span>
+                </a>
+              </div>
+            </slot>
+
+            <slot name="share" v-if="1 != 1">
+              <a-share
+                v-if="body.slug"
+                class="mb-3"
+                :url="`/${body.slug}`"
+                :title="body.name"
+                :description="body.short_description"
+              />
+            </slot>
+
+            <transition enter-active-class="animated fadeInUp">
               <slot
                 name="payment-gateways"
                 v-bind="{ paymentOptions }"
                 v-if="!isQuickview && paymentOptions.length"
               >
-                <article :key="`payment-${fixedPrice}`">
-                  <div
-                    v-once
-                    class="product__payment card mb-3"
-                  >
+                <article>
+                  <div class="product__payment card mb-3">
                     <a
                       id="product-payment-header"
                       class="card-header"
@@ -311,7 +337,7 @@
                       aria-controls="product-payment"
                     >
                       <span>{{ i19paymentOptions }}</span>
-                      <i class="fas fa-chevron-down"></i>
+                      <i class="i-chevron-down"></i>
                     </a>
 
                     <div
@@ -326,13 +352,15 @@
                           :id="`product-payment-${paymentOption.app_id}`"
                           class="mb-3"
                         >
-                          <payment-option
-                            v-for="(gateway, i) in paymentOption.payment_gateways"
-                            :key="`${paymentOption.app_id}-${i}`"
-                            :payment-gateway="gateway"
-                            :installments-option="paymentOption.installments_option"
-                            :price="fixedPrice"
-                          />
+                          <slot :name="`payment-${paymentOption.app_id}`">
+                            <payment-option
+                              v-for="(gateway, i) in paymentOption.payment_gateways"
+                              :key="`${paymentOption.app_id}-${i}`"
+                              :payment-gateway="gateway"
+                              :installments-option="paymentOption.installments_option"
+                              :price="fixedPrice"
+                            />
+                          </slot>
                         </div>
                       </div>
                     </div>
@@ -345,7 +373,7 @@
               v-if="body.production_time && body.production_time.days"
               class="product__production"
             >
-              <i class="fas fa-info-circle mr-1"></i>
+              <i class="i-info-circle mr-1"></i>
               {{ i19productionDeadline }}:
               <strong>
                 {{ body.production_time.days }}
@@ -357,14 +385,15 @@
             </p>
 
             <slot
-              v-if="!isQuickview"
+              v-if="!isQuickview && (!isKit || kitItems.length) && 1 != 1"
               name="shipping"
             >
               <shipping-calculator
-                :shippedItems="[{
+                :shippedItems="isKit ? kitItems : [{
                   ...body,
+                  ...selectedVariation,
                   product_id: body._id,
-                  quantity: body.min_quantity || 1
+                  quantity: qntToBuy || body.min_quantity || 1
                 }]"
               >
                 <template v-slot:free-from-value="{ amountSubtotal, freeFromValue }">
@@ -386,15 +415,60 @@
                 :data-sku="body.sku"
               ></div>
             </slot>
-
-           
           </template>
         </component>
 
-        
+        <slot
+          v-if="!isSSR && body.short_description"
+          name="short-description"
+        >
+          <p class="product__info lead">
+            {{ body.short_description }}
+          </p>
+        </slot>
       </div>
     </div>
   </transition>
+
+  <template v-if="!isQuickview && hasStickyBuyButton && body.available && isInStock">
+    <transition
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut fast" 
+    >
+      <div
+        v-show="isStickyBuyVisible"
+        ref="sticky" 
+        class="product__sticky"
+      >
+        <div class="product__sticky-container container">
+          <div class="product__sticky-info">
+            <a-picture
+              :can-calc-height="false"
+              :src="thumbnail"
+              class="product__sticky-picture"
+            />
+            <h5>{{ name }}</h5>
+          </div>
+
+          <div class="product__sticky-buy">
+            <a-prices
+              :product="ghostProductForPrices"
+              :is-literal="false"
+              :can-show-price-options="true"
+            />
+            <a
+              class="btn btn-lg btn-primary"
+              href="#"
+              @click.prevent="buyOrScroll"
+            >
+              <i class="i-shopping-bag mr-1"></i>
+              {{ strBuy }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </template>
 
   <slot v-if="!body._id"/>
 </section>
