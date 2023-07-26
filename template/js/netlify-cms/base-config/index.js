@@ -1304,7 +1304,7 @@ export default options => {
                       },  
                     ]
                   }
-                ].concat(sections)
+                ].concat(options.sections)
               }   
             ]
           }
