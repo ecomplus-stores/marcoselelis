@@ -1,0 +1,72 @@
+{
+  "title": "OCT4592",
+  "sections": [
+    {
+      "type": "specifications",
+      "enabled": true,
+      "image": "/img/uploads/rectangle-5-2-.png",
+      "title": "Oferecemos uma variedade de tipos de prescrição, cores e materiais de lentes.",
+      "cta_text": "Aqui um link CTA caso necessário",
+      "cta_url": "/meu-link",
+      "description": "Um texto complementar para a seção de especificação. Pode ser algo curto e direto, mas pode servir como um subtítulo também."
+    }
+  ],
+  "customizations": [
+    {
+      "item": {
+        "list": [
+          {
+            "option": {
+              "title": "AR",
+              "type": "Fixo",
+              "value": 0
+            }
+          },
+          {
+            "option": {
+              "title": "AR + Azul",
+              "type": "Fixo",
+              "value": 200
+            }
+          },
+          {
+            "option": {
+              "title": "AR + Solar",
+              "type": "Fixo",
+              "value": 200
+            }
+          },
+          {
+            "option": {
+              "title": "AR + Azul + Solar",
+              "type": "%",
+              "value": 50
+            }
+          }
+        ],
+        "title": "tipo_da_lente"
+      }
+    },
+    {
+      "item": {
+        "title": "embalagem",
+        "list": [
+          {
+            "option": {
+              "title": "Convencional",
+              "type": "Fixo",
+              "value": 0
+            }
+          },
+          {
+            "option": {
+              "title": "Presente",
+              "type": "Fixo",
+              "value": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
