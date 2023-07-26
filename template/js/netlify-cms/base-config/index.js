@@ -885,7 +885,7 @@ export default options => {
         name: 'apx_products',
         label: '[alpix.dev] - Produtos',
         description: 'Conteúdo específico das páginas de produto',
-        folder: `${baseDir}content/apx_products`,
+        folder: `${options.baseDir}content/apx_products`,
         extension: 'json',
         create: true,
         slug: '{{slug}}',
@@ -896,51 +896,112 @@ export default options => {
             widget: 'string'
           },         
           {
-            label: 'Exibir especificações',
-            name: 'enabled',
-            widget: 'boolean',
-            default: true
+            label:"Personalização",
+            name:"customizations",
+            widget:"list",
+            required:false,
+            fields: [
+              {
+                label: "Item",
+                name: "item",
+                widget: "object",
+                required:false,
+                fields: [
+                  {
+                    label: "ID do grid",
+                    name: "title",
+                    widget: "string"          
+                  },
+                  {
+                    label:"Opções",
+                    name:"list",
+                    widget:"list",
+                    required:false,
+                    fields: [
+                      {
+                        label: "Opção",
+                        name: "option",
+                        widget: "object",
+                        required:false,
+                        fields: [
+                          {
+                            label: "Nome da opção",
+                            name: "title",
+                            widget: "string"          
+                          },      
+                          {
+                            label: "Tipo de Custo",
+                            widget: "select",
+                            options: ["Fixo","%"] 
+                          },
+                          {
+                            label: "Valor",
+                            name: "value",
+                            widget: "number",
+                            min:0,
+                            value_type:"float"
+                          },                                                   
+                        ]
+                      } 
+                    ]
+                  },                                                  
+                ]
+              } 
+            ]
           },
-          {
-            label: 'Título',
-            name: 'title',
-            widget: 'string',
-            hint: '',
-            required: false
-          },
-          {
-            label: 'Descrição',
-            name: 'description',
-            widget: 'string',
-            hint: '',
-            required: false
-          },
-          {
-            label: 'Texto CTA',
-            name: 'cta_text',
-            widget: 'string',
-            hint: '',
-            required: false
-          },
-          {
-            label: 'Link CTA',
-            name: 'cta_url',
-            widget: 'string',
-            hint: '',
-            required: false
-          },
-          {
-            label: 'Imagem',
-            name: 'image',
-            widget: 'image',
-            required:false,          
-          },  
           {
             label: 'Seções',
             name: 'sections',
             required: false,
             widget: 'list',
-            types: [              
+            types: [  
+              {
+                label: 'Especificações',
+                name: 'specifications',
+                widget: 'object',
+                fields: [
+                {
+                  label: 'Exibir especificações',
+                  name: 'enabled',
+                  widget: 'boolean',
+                  default: true
+                },
+                {
+                  label: 'Título',
+                  name: 'title',
+                  widget: 'string',
+                  hint: '',
+                  required: false
+                },
+                {
+                  label: 'Descrição',
+                  name: 'description',
+                  widget: 'string',
+                  hint: '',
+                  required: false
+                },
+                {
+                  label: 'Texto CTA',
+                  name: 'cta_text',
+                  widget: 'string',
+                  hint: '',
+                  required: false
+                },
+                {
+                  label: 'Link CTA',
+                  name: 'cta_url',
+                  widget: 'string',
+                  hint: '',
+                  required: false
+                },
+                {
+                  label: 'Imagem',
+                  name: 'image',
+                  widget: 'image',
+                  required:false,          
+                }
+                ]
+              }
             ].concat(sections)
           }
         ]
