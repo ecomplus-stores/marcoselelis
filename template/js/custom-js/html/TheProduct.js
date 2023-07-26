@@ -345,7 +345,7 @@ export default {
     },
 
     setCustomizationOption (customization, text) {
-      console.log(this.customizations,'aaa')
+      
       const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
       if (text) {
         if (index > -1) {
