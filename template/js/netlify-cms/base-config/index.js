@@ -931,6 +931,7 @@ export default options => {
                           },      
                           {
                             label: "Tipo de Custo",
+                            name:"type",
                             widget: "select",
                             options: ["Fixo","%"] 
                           },
