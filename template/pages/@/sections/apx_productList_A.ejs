@@ -1,10 +1,24 @@
 <% 
     if (Array.isArray(opt.products) && opt.products.length) {
+        
         const search = new _.EcomSearch()
         await search.setProductIds(opt.products).fetch(true)
-        const items = search.getItems().filter(item => _.ecomUtils.inStock(item))
+        const items = opt.products[0] && opt.products[0].sku ? opt.products : search.getItems().filter(item => _.ecomUtils.inStock(item))
+    
+        opt.num_col_sm = opt.num_col_sm ? opt.num_col_sm : 3
+        opt.carrossel_sm = opt.carrossel_sm ? opt.carrossel_sm : true
+        opt.num_col_md = opt.num_col_md  ? opt.num_col_md  : 3
+        opt.carrossel_md = opt.carrossel_md ? opt.carrossel_md : false
+        opt.carrossel_dots_md = opt.carrossel_dots_md ? opt.carrossel_dots_md : false
+        opt.carrossel_arrows_md = opt.carrossel_arrows_md ? opt.carrossel_arrows_md : false
+        opt.carrossel_dots_sm = opt.carrossel_dots_sm ? opt.carrossel_dots_sm : true
+        opt.carrossel_arrows_sm = opt.carrossel_arrows_sm ? opt.carrossel_arrows_sm : true
+        opt.padding = opt.padding ? opt.padding : 'px-md-3'
+        opt.padding_sm = opt.padding_sm ? opt.padding_sm : 'px-2'
+        opt.container = opt.container ? opt.container : 'container_90'
+        opt.padding_md = opt.padding_md ? opt.padding_md : 'px-md-1'
     %>
-  
+    
     <section
       class="apx_product-list mt-<%= opt.margin_top %> mb-<%= opt.margin_bottom %> pt-<%= opt.padding_top %> pb-<%= opt.padding_bottom %>"
       data-num_col_sm="<%= opt.num_col_sm  %>"
@@ -16,7 +30,7 @@
       data-carrossel_dots_sm="<%= opt.carrossel_dots_sm %>"
       data-carrossel_arrows_sm="<%= opt.carrossel_arrows_sm %>"
      >
-     <div class="<%= opt.container %> <%= opt.padding_sm %> <%= opt.padding %> pb-5">
+     <div class="<%= opt.container %> <%= opt.padding_sm %> <%= opt.padding_md %> pb-5">
         <%
             if(opt.title){
                 %>

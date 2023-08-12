@@ -1,0 +1,45 @@
+<div class="apx-specifications apx_banner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-5">
+                <div class="apx_banner-content">
+                    <% if (opt.title) { %>
+                        <h3><%- opt.title %></h3>
+                    <% } %>
+                    <% if (opt.cta_text && opt.cta_url) { %>
+                        <div class="cta mt-md-5">
+                            <a class="pb-1" href="<%- opt.cta_url %>"><%- opt.cta_text %></a>
+                        </div>
+                    <% } %>
+                    <% if (_.state.specifications) { %>
+                        <div class="apx-specs my-4 my-lg-5">
+                        <% for (const gridId in _.state.specifications) {
+                            if (_.state.specifications[gridId]) {
+                            %>
+                            <div class="py-3 px-4">
+                                <div class="row">
+                                    <div class="col">
+                                    <b><%= _.ecomUtils.gridTitle(gridId, _.grids) %></b>
+                                    </div>
+                                    <div class="col">
+                                    <%= _.ecomUtils.specTextValue(_.state, gridId, _.grids) %>
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                            }
+                        } %>
+
+                        </div>
+                      <% } %>
+                      
+                </div>
+            </div>
+            <div class="col-6 offset-md-1">
+                <img
+                    src="<%= opt.image.replace('.webp', '.png') %>"                                      
+                >
+            </div>
+        </div>
+    </div>
+</div>

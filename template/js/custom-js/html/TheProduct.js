@@ -162,7 +162,14 @@ export default {
       paymentOptions: [],
       customizations: [],
       kitItems: [],
-      currentTimer: null
+      currentTimer: null,
+      cms_customizations : [],
+      cms_customizations_step : 1,
+      current_customization : [],
+      customizationPanel : false,
+      variationImagesKey : null,
+      variationImages: [],      
+      variantGalleryImages:[]
     }
   },
 
@@ -271,6 +278,7 @@ export default {
         Object.assign(ghostProduct, this.selectedVariation)
         delete ghostProduct.variations
       }
+      
       return {
         ...ghostProduct,
         ...prices
@@ -283,7 +291,18 @@ export default {
 
     isKit () {
       return this.body.kit_composition && this.body.kit_composition.length
-    }
+    },
+
+    productToGallery () {
+      console.log('aiai')
+      if (this.variationImages.length) {
+        return {
+          ...this.body,
+          pictures: this.variationImages
+        }
+      }
+      return this.body
+    },
   },
 
   methods: {
@@ -343,7 +362,36 @@ export default {
       }
       return ''
     },
+    customizationStepBack(){
+      this.cms_customizations_step--
+    },
+    setDeepCustomizationOption(index,grid_id,item){
 
+      this.current_customization[index] = {[grid_id] : item}
+      //console.log(this.current_customization)
+      this.cms_customizations_step++
+    },
+    totalWithCustomization(){
+      // let variationId
+      // if (this.hasVariations) {
+      //   if (this.selectedVariationId) {
+      //     variationId = this.selectedVariationId
+      //   } else {
+      //     return
+      //   }
+      // }
+      // console.log(variationId)
+
+      let price = this.body.price
+      //console.log('current',this.current_customization)
+      for (const item of this.current_customization) {
+        
+        const value = Object.values(item)[0].value;
+        price += value;
+      }
+      //console.log(this.body)
+      return price.toLocaleString('pt-br', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}) 
+    },
     setCustomizationOption (customization, text) {
       
       const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
@@ -363,14 +411,49 @@ export default {
       }
     },
 
+    setCustomCustomization (customization, text) {
+      //console.log(customization, text, this.customizations)
+      const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
+      if (text) {
+        if (index > -1) {
+          this.customizations[index].option = { text }
+        } else {
+          this.customizations.push({
+            _id: customization._id,
+            label: customization.label,
+            add_to_price: customization.add_to_price,
+            option: { text }
+          })
+        }
+      } else if (index > -1) {
+        this.customizations.splice(index, 1)
+      }
+    },
+
     showVariationPicture (variation) {
       if (variation.picture_id) {
-        const pictureIndex = this.body.pictures.findIndex(({ _id }) => {
+
+        let pictureIndex = this.body.pictures.findIndex(({ _id }) => {
           return _id === variation.picture_id
         })
+        
+        this.variationImages = []
+        for(let i_ = pictureIndex; i_ < (pictureIndex + (this.body.pictures.length / this.body.variations.length)) ; i_++){
+          this.variationImages.push(this.body.pictures[i_])
+        }
+
+        pictureIndex = this.variationImages.findIndex(({ _id }) => {
+          return _id === variation.picture_id
+        })
+
+        console.log('body', this.body)
+        console.log('customBody', this.variantGalleryImages)
+
         this.currentGalleyImg = pictureIndex + 1
       }
     },
+
+    
 
     handleGridOption ({ gridId, gridIndex, optionText }) {
       if (gridIndex === 0) {
@@ -389,7 +472,10 @@ export default {
       }
     },
 
-    buy () {
+    closeCustomizations() {
+      this.customizationPanel = false
+    },
+    buy (option) {
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
       let variationId
@@ -400,12 +486,50 @@ export default {
           return
         }
       }
-      const customizations = [...this.customizations]
-      this.$emit('buy', { product, variationId, customizations })
-      if (this.canAddToCart) {
-        ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
+      product.pictures = this.productToGallery.pictures
+      //const customizations = [...this.customizations]
+      let customCustomizations = []
+      for (const item of this.current_customization) {
+        let customizationFromBody = this.body.customizations.find(el => el.grid_id == Object.keys(item)[0])
+        if(customizationFromBody){        
+          customCustomizations.push({
+            _id: customizationFromBody._id,
+            label: customizationFromBody.label,
+            add_to_price: {
+              type: (Object.values(item)[0].type == "Fixo" ? 'fixed' : 'percent'),
+              addition: Object.values(item)[0].value
+            },
+            option:  {text:Object.values(item)[0].title}
+          })
+        }
       }
-      this.isOnCart = true
+      
+      
+      
+
+      if(this.cms_customizations && option != "customized"){
+        this.customizationPanel = true;
+        //alert('Selecione as opções para prosseguir')
+      }else{
+        // console.log('customCustomizations',customCustomizations)
+        // console.log('add', { ...product, customizations : customCustomizations })
+        this.$emit('buy', { product, variationId, customizations : customCustomizations })
+        if (this.canAddToCart) {
+          this.current_customization = []
+          this.customizationPanel = false
+          this.cms_customizations_step = 1
+          ecomCart.addProduct({ ...product, customizations : customCustomizations }, variationId, this.qntToBuy)          
+        }
+        this.isOnCart = true
+      }
+
+        // this.$emit('buy', { product, variationId, customizations })
+        // if (this.canAddToCart) {
+        //   console.log({ ...product, customizations })
+        //   ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
+        // }
+        // this.isOnCart = true
+      
     },
 
     buyOrScroll () {
@@ -418,19 +542,48 @@ export default {
   },
 
   watch: {
-    selectedVariationId (variationId) {
+    // selectedVariationId (variationId) {
+    //   if (variationId) {
+    //     if (this.hasClickedBuy) {
+    //       this.hasClickedBuy = false
+    //     }
+    //     const { pathname } = window.location
+    //     const searchParams = new chat(window.location.search)
+    //     searchParams.set('variation_id', variationId)
+    //     window.history.pushState({
+    //       pathname,
+    //       searchParams
+    //     }, '', `${pathname}?${searchParams.toString()}`)
+    //     console.log(this.selectedVariation)
+    //     this.showVariationPicture(this.selectedVariation)
+    //   }
+    // },
+   
+    selectedVariationId(variationId) {
       if (variationId) {
         if (this.hasClickedBuy) {
-          this.hasClickedBuy = false
+          this.hasClickedBuy = false;
         }
-        const { pathname } = window.location
-        const searchParams = new URLSearchParams(window.location.search)
-        searchParams.set('variation_id', variationId)
-        window.history.pushState({
+    
+        const { pathname } = window.location;
+        const searchParams = new URLSearchParams(window.location.search);
+    
+        searchParams.set('variation_id', variationId);
+    
+        // Creating a new state object with pathname and serialized searchParams
+        const newState = {
           pathname,
-          searchParams
-        }, '', `${pathname}?${searchParams.toString()}`)
-        this.showVariationPicture(this.selectedVariation)
+          search: searchParams.toString()
+        };
+    
+        // Pushing the new state to the browser history
+        window.history.pushState(newState, '', `${pathname}?${searchParams.toString()}`);
+    
+        // Logging the selected variation (make sure this.selectedVariation is updated somewhere)
+        //console.log(this.selectedVariation);
+    
+        // Calling your function to show the variation picture
+        this.showVariationPicture(this.selectedVariation);
       }
     },
 
@@ -516,10 +669,23 @@ export default {
         }
       },
       immediate: true
-    }
+    },
+    variationImages (variationImages, pastVariationImages) {
+      if (variationImages.length) {
+        if (pastVariationImages.length && pastVariationImages[0][0] === variationImages[0][0]) {
+          return
+        }
+        this.variationImagesKey = Math.random().toString()
+      } else {
+        this.variationImagesKey = null
+      }
+      
+    },
   },
 
   created () {
+    this.cms_customizations = [...($('[data-customizations]').length > 0 ? JSON.parse($('[data-customizations]').attr('data-customizations')) : [])]
+    
     const presetQntToBuy = () => {
       this.qntToBuy = this.body.min_quantity || 1
     }
@@ -538,7 +704,7 @@ export default {
 
   mounted () {
     
-    console.log(this.body.customizations)
+    //console.log(this.body.customizations)
     if (this.$refs.sticky && !this.isWithoutPrice) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {

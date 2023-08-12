@@ -124,6 +124,60 @@
           ]
         },
         {
+          "name": "apx_customizations",
+          "label": "Personalizações",
+          "file": "content/apx_customizations.json",
+          "fields": [
+            {
+              "label": "Personalizações",
+              "name": "links",
+              "widget": "list",
+              "required":false,
+              "fields": [
+                {
+                  "label": "Título",
+                  "name": "title",
+                  "widget": "string"          
+                },
+                {
+                  "label": "grid_id",
+                  "name": "grid_id",
+                  "widget": "string"          
+                },
+                {
+                  "label": "Descrição",
+                  "name": "grid_id",
+                  "widget": "string"          
+                },
+                {
+                  "label":"Opções",
+                  "name":"list",
+                  "widget":"list",
+                  "required":false,
+                  "fields": [
+                    {
+                      "label": "Título da Opção",
+                      "name": "option_title",
+                      "widget": "string"          
+                    },
+                    {
+                      "label": "Valor Padrão",
+                      "name": "default_value",
+                      "widget": "number"          
+                    },
+                    {
+                      "label": "Descrição",
+                      "name": "description",
+                      "widget": "string"          
+                    }
+                  ]
+                }
+                       
+              ]
+            }
+          ]
+        },
+        {
           "name": "whatsapp",
           "label": "Botão Whatsapp",
           "file": "content/apx_whatsapp.json",

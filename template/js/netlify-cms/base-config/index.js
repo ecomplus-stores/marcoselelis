@@ -941,7 +941,21 @@ export default options => {
                             widget: "number",
                             min:0,
                             value_type:"float"
-                          },                                                   
+                          }, 
+                          {
+                            label: "Cor Início Degrade",
+                            name: "degrade_start",
+                            widget: "color",
+                            required:false,
+
+                          },                                                    
+                          {
+                            label: "Cor Fim Degrade",
+                            name: "degrade_end",
+                            widget: "color",
+                            required:false,
+
+                          }                                                   
                         ]
                       } 
                     ]

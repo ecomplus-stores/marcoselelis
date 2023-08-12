@@ -24,8 +24,8 @@ if (Array.isArray(productIds) && productIds.length) {
     await search.setProductIds(productIds).fetch()
     const items = search.getItems()
     %>
-    <%- await include('@/sections/inc/products-carousel', {
-      _, opt: { items, title, showcaseType }
+    <%- await include('@/sections/apx_productList_A', {
+      _, opt: { products:items, list:"description_last",description : "Opções que podem lhe interessar", title, showcaseType }
     }) %>
     <%
   } catch (err) {

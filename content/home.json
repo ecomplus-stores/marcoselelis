@@ -60,7 +60,7 @@
     },
     {
       "carrossel_sm": "Sim",
-      "container": "container-fluid",
+      "container": "container_90",
       "products": [
         "64af5f505e60690370620947",
         "64af60825e60690370620af0",
@@ -103,7 +103,7 @@
     },
     {
       "carrossel_sm": "Sim",
-      "container": "container-fluid",
+      "container": "container_90",
       "products": [
         "64af60a45e60690370620b11",
         "64af60ab5e60690370620b19",
