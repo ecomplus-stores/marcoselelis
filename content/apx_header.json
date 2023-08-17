@@ -9,7 +9,33 @@
           "item": {
             "title": "Masculino",
             "url": "/",
-            "image": ""
+            "image": "/img/uploads/rectangle-5-3-.png",
+            "list": [
+              {
+                "item": {
+                  "title": "Sub categoria 1",
+                  "url": "/teste"
+                }
+              },
+              {
+                "item": {
+                  "title": "Sub categoria 2",
+                  "url": "/"
+                }
+              },
+              {
+                "item": {
+                  "title": "Sub categoria 4",
+                  "url": "/"
+                }
+              },
+              {
+                "item": {
+                  "title": "Sub categoria 5",
+                  "url": "/"
+                }
+              }
+            ]
           }
         },
         {
@@ -24,7 +50,7 @@
             "url": "/",
             "image": ""
           }
-        }        
+        }
       ]
     },
     {
@@ -51,7 +77,7 @@
             "url": "/",
             "image": ""
           }
-        }        
+        }
       ]
     },
     {
