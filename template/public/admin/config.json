@@ -146,7 +146,7 @@
                 },
                 {
                   "label": "Descrição",
-                  "name": "grid_id",
+                  "name": "description",
                   "widget": "string"          
                 },
                 {
