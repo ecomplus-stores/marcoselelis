@@ -67,9 +67,35 @@
                           "name": "image",
                           "widget": "image",
                           "required":false
+                        },
+                        {
+                          "label":"Links",
+                          "name":"list",
+                          "widget":"list",
+                          "required":false,
+                          "fields": [
+                            {
+                              "label": "Item",
+                              "name": "item",
+                              "widget": "object",
+                              "required":false,
+                              "fields": [
+                                {
+                                  "label": "Texto do Item",
+                                  "name": "title",
+                                  "widget": "string"          
+                                },
+                                {
+                                  "label": "URL do Item",
+                                  "name": "url",
+                                  "widget": "string"          
+                                }         
+                              ]
+                            }  
+                          ]
                         }           
                       ]
-                    }  
+                    }                      
                   ]
                 }
                        
