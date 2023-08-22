@@ -35,12 +35,6 @@
                   "widget": "string"          
                 },
                 {
-                  "label": "Imagem",
-                  "name": "image",
-                  "widget": "image",
-                  "required":false
-                }, 
-                {
                   "label":"Itens do Dropdown",
                   "name":"list",
                   "widget":"list",

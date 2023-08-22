@@ -121,7 +121,8 @@ export default {
           small_title = "<small>"+ small_text[i] +"</small>"
         }
       }
-      return getName(small_title + title)
+      //console.log(title, small_text, small_title)
+      return (small_title + title)
     },
 
     strBuy () {

@@ -102,6 +102,10 @@ import {
         type: Boolean,
         default: true
       },
+      isPopup:{
+        type: Boolean,
+        default:false
+      },
       productCardProps: Object,
       gridsData: {
         type: Array,
@@ -601,10 +605,13 @@ import {
         }
       }
     },
-  
+    mounted(){
+      window.listingImage()
+    },
     created () {
       resetEcomSearch(this)
       this.handlePresetedOptions()
       this.fetchItems()
+      window.listingImage()
     }
   }

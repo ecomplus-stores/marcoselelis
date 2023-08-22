@@ -87,6 +87,11 @@ let marketingStripeStyle = ''
           <button
             type="submit"
             class="apx_search-trigger"
+            id="apx_search-trigger"
+            data-toggle="collapse"
+            data-target="#search-bar"
+            aria-expanded="true"
+            aria-controls="search-bar"
             aria-label="<%= _.dictionary('searchProducts') %>"
           >
             <img src="/assets/search.svg"/>
@@ -150,8 +155,10 @@ let marketingStripeStyle = ''
         </div>
         <% if (apx_header.links) { %>
           <ul class="level_1">
-            <% apx_header.links.forEach(({ url, title, image, list })=> { %>
-              <li class="<%= list ? 'dropdown' : ''%>">
+            <% apx_header.links.forEach(({ url, title, image, list })=> {
+              let mega = list && list[0].item.image ? 'max_menu' : '';
+              %>
+              <li class="<%= list ? 'dropdown' : ''%> <%= mega %>">
                 
                 <a href="<%= url %>" data-image="<%= image ? image : 'empty' %>">
                   <%= title %>
@@ -165,26 +172,45 @@ let marketingStripeStyle = ''
                   </button>
                 <% } %>
                 
-                <% if (list) { %>
-                  <div class="level_2">
-                    <ul class="">
+                <% if (list) { 
+                  
+
+                  
+                  %>
+                  <div class="level_2 <%= mega %>">
+                    <ul class="<%= mega %>">
                       <% list.forEach(({ item })=> { 
                         %>
-                        
-                        <li>
-                          <a href="<%= item.url %>" data-image="<%= item.image ? item.image : 'empty' %>">
-                            <%= item.title %>
-                          </a>
+                        <li class="">
+                          <% if (item.image) { %>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <img src="<%= item.image %>" class="w-100" data-original="<%= item.image %>"/>
+                              </div>
+                              <div class="col-md-6 p-4">
+                          <% } %>
+                              <a href="<%= item.url %>">
+                                <%= item.title %>
+                              </a>
+                              <% if (item.list) { %>
+                                <ul>
+                                <% item.list.forEach(({ item })=> { %>
+                                  <li>
+                                    <a href="<%= item.url %>">
+                                      <%= item.title %>
+                                    </a>
+                                  </li>
+                                <% }) %>
+                                </ul>
+                              <% } %>
+                          <% if (item.image) { %>
+                              </div>  
+                            </div>
+                          <% } %>
                         </li>
                       <% }) %>
                     </ul>
-                    <% if(image || list.find(el => el.image)){ %>
-                    <div class="apx_dropbanner">
-                      <% if (image){ %>
-                      <img src="<%= image %>" data-original="<%= image %>"/>
-                      <% } %>
-                    </div>
-                    <% } %>
+                    
                     
                     
                   </div>
@@ -196,9 +222,42 @@ let marketingStripeStyle = ''
       </div>
     </div>
   </div>
-  <div id="search-bar-mobile" class="d-block d-lg-none">
+
+  <form
+  class="header__search mt-2 mt-md-3 mt-lg-0"
+  id="search-form"
+  action="/search"
+  method="get"
+  autocomplete="off"
+>
+  <div class="d-block">
+    <input
+      type="text"
+      
+      name="term"
+      placeholder="<%= _.dictionary('searchProducts') %>"
+      aria-label="<%= _.dictionary('searchProducts') %>"
+      class="header__search-input form-control"
+      id="search-input"
+      autocomplete="off"
+    >
+    <button
     
+      type="submit"
+      class="header__search-btn"
+      aria-label="<%= _.dictionary('searchProducts') %>"
+    >
+      <img src="/assets/Search-Outline.svg"/>
+    </button>
   </div>
+  <div id="instant-search">
+    <!--
+      `InstantSearch` should be open on input focus:
+      https://developers.e-com.plus/storefront/@ecomplus/storefront-components/docs/InstantSearch.html
+    -->
+  </div>  
+</form>
+
 </header>
 <!--
 <div class="top-bar">
