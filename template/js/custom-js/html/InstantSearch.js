@@ -58,7 +58,8 @@ import {
         history: [],
         totalSearchResults: 0,
         isSearching: false,
-        hasSearched: false
+        hasSearched: false,
+        isVisible_:false
       }
     },
   
@@ -73,6 +74,9 @@ import {
     methods: {
       hide () {
         this.$emit('update:is-visible', false)
+      },
+      show () {
+        this.$emit('update:is-visible', true)
       },
   
       setSearchTerm (term) {
@@ -105,20 +109,23 @@ import {
           .slice(0, 6)
         if (!this.hasSearched) {
           this.hasSearched = true
+          this.$nextTick(() => {
+            if (this.$refs.input) {
+              this.$refs.input.focus()
+            }            
+          })
         }
       },
       
       
     },
 
-    created(){
-        // const toggleButton = document.getElementById('apx_search-trigger');
-        // toggleButton.addEventListener('click', this.$emit("update:is-visible",true));
-       
-            
-        
-        
+    mounted() {
+      $('.apx_search-trigger').click(() => {
+        this.show();
+      });
     },
+    
   
     watch: {
       isVisible: {

@@ -14,7 +14,7 @@ const logo = _.settings.logo
 </head>
 
 <body class="app">
-  <header class="app__header">
+  <!-- <header class="app__header">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-sm-auto mb-2 mb-sm-0">
@@ -49,6 +49,22 @@ const logo = _.settings.logo
         </div>
       </div>
     </div>
+  </header> -->
+
+  <header class="app__header">
+    <div class="container-fluid  py-2">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-auto mb-2 mb-sm-0">
+          <a href="/">
+            <% if (logo && logo.url) { %>
+              <img class="app__logo" src="<%= logo.url %>" alt="<%= logo.alt %>">
+            <% } else { %>
+              <%= _.settings.name || _.store.name %>
+            <% } %>
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main id="spa">
@@ -57,7 +73,7 @@ const logo = _.settings.logo
     </div>
   </main>
 
-  <footer>
+  <!--<footer>
     <div class="app__footer">
       <div class="container-fluid">
         <div class="app__stamps">
@@ -79,7 +95,7 @@ const logo = _.settings.logo
 
       <%- await include('@/layout/inc/ecom-credits') %>
     </div>
-  </footer>
+  </footer>-->
 
   <%- await include('@/json', { _ }) %>
   <%- await include('@/scripts') %>
