@@ -118,37 +118,10 @@ const bannerFields = [
     widget: 'string'
   },
   {
-    label: 'Cor do título',
-    required: false,
-    name: 'title_color',
-    widget: 'color'
-  },
-  {
     label: 'Descrição',
     required: false,
     name: 'description',
     widget: 'string'
-  },
-  {
-    label: 'Cor da descrição',
-    required: false,
-    name: 'description_color',
-    widget: 'color'
-  },
-  {
-    label: 'Cor da Máscara',
-    required: false,
-    name: 'mask_color',
-    widget: 'color'
-  },
-  {
-    label: 'Transparência da Máscara',
-    name: 'mask_opacity',
-    hint: 'De 0 até 10. 0 é transparente e 10 é totalmente opaco.',
-    min: 0,
-    max:10,
-    default:5,    
-    widget: 'number'
   },
   {
     label: 'Posição do conteúdo',
@@ -183,12 +156,7 @@ const bannerFields = [
     name: 'btn_text_color',
     widget: 'color'
   },
-  {
-    label: 'Fundo do botão [Principal]',
-    required: false,
-    name: 'btn_background',
-    widget: 'color'
-  },
+  
   {
     label: 'URL do botão [Principal]',
     required: false,
@@ -200,6 +168,58 @@ const bannerFields = [
     required: false,
     name: 'btn_text_2',
     widget: 'string'
+  },
+  
+  {
+    label: 'URL do botão [Secundário]',
+    required: false,
+    name: 'btn_url_2',
+    widget: 'string'
+  },
+  {
+    label: 'Texto do link',
+    required: false,
+    name: 'link_text',
+    widget: 'string'
+  },
+  {
+    label: 'URL do link',
+    required: false,
+    name: 'link_url',
+    widget: 'string'
+  },
+  {
+    label: 'Cor do título',
+    required: false,
+    name: 'title_color',
+    widget: 'color'
+  },
+  {
+    label: 'Cor da descrição',
+    required: false,
+    name: 'description_color',
+    widget: 'color'
+  },
+  {
+    label: 'Cor da Máscara',
+    required: false,
+    name: 'mask_color',
+    widget: 'color'
+  },
+  {
+    label: 'Transparência da Máscara',
+    name: 'mask_opacity',
+    hint: 'De 0 até 10. 0 é transparente e 10 é totalmente opaco.',
+    min: 0,
+    max:10,
+    default:5,    
+    widget: 'number'
+  },
+  {
+    label: 'Fundo do botão [Principal]',
+    required: false,
+    name: 'btn_background',
+    widget: 'color'
   },
   {
     label: 'Cor do texto do botão [Secundário]',
@@ -214,29 +234,62 @@ const bannerFields = [
     widget: 'color'
   },
   {
-    label: 'URL do botão [Secundário]',
-    required: false,
-    name: 'btn_url_2',
-    widget: 'string'
-  },
-  {
-    label: 'Texto do link',
-    required: false,
-    name: 'link_text',
-    widget: 'string'
-  },
-  {
     label: 'Cor do texto do link',
     required: false,
     name: 'link_text_color',
     widget: 'color'
   },
   {
-    label: 'URL do link',
+    label: 'Cor do título [Mobile]',
     required: false,
-    name: 'link_url',
-    widget: 'string'
+    name: 'title_color_m',
+    widget: 'color'
   },
+  {
+    label: 'Cor da descrição [Mobile]',
+    required: false,
+    name: 'description_color_m',
+    widget: 'color'
+  },
+  {
+    label: 'Cor da Máscara [Mobile]',
+    required: false,
+    name: 'mask_color',
+    widget: 'color'
+  },
+  {
+    label: 'Transparência da Máscara [Mobile]',
+    name: 'mask_opacity_m',
+    hint: 'De 0 até 10. 0 é transparente e 10 é totalmente opaco.',
+    min: 0,
+    max:10,
+    default:5,    
+    widget: 'number'
+  },
+  {
+    label: 'Fundo do botão [Principal] [Mobile]',
+    required: false,
+    name: 'btn_background_m',
+    widget: 'color'
+  },
+  {
+    label: 'Cor do texto do botão [Secundário] [Mobile]',
+    required: false,
+    name: 'btn_text_color_2_m',
+    widget: 'color'
+  },
+  {
+    label: 'Fundo do botão [Secundário] [Mobile]',
+    required: false,
+    name: 'btn_background_2_m',
+    widget: 'color'
+  },
+  {
+    label: 'Cor do texto do link [Mobile]',
+    required: false,
+    name: 'link_text_color_m',
+    widget: 'color'
+  }
 ]
 
 
