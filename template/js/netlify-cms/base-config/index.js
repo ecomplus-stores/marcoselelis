@@ -85,7 +85,39 @@ const spacer = [
     widget: 'select',
     required: false,
     options: ["0","1","2","3","4","5"]
+  },
+  {
+    label: 'Margem Superior [Mobile]',
+    required: true,
+    name: 'margin_top_m',
+    widget: 'select',
+    required: false,
+    options: ["0","1","2","3","4","5"]
   },  
+  {
+    label: 'Margem Inferior [Mobile]',
+    required: true,
+    name: 'margin_bottom_m',
+    widget: 'select',
+    required: false,
+    options: ["0","1","2","3","4","5"]
+  },  
+  {
+    label: 'Espaçamento Superior [Mobile]',
+    required: true,
+    name: 'padding_top_m',
+    widget: 'select',
+    required: false,
+    options: ["0","1","2","3","4","5"]
+  },  
+  {
+    label: 'Espaçamento Inferior [Mobile]',
+    required: true,
+    name: 'padding_bottom_m',
+    widget: 'select',
+    required: false,
+    options: ["0","1","2","3","4","5"]
+  }
 ]
 const bannerFields = [
   {
