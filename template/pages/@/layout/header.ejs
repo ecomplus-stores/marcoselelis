@@ -245,7 +245,7 @@ let marketingStripeStyle = ''
       </div>
     </div>
   </div>
-
+  
   <form
   class="header__search m-0 mt-lg-0"
   id="search-form"
@@ -253,12 +253,12 @@ let marketingStripeStyle = ''
   method="get"
   autocomplete="off"
 >
-  <div class="d-none">
+  <div class="d-md-none">
     <input
       type="text"
       
       name="term"
-      placeholder="<%= _.dictionary('searchProducts') %>"
+      placeholder="Óculos de sol, óculos de gráu..."
       aria-label="<%= _.dictionary('searchProducts') %>"
       class="header__search-input form-control"
       id="search-input"
@@ -270,7 +270,7 @@ let marketingStripeStyle = ''
       class="header__search-btn"
       aria-label="<%= _.dictionary('searchProducts') %>"
     >
-      <img src="/assets/Search-Outline.svg"/>
+      <img src="/assets/search.svg"/>
     </button>
   </div>
   <div id="instant-search">

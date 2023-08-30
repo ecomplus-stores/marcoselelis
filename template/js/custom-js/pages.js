@@ -47,6 +47,12 @@ $('body').on('click', '.product-card_colors button', function(){
     srcset.attr('srcset',src)
 });
 
+if(window.innerWidth < 990){
+    $('.header__search-input').keyup(function(){
+        $('body .search__input').val($(this).val())[0].dispatchEvent(new Event('input'));
+    });
+}
+
 window.listingImage = function(){
     $('.product-card__pictures').each(function(){
         $(this).css('--width', $(this).innerWidth() + 'px')

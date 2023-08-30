@@ -6,7 +6,7 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
 }
 %>
 
-<div id="product-block" class="product-block pt-5 my-4 mb-lg-5">
+<div id="product-block" class="product-block pt-md-5 my-md-4 mb-lg-5">
   <div class="container_90">
     <section
       id="product"
@@ -92,7 +92,7 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
             COD: <%= _.state.sku %>
           </p>
           <% if (_.state.short_description) { %>
-            <p class="product__info mt-3 pt-3 lead">
+            <p class="product__info mt-md-3 pt-3 lead">
               <%= _.state.short_description %>
             </p>
           <% } %>
@@ -194,27 +194,27 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
 
 
 
-    <div class="sections pb-1 pb-sm-2 pb-lg-4 mt-5 pt-5">
-      <%
-      const sku_ = _.state.sku.toLowerCase()
-      const cms_product = (_.cms(`apx_products/${sku_}`))
-      const { sections, customizations } = cms_product
-      if (Array.isArray(sections)) {
-        for (let i = 0; i < sections.length; i++) {
-          const opt = sections[i]
-          // quando houver o arquivo specifications.ejs dentro de sections, você pode remover a condição: && opt.type !== 'specifications'
-          if (opt && opt.enabled !== false) {
-            %>
-            <%- await include(`@/sections/${opt.type}`, { _, opt }) %>
-            <%
-          }
-        }
-      }      
-      %>
-      <div data-customizations="<%= JSON.stringify(customizations) %>"></div>
-    </div>
+    
   </div>
-
+  <div class="sections pb-1 pb-sm-2 pb-lg-4 mt-md-5 pt-5">
+    <%
+    const sku_ = _.state.sku.toLowerCase()
+    const cms_product = (_.cms(`apx_products/${sku_}`))
+    const { sections, customizations } = cms_product
+    if (Array.isArray(sections)) {
+      for (let i = 0; i < sections.length; i++) {
+        const opt = sections[i]
+        // quando houver o arquivo specifications.ejs dentro de sections, você pode remover a condição: && opt.type !== 'specifications'
+        if (opt && opt.enabled !== false) {
+          %>
+          <%- await include(`@/sections/${opt.type}`, { _, opt }) %>
+          <%
+        }
+      }
+    }      
+    %>
+    <div data-customizations="<%= JSON.stringify(customizations) %>"></div>
+  </div>
   
 </div>
 

@@ -48,8 +48,8 @@
         </div>
       </div>
 
-      <div class="customizations_body px-3">
-        <div class="step px-3"
+      <div class="customizations_body px-md-3">
+        <div class="step px-md-3"
         v-for="(item, index) in cms_customizations"
         :key="index"
         :class="cms_customizations_step == index + 1  ? 'current' : ''"
@@ -60,7 +60,7 @@
         </div>
         <div class="option_options">
           
-          <div class="option mb-5"
+          <div class="option mb-md-5 mb-5 mx-3"
           v-for="(item_,index_) in item.item.list"
           :key="index_"
           >
@@ -371,8 +371,12 @@
                           Adicionar ao Carrinho
                         </slot>
                       </button>
+                      
                     </slot>
                   </span>
+                  <a :href='"https://wa.me/5511993243195?text=Olá! Quero comprar o produto *" + body.name + "* com lentes multifocais. Poderiam me ajudar?"' id="multifocais">
+                    Precisa de Lentes Multifocais? <u>Clique Aqui</u>
+                  </a>
                 </component>
               </div>
 
@@ -556,7 +560,7 @@
       leave-active-class="animated fadeOut fast" 
     >
       <div
-        v-show="isStickyBuyVisible"
+        v-show="isStickyBuyVisible && 1 != 1"
         ref="sticky" 
         class="product__sticky"
       >
