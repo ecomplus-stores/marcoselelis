@@ -17,7 +17,7 @@
       "content_order": "before_image",
       "link_url": "/",
       "btn_url": "/",
-      "content_position": "center_center",
+      "content_position": "bottom_left",
       "btn_text": "Principal",
       "padding": "px-0",
       "btn_background": "#000000",
