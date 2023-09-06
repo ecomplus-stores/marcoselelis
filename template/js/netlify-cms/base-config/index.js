@@ -286,7 +286,7 @@ const bannerFields = [
   {
     label: 'Cor da Máscara [Mobile]',
     required: false,
-    name: 'mask_color',
+    name: 'mask_color_m',
     widget: 'color'
   },
   {
