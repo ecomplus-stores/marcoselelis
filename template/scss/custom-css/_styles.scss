@@ -10,6 +10,7 @@
 
     // --f-family-1: "Playfair Display";
     --f-family-1: "Raleway";
+    --f-family-transform: uppercase;
     --f-family-2: "Mulish";
 
     --banner_spacer: 2rem;
@@ -191,6 +192,7 @@ header#header{
         h4{
             font-size: var(--f-size-4);
             font-family: var(--f-family-1);
+            text-transform: var(--f-family-transform);
             font-weight: bold;
             max-width: 100%;
             width: 300px;
@@ -294,6 +296,7 @@ header#header{
     h2{
         font-size: var(--f-size-2);
         font-family: var(--f-family-1);
+        text-transform: var(--f-family-transform);
         font-weight: normal;
         margin-bottom: 1.5rem;
     }
@@ -324,7 +327,7 @@ header#header{
     font-size:var(--f-size-2);
     font-family:var(--f-family-1), sans-serif;
     font-weight:normal;
-    text-transform: initial;
+    text-transform: var(--f-family-transform);
 }
 .apx_banner .apx_banner-content.inside_image h3{
     font-size:var(--f-size-1);
@@ -580,6 +583,7 @@ header#header{
     h1.product__name{
         font-size: var(--f-size-1);
         font-family: var(--f-family-1);
+        text-transform: var(--f-family-transform);
         color: #000;
     }
     .product__info.lead{
@@ -782,6 +786,7 @@ header#header{
                 }
                 h4{
                     font-family: var(--f-family-1);
+                    text-transform: var(--f-family-transform);
                     font-size: var(--f-size-5);
                 }
             }
@@ -907,6 +912,7 @@ header#header{
         background: #fff;
         border-bottom: 1px solid #f2f2f2;
         font-family: var(--f-family-1);
+        text-transform: var(--f-family-transform);
         font-size: var(--f-size-5);
         padding: 1rem 1.5rem;
         .close{
@@ -1136,6 +1142,7 @@ header#header{
 .page-title__head{
     h1{
         font-family: var(--f-family-1);
+        text-transform: var(--f-family-transform);
         color: #131313;
         font-size: var(--f-size-1);
     }
@@ -1203,6 +1210,7 @@ body{
                     border-bottom: 1px solid #000;
                     border-radius: 0;
                     font-family: var(--f-family-1);
+                    text-transform: var(--f-family-transform);
                     font-size: var(--f-size-2);
                     color: #000;
                     padding: 0;
@@ -1409,6 +1417,7 @@ background: #131313;
             .cart-item__thumb{width: 240px;}
             .cart-item__name a{
                 font-family: var(--f-family-1);
+                text-transform: var(--f-family-transform);
                 font-size: var(--f-size-4);
                 color: #000;
                 text-decoration: none;
@@ -1449,6 +1458,7 @@ background: #131313;
         color: #000;
         font-size: var(--f-size-2);
         font-family: var(--f-family-1);
+        text-transform: var(--f-family-transform);
         text-align: center;
     }
     #cart{
@@ -1781,6 +1791,7 @@ background: #131313;
         width: 320px;
         background: #131313;
         height: 100vh;
+        z-index:10
     }
     #apx-menu.active{left: 0;}
     #apx-menu{
@@ -2066,6 +2077,59 @@ background: #131313;
                 }
                 
             }
+        }
+    }
+}
+
+
+.apx_banner{
+    .has_mask{
+        --mask_opacity: .5;
+        --mask_color: #000;
+        --mask_opacity_m: 1;
+        --mask_color_m: ;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: var(--mask_color);
+        opacity: var(--mask_opacity);
+        height: 100%;
+        pointer-events: none;
+    }
+    h3{
+        color: var(--color);
+    }
+    p{
+        color: var(--color);
+    }
+    a.pri{
+        background-color: var(--background-color);
+        color: var(--color);
+    }
+    a.sec{
+        color: var(--color);
+    }
+}
+
+@media(max-width:990px){
+    .apx_banner{
+        .has_mask{
+            background: var(--mask_color_m);
+            opacity: var(--mask_opacity_m);            
+        }
+        h3{
+            color: var(--color_m);
+        }
+        p{
+            color: var(--color_m);
+        }
+        a.pri{
+            background-color: var(--background-color_m);
+            color: var(--color_m);
+        }
+        a.sec{
+            color: var(--color_m);
         }
     }
 }

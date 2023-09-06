@@ -244,7 +244,7 @@ const bannerFields = [
     hint: 'De 0 até 10. 0 é transparente e 10 é totalmente opaco.',
     min: 0,
     max:10,
-    default:5,    
+    default:0,    
     widget: 'number'
   },
   {
@@ -295,7 +295,7 @@ const bannerFields = [
     hint: 'De 0 até 10. 0 é transparente e 10 é totalmente opaco.',
     min: 0,
     max:10,
-    default:5,    
+    default:0,    
     widget: 'number'
   },
   {

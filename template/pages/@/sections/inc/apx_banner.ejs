@@ -59,21 +59,21 @@ if (opt.img) {
           >
         <% } %>
       </picture>   
-        <% if (opt.mask_opacity && opt.mask_color){ %>
+        
         <span
-          style="--mask_opacity:<%= opt.mask_opacity %>; --mask_color: <%= opt.mask_color %>;"
+          style="--mask_opacity:<%= opt.mask_opacity/10 %>; --mask_color: <%= opt.mask_color %>; --mask_opacity_m:<%= opt.mask_opacity_m / 10 %>; --mask_color_m: <%= opt.mask_color_m %>;"
           class="has_mask">
         </span>
-        <% } %>   
+        
         
     </a>
       <% if (opt.btn_text || opt.title || opt.description){ %>
         <div class="apx_banner-content mx-5 <%= opt.content_order %> <%= opt.content_position %> animate__animated animate__<%= opt.animate %> ">
         <% if (opt.title) {%>
-          <h3 class="mb-md-5" style="color:<%= opt.title_color %>;"><%- opt.title %></h3>
+          <h3 class="mb-md-5" style="--color:<%= opt.title_color %>;--color_m:<%= opt.title_color %>;"><%- opt.title %></h3>
         <% } %>    
         <% if (opt.description) {%>
-          <p class="mb-md-5" style="color:<%= opt.description_color %>;"><%- opt.description %></p>
+          <p class="mb-md-5" style="--color:<%= opt.description_color %>;--color_m:<%= opt.description_color %>;"><%- opt.description %></p>
         <% } %> 
 
           <div class="buttons d-flex align-items-center">
@@ -81,27 +81,27 @@ if (opt.img) {
               <% 
               let style = "";
               if(opt.btn_background_2){
-                style = style + '--background-color:' + opt.btn_background_2 + ';';
+                style = style + '--background-color:' + opt.btn_background_2 + ';'+ '--background-color_m:' + opt.btn_background_2_m + ';';
               }
               if(opt.btn_text_color_2){
-                style = style + 'color:' + opt.btn_text_color_2 + '; border:1px solid ' + opt.btn_text_color_2;
+                style = style + '--color:' + opt.btn_text_color_2 + '; border:1px solid;'+ '--color_m:' + opt.btn_text_color_2_m + ';';
               }
               
               %>
-              <a style="<%= style %>" href="<%= opt.btn_url_2 || 'javascript:;' %>"><%- opt.btn_text_2 %></a>
+              <a style="<%= style %>" class="sec" href="<%= opt.btn_url_2 || 'javascript:;' %>"><%- opt.btn_text_2 %></a>
             <% } %>      
             <% if (opt.btn_text) {%>
               <% 
               let style = "";
               if(opt.btn_background){
-                style = style + 'background-color:' + opt.btn_background + ';';
+                style = style + '--background-color:' + opt.btn_background + ';';
               }
               if(opt.btn_text_color){
-                style = style + 'color:' + opt.btn_text_color + ';';
+                style = style + '--color:' + opt.btn_text_color + ';';
               }
               
               %>
-              <a style="<%= style %>" href="<%= opt.btn_url || 'javascript:;' %>"><%- opt.btn_text %></a>
+              <a style="<%= style %>" class="pri" href="<%= opt.btn_url || 'javascript:;' %>"><%- opt.btn_text %></a>
             <% } %>      
           </div>
           
