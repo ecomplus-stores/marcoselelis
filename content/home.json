@@ -19,7 +19,7 @@
       "btn_url": "/",
       "content_position": "center_left",
       "btn_text": "Principal",
-      "padding": "px-0",
+      "padding": "px-3",
       "btn_background": "#000000",
       "link_text": "Aqui um link CTA",
       "btn_text_color": "#ffffff",
