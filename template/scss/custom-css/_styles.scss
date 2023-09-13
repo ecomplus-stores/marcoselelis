@@ -1,12 +1,20 @@
 // Add your custom CSS here.
 :root{
-    --f-size-1: 53.4px;
-    --f-size-2: 42.7px;
-    --f-size-3: 27.3px;
-    --f-size-4: 21.9px;
-    --f-size-5: 17.5px;
-    --f-size-6: 14px;
-    --f-size-7: 11.2px;
+    // --f-size-1: 53.4px;
+    // --f-size-2: 42.7px;
+    // --f-size-3: 27.3px;
+    // --f-size-4: 21.9px;
+    // --f-size-5: 17.5px;
+    // --f-size-6: 14px;
+    // --f-size-7: 11.2px;
+
+    --f-size-1: 48.83px;
+    --f-size-2: 39px;
+    --f-size-3: 31.25px;
+    --f-size-4: 25px;
+    --f-size-5: 20px;
+    --f-size-6: 16px;
+    --f-size-7: 12.8px;
 
     // --f-family-1: "Playfair Display";
     --f-family-1: "Raleway";
@@ -15,6 +23,32 @@
 
     --banner_spacer: 2rem;
 }
+
+@media (min-width: 1000px)  {
+    :root{
+        --f-size-1: 42.7px;
+        --f-size-2: 34.2px;
+        --f-size-3: 27.34px;
+        --f-size-4: 21.9px;
+        --f-size-5: 17.5px;
+        --f-size-6: 14px;
+        --f-size-7: 11.2px;
+    }
+}
+
+@media (min-width: 1700px)  {
+    :root{
+        --f-size-1: 48.83px;
+        --f-size-2: 39px;
+        --f-size-3: 31.25px;
+        --f-size-4: 25px;
+        --f-size-5: 20px;
+        --f-size-6: 16px;
+        --f-size-7: 12.8px;
+    }
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;800&display=swap');
