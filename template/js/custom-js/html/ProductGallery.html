@@ -35,7 +35,7 @@
       +{{ localPictures.length - 4 }}
     </button>
   </div>
-
+  
   <div class="gallery__stage">
     <div
       class="glide"
@@ -57,7 +57,7 @@
                   v-if="!elFirstPicture"
                   class="gallery__big-image"
                   :style="zoomLinkStyle"
-                  :src="getImg(picture, null, 'big')"
+                  :src="getImg(picture, null, 'zoom')"
                 />
                 <div
                   v-else
@@ -70,7 +70,7 @@
               <a-picture
                 v-else
                 class="gallery__big-image"
-                :src="getImg(picture, null, 'big')"
+                :src="getImg(picture, null, 'zoom')"
               />
             </div>
           </li>

@@ -684,7 +684,7 @@ export default {
   },
 
   created () {
-    this.cms_customizations = [...($('[data-customizations]').length > 0 ? JSON.parse($('[data-customizations]').attr('data-customizations')) : [])]
+    this.cms_customizations = [...($('[data-customizations]').length > 0 && $('[data-customizations]').attr('data-customizations') != '' ? JSON.parse($('[data-customizations]').attr('data-customizations')) : [])]
     
     const presetQntToBuy = () => {
       this.qntToBuy = this.body.min_quantity || 1
