@@ -114,6 +114,12 @@
                   "widget": "string"          
                 },
                 {
+                  "label": "Exibir no mobile?",
+                  "name": "view_on_mobile",
+                  "widget": "boolean",
+                  "default": "true"          
+                },                
+                {
                   "label":"Itens da Lista",
                   "name":"list",
                   "widget":"list",

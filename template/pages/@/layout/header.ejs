@@ -28,28 +28,35 @@ let marketingStripeStyle = ''
 
 <div id="overlay" class="fade"></div>
 <header class="header py-0 px-0" id="header">
-  <div class="container-fluid px-md-5 px-0">
-    <div class="row align-items-center py-md-4 py-3 px-0 px-md-0 ">
-      <div class="col-md col-12  d-md-block d-none">
-        <div class="apx_top_cta">
-        <% if (header.marketing_stripe) { %>
-          <% if (header.marketing_stripe.text) { %>
-            <% if (header.marketing_stripe.link) { %>
-              <a
-                style="<%= marketingStripeStyle %>"
-                href="<%= header.marketing_stripe.link %>"
-              >
-                <%- header.marketing_stripe.text %>
-              </a>
-            <% } else { %>
-              <div class="top-bar__countdown" style="<%= marketingStripeStyle %>">
-                <%- header.marketing_stripe.text %>
-              </div>
+  <div class="top_cta py-3">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col text-center">
+          <div class="apx_top_cta">
+          <% if (header.marketing_stripe) { %>
+            <% if (header.marketing_stripe.text) { %>
+              <% if (header.marketing_stripe.link) { %>
+                <a
+                  href="<%= header.marketing_stripe.link %>"
+                >
+                  <%- header.marketing_stripe.text %>
+                </a>
+              <% } else { %>
+                <div class="top-bar__countdown">
+                  <%- header.marketing_stripe.text %>
+                </div>
+              <% } %>
             <% } %>
           <% } %>
-        <% } %>
+          </div>
         </div>
       </div>
+    </div>
+    
+  </div>
+  <div class="container-fluid px-md-5 px-0">
+    <div class="row align-items-center py-md-4 py-3 px-0 px-md-0 ">
+      
       <div class="col-md col d-block d-md-none" id="apx-mobile-functions">
         <div class="d-flex">
           <button type="button" onclick="$('#apx-menu').toggleClass('active')">                        
@@ -61,6 +68,125 @@ let marketingStripeStyle = ''
         <a href="/">
           <%- await include('@/layout/inc/logo', { _ }) %>
         </a>
+      </div>
+      <div class="col">
+        <div class="container-fluid">
+          <div class="row justify-content-start">
+            <div class="col-md" id="apx-menu">
+              <div class="d-flex justify-content-between align-items-center d-md-none apx-menu-header mx-0 py-3">
+                <div class="col">
+                  <button type="button" onclick="$('#apx-menu').toggleClass('active')" class="custom_close">            
+                    
+                  </button>
+                </div>
+                <div class="col menu-logo">
+                    <%- await include('@/layout/inc/logo', { _ }) %>
+                </div>
+                <div class="col"></div>
+              </div>
+              
+              
+              <% if (apx_header.links) { %>
+                <div class="d-block d-md-none">
+                  <ul class="level_1">
+                    <% apx_header.links.forEach(({ url, title, image, list })=> { %>
+                      <li class="">                
+                        <a href="<%= url %>" data-image="<%= image ? image : 'empty' %>">
+                          <%= title %>
+                        </a>
+                      </li>
+                    <% }) %>
+                    <li class="divider"></li>
+                    <li>
+                      <a
+                        href="/page/onde-encontrar"
+                        title="Onde Encontrar"
+                      >
+                        Onde Encontrar
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        id="user-button"
+                        role="button"
+                        href="/app/#/account/"
+                        title="<%= _.dictionary('myAccount') %>"
+                      >
+                        Entrar
+                      </a>
+                    </li>
+                  
+                </div>
+                <div class="d-none d-md-block">
+                <ul class="level_1">
+                  <% apx_header.links.forEach(({ url, title, image, list })=> {
+                    let mega = list && list[0].item.image ? 'max_menu' : '';
+                    %>
+                    <li class="<%= list ? 'dropdown' : ''%> <%= mega %>">
+                      
+                      <a href="<%= url %>" data-image="<%= image ? image : 'empty' %>">
+                        <%= title %>
+                      </a>
+                      <% if (list) { %>
+                        <button type="button" onclick="$(this).closest('li').toggleClass('open')">                                                
+                          <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 1L7 7L13 1" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>  
+                        </button>
+                      <% } %>
+                      
+                      <% if (list) { 
+                        
+      
+                        
+                        %>
+                        <div class="level_2 <%= mega %>">
+                          <ul class="<%= mega %>">
+                            <% list.forEach(({ item })=> { 
+                              %>
+                              <li class="">
+                                <% if (item.image) { %>
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <img src="<%= item.image %>" class="w-100" data-original="<%= item.image %>"/>
+                                    </div>
+                                    <div class="col-md-6 p-4">
+                                <% } %>
+                                    <a href="<%= item.url %>">
+                                      <%= item.title %>
+                                    </a>
+                                    <% if (item.list) { %>
+                                      <ul>
+                                      <% item.list.forEach(({ item })=> { %>
+                                        <li>
+                                          <a href="<%= item.url %>">
+                                            <%= item.title %>
+                                          </a>
+                                        </li>
+                                      <% }) %>
+                                      </ul>
+                                    <% } %>
+                                <% if (item.image) { %>
+                                    </div>  
+                                  </div>
+                                <% } %>
+                              </li>
+                            <% }) %>
+                          </ul>
+                          
+                          
+                          
+                        </div>
+                      <% } %>
+                    </li>
+                  <% }) %>
+                </ul>
+                </div>
+              <% } %>
+              
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-md col justify-content-end" id="apx-functions">       
         <div
@@ -80,7 +206,7 @@ let marketingStripeStyle = ''
           >
             <img src="/assets/search.svg"/>
           </button>
-          <span class="divider d-md-block d-none"></span>
+          <!-- <span class="divider d-md-block d-none"></span> -->
           <a
             href="/page/onde-encontrar"
             title="Onde Encontrar"
@@ -88,7 +214,7 @@ let marketingStripeStyle = ''
           >
             Onde Encontrar
           </a>
-          <span class="divider d-md-block d-none"></span>
+          <!-- <span class="divider d-md-block d-none"></span> -->
           <a
             id="user-button"
             class="btn btn-lg d-md-block d-none"
@@ -98,7 +224,7 @@ let marketingStripeStyle = ''
           >
             Entrar
           </a>
-          <span class="divider d-md-block d-none"></span>
+          <!-- <span class="divider d-md-block d-none"></span> -->
           <a
             id="cart-button"
             class="btn btn-lg"
@@ -106,7 +232,7 @@ let marketingStripeStyle = ''
             href="/app/#/cart"
             title="<%= _.dictionary('openCart') %>"
           >
-            <img src="/assets/cart.svg"/>
+            <img src="/assets/cart_2.svg"/>
             <span id="cart-count" class="badge badge-primary"></span>
           </a>
         </div>
@@ -127,124 +253,7 @@ let marketingStripeStyle = ''
     </div>
   </div>   
   
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-md" id="apx-menu">
-        <div class="d-flex justify-content-between align-items-center d-md-none apx-menu-header mx-0 py-3">
-          <div class="col">
-            <button type="button" onclick="$('#apx-menu').toggleClass('active')" class="custom_close">            
-              
-            </button>
-          </div>
-          <div class="col menu-logo">
-              <%- await include('@/layout/inc/logo', { _ }) %>
-          </div>
-          <div class="col"></div>
-        </div>
-        
-        
-        <% if (apx_header.links) { %>
-          <div class="d-block d-md-none">
-            <ul class="level_1">
-              <% apx_header.links.forEach(({ url, title, image, list })=> { %>
-                <li class="">                
-                  <a href="<%= url %>" data-image="<%= image ? image : 'empty' %>">
-                    <%= title %>
-                  </a>
-                </li>
-              <% }) %>
-              <li class="divider"></li>
-              <li>
-                <a
-                  href="/page/onde-encontrar"
-                  title="Onde Encontrar"
-                >
-                  Onde Encontrar
-                </a>
-              </li>
-              <li>
-                <a
-                  id="user-button"
-                  role="button"
-                  href="/app/#/account/"
-                  title="<%= _.dictionary('myAccount') %>"
-                >
-                  Entrar
-                </a>
-              </li>
-            
-          </div>
-          <div class="d-none d-md-block">
-          <ul class="level_1">
-            <% apx_header.links.forEach(({ url, title, image, list })=> {
-              let mega = list && list[0].item.image ? 'max_menu' : '';
-              %>
-              <li class="<%= list ? 'dropdown' : ''%> <%= mega %>">
-                
-                <a href="<%= url %>" data-image="<%= image ? image : 'empty' %>">
-                  <%= title %>
-                </a>
-                <% if (list) { %>
-                  <button type="button" onclick="$(this).closest('li').toggleClass('open')">                    
-                      <svg width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <line x1="0.353553" y1="0.646447" x2="3.35355" y2="3.64645" stroke="black"/>
-                      <line y1="-0.5" x2="4.24264" y2="-0.5" transform="matrix(-0.707107 0.707107 0.707107 0.707107 6 1)" stroke="black"/>
-                      </svg>  
-                  </button>
-                <% } %>
-                
-                <% if (list) { 
-                  
-
-                  
-                  %>
-                  <div class="level_2 <%= mega %>">
-                    <ul class="<%= mega %>">
-                      <% list.forEach(({ item })=> { 
-                        %>
-                        <li class="">
-                          <% if (item.image) { %>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <img src="<%= item.image %>" class="w-100" data-original="<%= item.image %>"/>
-                              </div>
-                              <div class="col-md-6 p-4">
-                          <% } %>
-                              <a href="<%= item.url %>">
-                                <%= item.title %>
-                              </a>
-                              <% if (item.list) { %>
-                                <ul>
-                                <% item.list.forEach(({ item })=> { %>
-                                  <li>
-                                    <a href="<%= item.url %>">
-                                      <%= item.title %>
-                                    </a>
-                                  </li>
-                                <% }) %>
-                                </ul>
-                              <% } %>
-                          <% if (item.image) { %>
-                              </div>  
-                            </div>
-                          <% } %>
-                        </li>
-                      <% }) %>
-                    </ul>
-                    
-                    
-                    
-                  </div>
-                <% } %>
-              </li>
-            <% }) %>
-          </ul>
-          </div>
-        <% } %>
-        
-      </div>
-    </div>
-  </div>
+  
   
   <form
   class="header__search m-0 mt-lg-0"

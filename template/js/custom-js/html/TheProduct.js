@@ -383,12 +383,13 @@ export default {
       // console.log(variationId)
 
       let price = this.body.price
-      //console.log('current',this.current_customization)
+      console.log('current',this.current_customization)
       for (const item of this.current_customization) {
         
         const value = Object.values(item)[0].value;
         price += value;
       }
+      console.log(this.body.price, price)
       //console.log(this.body)
       return price.toLocaleString('pt-br', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}) 
     },

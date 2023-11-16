@@ -199,7 +199,11 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
   <div class="sections pb-1 pb-sm-2 pb-lg-4 mt-md-5 pt-5">
     <%
     const sku_ = _.state.sku.toLowerCase()
-    const cms_product = (_.cms(`apx_products/${sku_}`))
+    let cms_product = (_.cms(`apx_products/${sku_}`))
+    console.log(cms_product)
+    if(Object.keys(cms_product).length === 0){
+      cms_product = (_.cms(`apx_products/default`))
+    }
     const { sections, customizations } = cms_product
     if (Array.isArray(sections)) {
       for (let i = 0; i < sections.length; i++) {
