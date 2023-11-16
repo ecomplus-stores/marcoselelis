@@ -18,6 +18,7 @@
       "link_url": "/",
       "btn_url": "/",
       "content_position": "bottom_right",
+      "mask_color": "#000000",
       "btn_text": "MASCULINO",
       "padding": "px-0",
       "btn_background": "#ffffff",
@@ -27,44 +28,32 @@
       "mask_opacity": 2,
       "title": "Spring-Summer<br><b>2023 HERA</b>",
       "padding_bottom": "0",
-      "mask_color" : "#000000",
-      "mask_color_m" : "#000000",
       "type": "apx_responsive-banner",
       "margin_bottom": "0",
       "title_color": "#ffffff",
       "description": "",
+      "mask_color_m": "#000000",
       "btn_url_2": "/"
     },
     {
-      "description_color": "#848484",
+      "type": "apx_banners-grid",
       "container": "container_90",
-      "animate": "fadeIn",
-      "btn_text_2": "Secundário",
-      "img": "/img/uploads/mb1.png",
-      "btn_background_2": "#ffffff",
-      "margin_top": "5",
-      "mobile_img": "/img/uploads/mb1.png",
-      "mask_opacity_m": 2,
-      "padding_top": "5",
-      "btn_text_color_2": "#000000",
-      "content_order": "right_image",
-      "content_position": "center_left",
-      "btn_text": "Principal",
-      "padding": "px-0",
-      "btn_background": "#000000",
-      "link_text": "Aqui um link relacionado aos CTAs ",
-      "btn_text_color": "#ffffff",
-      "link_text_color": "#000000",
-      "mask_opacity": 0,
-      "title": "Designs icônicos  e qualidade excepcional",
-      "padding_bottom": "5",
-      "type": "apx_responsive-banner",
-      "margin_bottom": "5",
-      "title_color": "#000000",
-      "description": "Explore nossa coleção exclusiva e encontre o par de óculos que reflete sua personalidade"
+      "banners": [
+        {
+          "img": "/img/uploads/card-2.png",
+          "mask_opacity_m": 0,
+          "content_order": "inside_image",
+          "content_position": "center_center",
+          "mask_color": "#000000",
+          "btn_background": "#ffffff",
+          "btn_text_color": "#000000",
+          "mask_opacity": 5,
+          "title": "Gold",
+          "title_color": "#ffffff"
+        }
+      ],
+      "padding": "px-0"
     },
-    
-    
     {
       "carrossel_sm": "Sim",
       "container": "container_90",
@@ -91,6 +80,5 @@
       "list": "description_last",
       "carrossel_md": "Sim"
     }
-    
   ]
 }
