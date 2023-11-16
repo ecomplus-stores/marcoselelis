@@ -50,6 +50,18 @@
           "mask_opacity": 5,
           "title": "Gold",
           "title_color": "#ffffff"
+        },
+        {
+          "img": "/img/uploads/card-1.png",
+          "mask_opacity_m": 0,
+          "content_order": "inside_image",
+          "content_position": "center_center",
+          "mask_color": "#000000",
+          "btn_background": "#ffffff",
+          "btn_text_color": "#000000",
+          "mask_opacity": 0,
+          "title": "Classic",
+          "title_color": "#ffffff"
         }
       ],
       "padding": "px-0"
