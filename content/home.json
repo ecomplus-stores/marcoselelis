@@ -67,6 +67,24 @@
       "padding": "px-0"
     },
     {
+      "type": "apx_banners-grid",
+      "container": "container_90",
+      "banners": [
+        {
+          "img": "/img/uploads/card-3.png",
+          "mask_opacity_m": 0,
+          "content_order": "inside_image",
+          "content_position": "center_center",
+          "btn_background": "#ffffff",
+          "btn_text_color": "#000000",
+          "mask_opacity": 0,
+          "title": "Vision",
+          "title_color": "#ffffff"
+        }
+      ],
+      "padding": "px-0"
+    },
+    {
       "carrossel_sm": "Sim",
       "container": "container_90",
       "products": [
