@@ -31,32 +31,44 @@
       data-carrossel_arrows_sm="<%= opt.carrossel_arrows_sm %>"
      >
      <div class="<%= opt.container %> <%= opt.padding_sm %> <%= opt.padding_md %> pb-5">
-        <%
-            if(opt.title){
-                %>
-                    <div class="apx_section-title text-center">
-                    <%
-                    if(opt.list != "description_last"){
-                        %>
-                        <small class="text-uppercase"><%- opt.description %></small>
-                        <%
-                    }
-                    %>
-                        <h2 class="text-bold text-uppercase"><%- opt.title %></h2>
-                    <%
-                    if(opt.list == "description_last"){
-                        %>
-                        <small class="text-uppercase"><%- opt.description %></small>
-                        <%
-                    }
-                    %>
-                    </div>
+        <div class="row align-items-start">
+            <div class="col">
                 <%
-            }
-        %>
-        <div class="row list mx-0">        
+                    if(opt.title){
+                        %>
+                            <div class="apx_section-title text-center">
+                            <%
+                            if(opt.list != "description_last"){
+                                %>
+                                <small class="text-uppercase"><%- opt.description %></small>
+                                <%
+                            }
+                            %>
+                                <h2 class="text-bold text-uppercase"><%- opt.title %></h2>
+                            <%
+                            if(opt.list == "description_last"){
+                                %>
+                                <small class="text-uppercase"><%- opt.description %></small>
+                                <%
+                            }
+                            %>
+                            </div>
+                        <%
+                    }
+                %>
+            </div>
+            <% if (opt.btn_text && opt.btn_link) {%>
+            <div class="col-auto">
+                <a class="apx_title_btn_link d-block py-2 px-3" href="<%= opt.btn_link %>">
+                    <%- opt.btn_text %>
+                </a>
+        
+            </div>
+            <% } %>
+        </div>
+        <div class="row list <%= opt.padding %>">        
             <% for (let i = 0; i < items.length; i++) { %>
-              <div class="col-md-<%= 12 / opt.num_col_md  %> col-sm-<%= 12 / opt.num_col_sm  %> <%= opt.padding_md %> <%= opt.padding_sm %> my-4">
+              <div class="col-md-<%= 12 / opt.num_col_md  %> col-sm-<%= 12 / opt.num_col_sm  %> <%= opt.padding %> <%= opt.padding_sm %> my-4">
                 <%- await include('@/sections/inc/product-item', {
                   _, opt: { item: items[i] }
                 }) %>

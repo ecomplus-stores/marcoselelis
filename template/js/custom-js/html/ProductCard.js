@@ -112,17 +112,18 @@ export default {
     },
 
     name () {
-      let small_text = ['Óculos Solar','Óculos de Grau'];
-      let title = getName(this.body);
-      let small_title = "";
-      for(let i = 0; i <  small_text.length; i++){
-        if(title.includes(small_text[i])){
-          title = title.replace(small_text[i],'');
-          small_title = "<small>"+ small_text[i] +"</small>"
-        }
-      }
+      // let small_text = ['Óculos Solar','Óculos de Grau'];
+      // let title = getName(this.body);
+      // let small_title = "";
+      // for(let i = 0; i <  small_text.length; i++){
+      //   if(title.includes(small_text[i])){
+      //     title = title.replace(small_text[i],'');
+      //     small_title = "<small>"+ small_text[i] +"</small>"
+      //   }
+      // }
       //console.log(title, small_text, small_title)
-      return (small_title + title)
+      // return (small_title + title)
+      return getName(this.body)
     },
 
     strBuy () {

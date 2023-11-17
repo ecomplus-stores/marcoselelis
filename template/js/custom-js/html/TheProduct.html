@@ -224,7 +224,29 @@
           </div>
 
           <template v-else>
-            
+            <slot name="prices">
+              <p class="product__prices mt-3">
+                <a-prices
+                  :product="ghostProductForPrices"
+                  :is-literal="true"
+                  :is-big="true"
+                  @fix-price="price => fixedPrice = price"
+                />
+                <slot
+                  name="discount-tag"
+                  v-bind="{ discount }"
+                  v-if="1 != 1"
+                >
+                  <span
+                    v-if="discount > 0"
+                    class="product__discount"
+                  >
+                    {{ i19discountOf }}
+                    <strong>{{ discount }}%</strong>
+                  </span>
+                </slot>
+              </p>
+            </slot>
 
             <slot
               name="variations"
@@ -274,29 +296,7 @@
                 >
               </div>
             </slot>
-            <slot name="prices">
-              <p class="product__prices mt-3 pt-3">
-                <a-prices
-                  :product="ghostProductForPrices"
-                  :is-literal="true"
-                  :is-big="true"
-                  @fix-price="price => fixedPrice = price"
-                />
-                <slot
-                  name="discount-tag"
-                  v-bind="{ discount }"
-                  v-if="1 != 1"
-                >
-                  <span
-                    v-if="discount > 0"
-                    class="product__discount"
-                  >
-                    {{ i19discountOf }}
-                    <strong>{{ discount }}%</strong>
-                  </span>
-                </slot>
-              </p>
-            </slot>
+            
 
             <div
               v-if="isKit"

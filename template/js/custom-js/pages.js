@@ -64,6 +64,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     $('.category-banner + .page-title').appendTo('.hero-banner.category-banner')
 });
+
+if($('#page-products').length > 0){
+    $('.sticky').css('--header-vh', $('header#header').innerHeight() + 'px');
+
+    $('[data-tab]').click(function(){
+        let tab = $(this).attr('data-tab');
+        $('._'+tab).toggleClass('visible')
+    })
+}
+
 window.addEventListener('load', function() {
     window.listingImage();
 });

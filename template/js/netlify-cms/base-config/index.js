@@ -967,8 +967,64 @@ export default options => {
       getExtraPages(options),
       getWidgets(options),
       {
+        name: 'apx_products_content',        
+        label: '[alpix.dev] - Produtos - Abas de Conteúdo',
+        description: 'Configure as opções disponíveis para personalização e sugestões de produtos.',
+        folder: `${options.baseDir}content/apx_products_content`,
+        extension: 'json',
+        create: true,
+        slug: '{{slug}}',
+        fields: [
+          {
+            label: "Título do Registro",
+            hint:"Campo apenas informativo.",
+            name: "title",
+            widget: "string"          
+          }, 
+          {
+            label: 'Identificador [SKU] [Categoria] ou [default]',
+            name: 'identificador',
+            widget: 'select',
+                multiple: true,
+                options: [
+                  ...options.state.routes
+                  .filter(({ sku }) => typeof sku === 'string')
+                  .map(({ sku }) => ({
+                    label: 'Produto - ' + sku,
+                    value: sku
+                  })),
+                  ...options.state.routes
+                  .filter(el => el.resource === 'categories')
+                  .map((el) => ({
+                    label: 'Categoria - ' + el.name,
+                    value: 'cat_'+el._id
+                  }))
+                ]                
+          }, 
+          {
+            label:"Abas de Conteúdo",
+            name:"list",
+            widget:"list",
+            required:false,
+            fields: [
+              {
+                label: "Título",
+                name: "title",
+                widget: "string"          
+              }, 
+              {
+                label: "Conteúdo",
+                name: "content",
+                widget: "markdown",
+                required:false,          
+              }              
+            ]
+          },
+        ]
+      },
+      {
         name: 'apx_products',
-        label: '[alpix.dev] - Produtos',
+        label: '[alpix.dev] - Produtos - Personalização',
         description: 'Conteúdo específico das páginas de produto',
         folder: `${options.baseDir}content/apx_products`,
         extension: 'json',
@@ -1049,61 +1105,61 @@ export default options => {
               } 
             ]
           },
-          {
-            label: 'Seções',
-            name: 'sections',
-            required: false,
-            widget: 'list',
-            types: [  
-              {
-                label: 'Especificações',
-                name: 'specifications',
-                widget: 'object',
-                fields: [
-                {
-                  label: 'Exibir especificações',
-                  name: 'enabled',
-                  widget: 'boolean',
-                  default: true
-                },
-                {
-                  label: 'Título',
-                  name: 'title',
-                  widget: 'string',
-                  hint: '',
-                  required: false
-                },
-                {
-                  label: 'Descrição',
-                  name: 'description',
-                  widget: 'string',
-                  hint: '',
-                  required: false
-                },
-                {
-                  label: 'Texto CTA',
-                  name: 'cta_text',
-                  widget: 'string',
-                  hint: '',
-                  required: false
-                },
-                {
-                  label: 'Link CTA',
-                  name: 'cta_url',
-                  widget: 'string',
-                  hint: '',
-                  required: false
-                },
-                {
-                  label: 'Imagem',
-                  name: 'image',
-                  widget: 'image',
-                  required:false,          
-                }
-                ]
-              }
-            ].concat(options.sections)
-          }
+          // {
+          //   label: 'Seções',
+          //   name: 'sections',
+          //   required: false,
+          //   widget: 'list',
+          //   types: [  
+          //     {
+          //       label: 'Especificações',
+          //       name: 'specifications',
+          //       widget: 'object',
+          //       fields: [
+          //       {
+          //         label: 'Exibir especificações',
+          //         name: 'enabled',
+          //         widget: 'boolean',
+          //         default: true
+          //       },
+          //       {
+          //         label: 'Título',
+          //         name: 'title',
+          //         widget: 'string',
+          //         hint: '',
+          //         required: false
+          //       },
+          //       {
+          //         label: 'Descrição',
+          //         name: 'description',
+          //         widget: 'string',
+          //         hint: '',
+          //         required: false
+          //       },
+          //       {
+          //         label: 'Texto CTA',
+          //         name: 'cta_text',
+          //         widget: 'string',
+          //         hint: '',
+          //         required: false
+          //       },
+          //       {
+          //         label: 'Link CTA',
+          //         name: 'cta_url',
+          //         widget: 'string',
+          //         hint: '',
+          //         required: false
+          //       },
+          //       {
+          //         label: 'Imagem',
+          //         name: 'image',
+          //         widget: 'image',
+          //         required:false,          
+          //       }
+          //       ]
+          //     }
+          //   ].concat(options.sections)
+          // }
         ]
       }      
     ]

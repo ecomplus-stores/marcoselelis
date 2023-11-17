@@ -22,7 +22,6 @@
     <small v-if="hasVariedPrices">
       {{ i19asOf }}
     </small>
-    
     <span v-if="parseInt(formatMoney(price).split(',')[1]) == 0">
         {{ formatMoney(price).split(',')[0] }}
     </span>

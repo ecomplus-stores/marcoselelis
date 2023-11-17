@@ -146,7 +146,10 @@ export default {
           }
         ]
       }
-    }
+    },
+    dinamicPictures(){
+      return window.mainProductGallery
+    },
   },
 
   methods: {
@@ -162,7 +165,7 @@ export default {
         this.isSliderMoved = true
       }
     },
-
+    
     openZoom (index) {
       this.zoomLinkStyle = 'cursor: wait'
       return import(/* webpackPrefetch: true */ 'photoswipe')
