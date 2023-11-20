@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 if($('#page-products').length > 0){
     $('.sticky').css('--header-vh', $('header#header').innerHeight() + 'px');
 
-    $('[data-tab]').click(function(){
+    $('body').on('click','[data-tab]',function(){
         let tab = $(this).attr('data-tab');
         $('._'+tab).toggleClass('visible')
     })

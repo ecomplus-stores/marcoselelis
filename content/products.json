@@ -11,21 +11,6 @@
         "image": "",
         "title": ""
       }
-    },
-    
-    {
-      "type": "product-description",
-      "title": "Quem comprou este produto, também comprou:",
-      "enabled": true
-    },
-    {
-      "type": "related-products",
-      "title": "Veja Também"
-    },
-    {
-      "type": "recommended-products",
-      "title": "Quem comprou este produto, também comprou:",
-      "show_loading": true
     }
   ]
 }

@@ -293,12 +293,15 @@ export default {
       return this.body.kit_composition && this.body.kit_composition.length
     },
 
-    productToGallery () {
-      console.log('aiai')
+    productToGallery() {
       if (this.variationImages.length) {
+        window.mainProductGallery = [...this.variationImages]
+        this.variationImagesKey = Math.random().toString()
+        console.log('update',window.mainProductGallery)
         return {
           ...this.body,
           pictures: this.variationImages
+          //...this.body.pictures
         }
       }
       return this.body

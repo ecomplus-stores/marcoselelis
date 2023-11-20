@@ -335,6 +335,18 @@
             </div>
 
             <template v-else>
+              <div class="apx_tabs ">
+                <div class="item">
+                  <button type="button" class="w-100 d-flex align-items-center justify-content-between" data-tab="details">
+                    Mais Detalhes
+                    <span>                                                  
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#666666" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
               <div
                 v-if="!isVariationInStock"
                 class="product__out-of-stock"
@@ -346,7 +358,7 @@
 
               <div
                 v-else-if="hasBuyButton"
-                class="product__buy mt-3 pt-3"
+                class="product__buy my-4 "
                 ref="buy"
               >
                 <component
@@ -374,7 +386,7 @@
                       
                     </slot>
                   </span>
-                  <a :href='"https://wa.me/5511993243195?text=Olá! Quero comprar o produto *" + body.name + "* com lentes multifocais. Poderiam me ajudar?"' id="multifocais">
+                  <a :href='"https://wa.me/5511993243195?text=Olá! Quero comprar o produto *" + body.name + "* com lentes multifocais. Poderiam me ajudar?"' id="multifocais" class="mt-4">
                     Precisa de Lentes Multifocais? <u>Clique Aqui</u>
                   </a>
                 </component>
