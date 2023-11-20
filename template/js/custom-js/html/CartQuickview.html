@@ -50,6 +50,7 @@
                 >
                   <cart-item
                     v-for="item in cart.items"
+                    :minicart="true"
                     :key="item._id"
                     :item="item"
                   />
@@ -106,7 +107,7 @@
               :href="checkoutUrl"
             >
               <i class="i-check mr-1"></i>
-              {{ i19checkout }}
+              Prosseguir para o pagamento
             </a-link>
             
   
