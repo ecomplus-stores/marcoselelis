@@ -63,6 +63,22 @@
             ]
           }
         }
+      ],
+      "images": [
+        {
+          "item": {
+            "image": "/img/uploads/card-2-1-.png",
+            "title": "Comprar",
+            "url": "/"
+          }
+        },
+        {
+          "item": {
+            "title": "Ver Catálogo",
+            "url": "/",
+            "image": "/img/uploads/card-1-1-.png"
+          }
+        }
       ]
     },
     {
