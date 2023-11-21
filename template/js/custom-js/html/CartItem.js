@@ -13,9 +13,9 @@ import {
   } from '@ecomplus/utils'
   
   import ecomCart from '@ecomplus/shopping-cart'
-  import ALink from '../ALink.vue'
-  import APicture from '../APicture.vue'
-  import ItemCustomizations from '../ItemCustomizations.vue'
+  import ALink from '@ecomplus/storefront-components/src/ALink.vue'
+  import APicture from '@ecomplus/storefront-components/src/APicture.vue'
+  import ItemCustomizations from '@ecomplus/storefront-components/src/ItemCustomizations.vue'
   
   export default {
     name: 'CartItem',
@@ -31,10 +31,7 @@ import {
         type: Object,
         required: true
       },
-      minicart: {
-        type: Boolean,
-        required: false
-      },
+      minicart: Boolean,
       nameMaxLength: {
         type: Number,
         default: 35

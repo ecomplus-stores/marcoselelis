@@ -247,6 +247,9 @@ import {
     },
   
     methods: {
+      pageTitle (){
+        return window.page_title
+      },
       fetchItems (isRetry, isPopularItems) {
         const ecomSearch = isPopularItems ? new EcomSearch() : this.ecomSearch
         const requestId = Date.now()

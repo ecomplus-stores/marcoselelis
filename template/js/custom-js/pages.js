@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     $('.category-banner + .page-title').appendTo('.hero-banner.category-banner')
 });
-
+$('header#header').css('--header-vh', $('header#header').innerHeight() + 'px');
 if($('#page-products').length > 0){
     $('.sticky').css('--header-vh', $('header#header').innerHeight() + 'px');
 

@@ -2,16 +2,8 @@
   "sections": [
     {
       "type": "breadcrumbs",
-      "enabled": true
+      "enabled": false
     },
-    {
-      "type": "document-banner",
-      "enabled": true
-    },
-    {
-      "type": "page-title"
-    },
-    
     {
       "type": "category-retail",
       "enabled": true,

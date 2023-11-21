@@ -25,10 +25,14 @@ if (!opt.items) {
 
 const apx_category = _.cms('apx_category') || {}
 
-%>
 
+%>
+<script>
+  window.page_title = "<%= _.state.name %>";
+</script>
+</script>
 <section class="retail-grid">
-  <div class="<%= apx_category.container %> <%= apx_category.padding_sm %> <%= apx_category.padding_md %>">
+  <div class="<%= apx_category.container %> px-md-5 px-1 <%= apx_category.padding_sm %> <%= apx_category.padding_md %>">
     <div
       id="search-engine"
       <% if (opt.category_names) { %>
