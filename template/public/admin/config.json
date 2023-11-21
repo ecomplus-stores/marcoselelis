@@ -35,6 +35,38 @@
                   "widget": "string"          
                 },
                 {
+                  "label":"Imagens",
+                  "name":"images",
+                  "widget":"list",
+                  "required":false,
+                  "fields": [
+                    {
+                      "label": "Item",
+                      "name": "item",
+                      "widget": "object",
+                      "required":false,
+                      "fields": [
+                        {
+                          "label": "Texto do Item",
+                          "name": "title",
+                          "widget": "string"          
+                        },
+                        {
+                          "label": "URL do Item",
+                          "name": "url",
+                          "widget": "string"          
+                        },     
+                        {
+                          "label": "Imagem",
+                          "name": "image",
+                          "widget": "image",
+                          "required":false
+                        }  
+                      ]
+                    }  
+                  ]
+                },
+                {
                   "label":"Itens do Dropdown",
                   "name":"list",
                   "widget":"list",
@@ -81,39 +113,7 @@
                               ]
                             }  
                           ]
-                        },
-                        {
-                          "label":"Imagens",
-                          "name":"images",
-                          "widget":"list",
-                          "required":false,
-                          "fields": [
-                            {
-                              "label": "Item",
-                              "name": "item",
-                              "widget": "object",
-                              "required":false,
-                              "fields": [
-                                {
-                                  "label": "Texto do Item",
-                                  "name": "title",
-                                  "widget": "string"          
-                                },
-                                {
-                                  "label": "URL do Item",
-                                  "name": "url",
-                                  "widget": "string"          
-                                },     
-                                {
-                                  "label": "Imagem",
-                                  "name": "image",
-                                  "widget": "image",
-                                  "required":false
-                                }  
-                              ]
-                            }  
-                          ]
-                        }            
+                        }                                    
                       ]
                     }                      
                   ]
