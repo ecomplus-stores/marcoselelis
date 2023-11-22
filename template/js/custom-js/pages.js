@@ -90,6 +90,45 @@ window.addEventListener('load', function() {
         fade: true,
   cssEase: 'linear'
       });
+
+      $('.apx_product-list .row.list').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows:true,
+        prevArrow:'<span class="prev"><svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="16.5" y1="7.5" x2="1.5" y2="7.5" stroke="#666666" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 1L1 7L8.5 13" stroke="#666666" stroke-linecap="round" stroke-linejoin="round"/></svg></span>',
+        nextArrow:'<span class="next"><svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0.5" y1="6.5" x2="15.5" y2="6.5" stroke="#666666" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 1L16 7L8.5 13" stroke="#666666" stroke-linecap="round" stroke-linejoin="round"/></svg></span>',
+        responsive:[
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+          ]
+        
+        
+      });
 });
 $(window).resize(function(){
     window.listingImage();

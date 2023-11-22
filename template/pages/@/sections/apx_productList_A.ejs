@@ -20,7 +20,7 @@
     %>
     
     <section
-      class="apx_product-list mt-<%= opt.margin_top %> mb-<%= opt.margin_bottom %> pt-<%= opt.padding_top %> pb-<%= opt.padding_bottom %>"
+      class="apx_product-list mt-md-<%= opt.margin_top %> mb-md-<%= opt.margin_bottom %> pt-md-<%= opt.padding_top %> pb-md-<%= opt.padding_bottom %>"
       data-num_col_sm="<%= opt.num_col_sm  %>"
       data-carrossel_sm="<%= opt.carrossel_sm %>"
       data-num_col_md="<%= opt.num_col_md %>"
@@ -58,7 +58,7 @@
                 %>
             </div>
             <% if (opt.btn_text && opt.btn_link) {%>
-            <div class="col-auto">
+            <div class="col-auto d-none d-md-flex">
                 <a class="apx_title_btn_link d-block py-2 px-3" href="<%= opt.btn_link %>">
                     <%- opt.btn_text %>
                 </a>

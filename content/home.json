@@ -81,19 +81,19 @@
           "btn_url_2": "/"
         }
       ],
-      "padding_bottom_m": "4",
-      "margin_bottom_m": "4",
+      "padding_bottom_m": "2",
+      "margin_bottom_m": "2",
       "padding": "px-0",
-      "margin_top_m": "4",
-      "padding_top_m": "4",
-      "padding_bottom": "4",
+      "margin_top_m": "2",
+      "padding_top_m": "0",
+      "padding_bottom": "0",
       "type": "apx_banners-grid",
-      "margin_bottom": "4"
+      "margin_bottom": "0"
     },
     {
       "container": "container_90",
-      "margin_top": "4",
-      "padding_top": "4",
+      "margin_top": "0",
+      "padding_top": "0",
       "banners": [
         {
           "btn_text_2": "FEMININO",
@@ -114,11 +114,11 @@
           "btn_url_2": "/"
         }
       ],
-      "padding_bottom_m": "4",
-      "margin_bottom_m": "4",
+      "padding_bottom_m": "2",
+      "margin_bottom_m": "2",
       "padding": "px-0",
-      "margin_top_m": "4",
-      "padding_top_m": "4",
+      "margin_top_m": "0",
+      "padding_top_m": "0",
       "padding_bottom": "4",
       "type": "apx_banners-grid",
       "margin_bottom": "4"

@@ -9,11 +9,19 @@ const themeCustom = _.settings.theme.custom || ''
 <footer id="apx-footer">
   <div class="container-fluid">
     <div class="row">
+      <div class="col-12 col-md-4 px-4 py-5 mb-5 apx-newsletter d-block d-md-none">
+        <h4>Cadastre-se em nossa newsletter</h4>
+        <form action="" class="py-2">
+          <input type="mail" placeholder="Seu e-mail...">
+          <button><img src="/assets/arrow-right.svg"/></button>
+        </form>
+        <p class="mt-3 mb-0">Ao inserir seu endereço de e-mail acima, você consente em receber nossa newsletter com acesso às nossas últimas coleções, eventos e iniciativas. Mais detalhes sobre isso são fornecidos em nossa <a href="/pages/politica-de-privacidade">política e privacidade</a>.</p>
+      </div>
       <div class="col-12 col-md">
         <div class="row h100 justify-content-between">
           <% if (apx_footer.links) { %>
             <% apx_footer.links.forEach(({ title, list })=> { %>
-              <div class="col-12 p-5 bordered-right col-md">
+              <div class="col-12 p-md-5 p-2 bordered-right col-md">
                 <h4><%= title %></h4>
                 <ul class="links">
                   <% list.forEach(({ item })=> { %>
@@ -29,18 +37,23 @@ const themeCustom = _.settings.theme.custom || ''
         <% } %>
         </div>
       </div>
-      <div class="col-12 col-md-4 p-5 apx-newsletter">
-        <h4>Cadastre-se em nossa newsletter</h4>
-        <form action="" class="py-2">
-          <input type="mail" placeholder="Seu e-mail...">
-          <button><img src="/assets/arrow-right.svg"/></button>
-        </form>
-        <p class="mt-3">Ao inserir seu endereço de e-mail acima, você consente em receber nossa newsletter com acesso às nossas últimas coleções, eventos e iniciativas. Mais detalhes sobre isso são fornecidos em nossa <a href="/pages/politica-de-privacidade">política e privacidade</a>.</p>
+      <div class="col-12 col-md-4 py-md-5 px-md-5 p-0 apx-newsletter ">
+        <div class="d-none d-md-block">
+          <h4>Cadastre-se em nossa newsletter</h4>
+          <form action="" class="py-2">
+            <input type="mail" placeholder="Seu e-mail...">
+            <button><img src="/assets/arrow-right.svg"/></button>
+          </form>
+          <p class="mt-3">Ao inserir seu endereço de e-mail acima, você consente em receber nossa newsletter com acesso às nossas últimas coleções, eventos e iniciativas. Mais detalhes sobre isso são fornecidos em nossa <a href="/pages/politica-de-privacidade">política e privacidade</a>.</p>
+        </div>
         <% if (footer.contacts.socials) { %>
           <p class="footer__social">
             <%- await include('@/layout/inc/networks', { _, contacts }) %>
           </p>
         <% } %>
+        <button class="back-top d-flex d-md-none" type="button">
+          Ir ao topo
+        </button>
       </div>
     </div>
     <div class="row  credits py-4 bordered-top align-items-center justify-content-between">

@@ -188,6 +188,12 @@ const bannerFields = [
     name: 'btn_text_color',
     widget: 'color'
   },
+  {
+    label: 'Fundo do botão [Principal]',
+    required: false,
+    name: 'btn_background',
+    widget: 'color'
+  },
   
   {
     label: 'URL do botão [Principal]',
@@ -207,6 +213,36 @@ const bannerFields = [
     required: false,
     name: 'btn_url_2',
     widget: 'string'
+  },
+  {
+    label: 'Cor do texto do botão [Secundário]',
+    required: false,
+    name: 'btn_text_color_2',
+    widget: 'color'
+  },
+  {
+    label: 'Fundo do botão [Secundário]',
+    required: false,
+    name: 'btn_background_2',
+    widget: 'color'
+  },
+  {
+    label: 'Fundo do botão [Principal] [Mobile]',
+    required: false,
+    name: 'btn_background_m',
+    widget: 'color'
+  },
+  {
+    label: 'Cor do texto do botão [Secundário] [Mobile]',
+    required: false,
+    name: 'btn_text_color_2_m',
+    widget: 'color'
+  },
+  {
+    label: 'Fundo do botão [Secundário] [Mobile]',
+    required: false,
+    name: 'btn_background_2_m',
+    widget: 'color'
   },
   {
     label: 'Texto do link',
@@ -247,24 +283,7 @@ const bannerFields = [
     default:0,    
     widget: 'number'
   },
-  {
-    label: 'Fundo do botão [Principal]',
-    required: false,
-    name: 'btn_background',
-    widget: 'color'
-  },
-  {
-    label: 'Cor do texto do botão [Secundário]',
-    required: false,
-    name: 'btn_text_color_2',
-    widget: 'color'
-  },
-  {
-    label: 'Fundo do botão [Secundário]',
-    required: false,
-    name: 'btn_background_2',
-    widget: 'color'
-  },
+  
   {
     label: 'Cor do texto do link',
     required: false,
@@ -298,24 +317,7 @@ const bannerFields = [
     default:0,    
     widget: 'number'
   },
-  {
-    label: 'Fundo do botão [Principal] [Mobile]',
-    required: false,
-    name: 'btn_background_m',
-    widget: 'color'
-  },
-  {
-    label: 'Cor do texto do botão [Secundário] [Mobile]',
-    required: false,
-    name: 'btn_text_color_2_m',
-    widget: 'color'
-  },
-  {
-    label: 'Fundo do botão [Secundário] [Mobile]',
-    required: false,
-    name: 'btn_background_2_m',
-    widget: 'color'
-  },
+  
   {
     label: 'Cor do texto do link [Mobile]',
     required: false,
