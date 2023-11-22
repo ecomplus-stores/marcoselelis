@@ -173,7 +173,11 @@ let marketingStripeStyle = ''
                         %>
                     <% }) %>
                     </div>
-                    <a href="" class="btn btn-cart">Ver Carrinho</a>
+                    <a id="cart-button"
+                    
+                    role="button"
+                    href="/app/#/cart"
+                    title="<%= _.dictionary('openCart') %>" class="btn btn-cart">Ver Carrinho</a>
                     <a
                       id="user-button"
                       class="btn btn-lg"

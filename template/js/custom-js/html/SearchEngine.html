@@ -209,7 +209,7 @@
                 <div class="search-engine__count col">
                   <h1 v-if="pageTitle()">{{pageTitle()}}</h1>
                   <strong>{{ totalSearchResults }}</strong>
-                  {{ i19itemsFound }}
+                  produtos
                   <div
                       v-if="isSearching"
                       class="search-engine__spinner spinner-grow"
@@ -253,7 +253,7 @@
     
                 <div
                 v-if="isFilterable"
-                class="search-engine__toggles col justify-content-end"
+                class="search-engine__toggles col-md col-auto justify-content-end"
                 >
                 <button
                     v-if="hasFilters && 1 != 1"

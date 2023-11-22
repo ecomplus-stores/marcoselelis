@@ -226,12 +226,23 @@ export default {
         })
       }
     }
-    const glide = new Glide(this.$refs.glide, this.glideOptions)
-    glide.on('run', () => {
-      this.moveSlider(glide.index)
-    })
-    glide.mount()
-    this.glide = glide
+    // const glide = new Glide(this.$refs.glide, this.glideOptions)
+    // glide.on('run', () => {
+    //   this.moveSlider(glide.index)
+    // })
+    // glide.mount()
+    // this.glide = glide
+    //$('.apx_gallery.slick-slider').slick('unslick');
+    if(window.innerWidth  < 990){
+      $('.apx_gallery .slicked').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows:false,
+        dots:true        
+      });
+    }
+    //console.log('aiai')
   },
 
   beforeDestroy () {
