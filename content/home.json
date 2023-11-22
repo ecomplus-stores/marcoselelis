@@ -8,6 +8,7 @@
       "animate": null,
       
       "img": "/img/uploads/fb1.png",
+      "mobile_img": "/img/uploads/header_bg.png",
       "btn_text": "MASCULINO",
       "btn_text_color": "#000000",
       "btn_background_2": "#ffffff",
@@ -17,7 +18,6 @@
       "btn_url": "/",
       "btn_url_2": "/",
       "margin_top": "0",
-      "mobile_img": "/img/uploads/371d41af-dae5-4050-a443-73175bfc4492.jpg",
       "mask_opacity_m": 1,
       "padding_top": "0",
       
@@ -48,6 +48,7 @@
       "banners": [
         {
           "img": "/img/uploads/card-2.png",
+          "mobile_img": "/img/uploads/design_img.png",
           "mask_opacity_m": 0,
           "content_order": "inside_image",
           "content_position": "center_center",
@@ -66,6 +67,7 @@
         },
         {
           "img": "/img/uploads/card-1.png",
+          "mobile_img": "/img/uploads/solar_img.png",
           "mask_opacity_m": 0,
           "content_order": "inside_image",
           "content_position": "center_center",
@@ -91,6 +93,7 @@
       "banners": [
         {
           "img": "/img/uploads/card-3.png",
+          "mobile_img": "/img/uploads/CampanhaHERA-1001.png",
           "mask_opacity_m": 0,
           "content_order": "inside_image",
           "content_position": "center_center",

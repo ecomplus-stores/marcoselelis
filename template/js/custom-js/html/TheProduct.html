@@ -28,12 +28,15 @@
     v-if="cms_customizations_step > 1"
     @click="customizationStepBack"
     >
-    <-
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 6L9 12L15 18" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg> 
     </button>
       <button type="button"
       class="custom_close" 
       @click="closeCustomizations"
       >
+      <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="1.70711" x2="0.707107" y2="13" stroke="black" stroke-linecap="round" stroke-linejoin="round"></line> <line x1="0.707107" y1="1" x2="12" y2="12.2929" stroke="black" stroke-linecap="round" stroke-linejoin="round"></line></svg>
       </button>
       <div class="customizations_header mt-4 mb-5 px-5"
         v-if="cms_customizations_step < cms_customizations.length + 1"

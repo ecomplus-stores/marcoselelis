@@ -28,7 +28,7 @@ let marketingStripeStyle = ''
 
 <div id="overlay" class="fade"></div>
 <header class="header py-0 px-0" id="header">
-  <div class="top_cta py-3">
+  <div class="top_cta py-3 d-none d-md-block">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col text-center">
@@ -59,7 +59,7 @@ let marketingStripeStyle = ''
       
       <div class="col-md col d-block d-md-none" id="apx-mobile-functions">
         <div class="d-flex">
-          <button type="button" onclick="$('#apx-menu').toggleClass('active')">                        
+          <button type="button" onclick="$('#apx-menu-container').toggleClass('active');$(this).toggleClass('active')">                        
           </button>          
         </div>
       </div>
@@ -69,62 +69,23 @@ let marketingStripeStyle = ''
           <%- await include('@/layout/inc/logo', { _ }) %>
         </a>
       </div>
-      <div class="col">
+      <div class="col" id="apx-menu-container">
         <div class="container-fluid">
           <div class="row justify-content-start">
             <div class="col-md" id="apx-menu">
-              <div class="d-flex justify-content-between align-items-center d-md-none apx-menu-header mx-0 py-3">
-                <div class="col">
-                  <button type="button" onclick="$('#apx-menu').toggleClass('active')" class="custom_close">            
-                    
-                  </button>
-                </div>
-                <div class="col menu-logo">
-                    <%- await include('@/layout/inc/logo', { _ }) %>
-                </div>
-                <div class="col"></div>
+              <div class="d-md-none d-block">
+                <strong class="heading-text">Menu</strong>
               </div>
-              
-              
+
               <% if (apx_header.links) { %>
-                <div class="d-block d-md-none">
-                  <ul class="level_1">
-                    <% apx_header.links.forEach(({ url, title, image, list })=> { %>
-                      <li class="">                
-                        <a href="<%= url %>" data-image="<%= image ? image : 'empty' %>">
-                          <%= title %>
-                        </a>
-                      </li>
-                    <% }) %>
-                    <li class="divider"></li>
-                    <li>
-                      <a
-                        href="/page/onde-encontrar"
-                        title="Onde Encontrar"
-                      >
-                        Onde Encontrar
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        id="user-button"
-                        role="button"
-                        href="/app/#/account/"
-                        title="<%= _.dictionary('myAccount') %>"
-                      >
-                        Entrar
-                      </a>
-                    </li>
-                  
-                </div>
-                <div class="d-none d-md-block">
+                <div class="">
                 <ul class="level_1">
-                  <% apx_header.links.forEach(({ url, title, image, list })=> {
-                    let mega = list && list[0].item.image ? 'max_menu' : '';
+                  <% apx_header.links.forEach(({ url, title, images, list })=> {
+                    let mega = images && images.length > 0 ? 'max_menu' : false;
                     %>
-                    <li class="<%= list ? 'dropdown' : ''%> <%= mega %>">
+                    <li class="<%= list ? 'dropdown' : ''%> <%= mega ? mega : 'normal'%>">
                       
-                      <a href="<%= url %>" data-image="<%= image ? image : 'empty' %>">
+                      <a href="<%= url %>">
                         <%= title %>
                       </a>
                       <% if (list) { %>
@@ -140,46 +101,91 @@ let marketingStripeStyle = ''
       
                         
                         %>
-                        <div class="level_2 <%= mega %>">
-                          <ul class="<%= mega %>">
-                            <% list.forEach(({ item })=> { 
-                              %>
-                              <li class="">
-                                <% if (item.image) { %>
-                                  <div class="row">
-                                    <div class="col-md-6">
-                                      <img src="<%= item.image %>" class="w-100" data-original="<%= item.image %>"/>
+                        <div class="level_2 <%= mega ? mega : 'normal'%>">                          
+                          <% if (mega) { %><div class="container py-4"><% } %>
+                            <ul class="<%= mega ? ' row justify-content-between' : '' %>">
+                              <% list.forEach(({ item })=> { 
+                                %>
+                                <li class="<%= mega ? 'col bordered mx-md-2' : '' %>">
+                                  <a href="<%= item.url %>">
+                                    <%= item.title %>
+                                  </a>
+                                  <% if (item.list) { %>
+                                    <ul>
+                                    <% item.list.forEach(({ item })=> { %>
+                                      <li>
+                                        <a href="<%= item.url %>">
+                                          <%= item.title %>
+                                        </a>
+                                      </li>
+                                    <% }) %>
+                                    </ul>
+                                  <% } %>                               
+                                </li>
+                                <!-- <li class="col-auto divider"></li> -->
+                              <% }) %>
+                              <% if (mega) { %>  
+                                <li class="col-md-6  mx-md-2 d-md-block d-none">
+                                  <div class="mega-slider">
+                                  <% images.forEach(({ item })=> { 
+                                    %>
+                                    <div class="item">
+                                      <a href="<%= item.url %>">
+                                        <img src="<%= item.image %>"/>
+                                        <button type="button"><%= item.title %>
+                                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 6L15 12L9 18" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg> 
+                                        </button>
+                                      </a>                                                                 
                                     </div>
-                                    <div class="col-md-6 p-4">
-                                <% } %>
-                                    <a href="<%= item.url %>">
-                                      <%= item.title %>
-                                    </a>
-                                    <% if (item.list) { %>
-                                      <ul>
-                                      <% item.list.forEach(({ item })=> { %>
-                                        <li>
-                                          <a href="<%= item.url %>">
-                                            <%= item.title %>
-                                          </a>
-                                        </li>
-                                      <% }) %>
-                                      </ul>
-                                    <% } %>
-                                <% if (item.image) { %>
-                                    </div>  
-                                  </div>
-                                <% } %>
-                              </li>
-                            <% }) %>
-                          </ul>
-                          
-                          
-                          
+                                  <% }) %>
+                                </div>
+                                </li>
+                              <% } %>
+
+                            </ul>
+                            <% if (mega) { %></div><% } %>
                         </div>
                       <% } %>
                     </li>
                   <% }) %>
+
+                  <li class="d-md-none d-block">
+                    <strong class="heading-text">Em destaque</strong>
+                    <div class="mega-slider mobile">
+                    <% apx_header.links.forEach(({ url, title, images, list })=> {                                      
+                      if(images && images.length > 0)  {
+                      images.forEach(({ item })=> { 
+                          %>
+                          <div class="item">
+                            <a href="<%= item.url %>">
+                              <img src="<%= item.image %>"/>
+                              <button type="button"><%= item.title %>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M9 6L15 12L9 18" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg> 
+                              </button>
+                            </a>                                                                 
+                          </div>
+                        <% })
+                        }
+                        %>
+                    <% }) %>
+                    </div>
+                    <a href="" class="btn btn-cart">Ver Carrinho</a>
+                    <a
+                      id="user-button"
+                      class="btn btn-lg"
+                      role="button"
+                      href="/app/#/account/"
+                      title="<%= _.dictionary('myAccount') %>"
+                    >
+                      Minha Conta
+                    </a>
+                    
+                  </li>
+
                 </ul>
                 </div>
               <% } %>
@@ -256,7 +262,7 @@ let marketingStripeStyle = ''
   
   
   <form
-  class="header__search m-0 mt-lg-0"
+  class="header__search m-0 mt-lg-0 d-none"
   id="search-form"
   action="/search"
   method="get"
