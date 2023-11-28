@@ -2,8 +2,9 @@
 const apx_category = _.cms('apx_category') || {}
 
 %>
-<section id="search">
-  <div>
+<section class="retail-grid" id="search">
+  <div class="<%= apx_category.container %> px-md-5 px-1 <%= apx_category.padding_sm %> <%= apx_category.padding_md %>">
+   
     <div id="search-engine">
       <!--
         No prerender for search, `SearchEngine` should be rendered here:

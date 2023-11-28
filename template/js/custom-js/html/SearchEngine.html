@@ -193,9 +193,7 @@
       enter-active-class="animated fadeInDown"
       leave-active-class="animated fadeOutUp fast position-absolute"
     >
-    <div
-            :class="dataContainer ? (dataContainer.container + ' ' + dataContainer.padding_sm + ' ' + dataContainer.padding_md + ' ' + (isPopup ? 'popupSearch' : '')) : 'container'"
-            >
+    <div  class="container-fluid px-0">
             
         <div
             v-if="isNavVisible"
@@ -321,7 +319,7 @@
         <div
         :class="(dataContainer && !isPopup ? (dataContainer.container + ' ' + dataContainer.padding_sm + ' ' + dataContainer.padding_md) : (isPopup ? '' : 'container')) + ' ' + (isPopup ? 'container-fluid px-md-4 px-5 popupSearch' : '')"
         >
-          <div class="search-engine__info px-lg-4"
+          <div class="search-engine__info"
             v-if="!isPopup"
           >
             <template v-if="term">

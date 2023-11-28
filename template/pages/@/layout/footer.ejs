@@ -5,7 +5,15 @@ const apx_footer = _.cms('apx_footer') || {}
 const contacts = _.cms('contacts') || {}
 const themeCustom = _.settings.theme.custom || ''
 %>
-
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("KivQFq66vRJXufEC-");
+   })();
+   
+</script>
 <footer id="apx-footer">
   <div class="container-fluid">
     <div class="row">
@@ -41,7 +49,7 @@ const themeCustom = _.settings.theme.custom || ''
         <div class="d-none d-md-block">
           <h4>Cadastre-se em nossa newsletter</h4>
           <form action="" class="py-2">
-            <input type="mail" placeholder="Seu e-mail...">
+            <input type="mail" placeholder="Seu e-mail..." required="true">
             <button><img src="/assets/arrow-right.svg"/></button>
           </form>
           <p class="mt-3">Ao inserir seu endereço de e-mail acima, você consente em receber nossa newsletter com acesso às nossas últimas coleções, eventos e iniciativas. Mais detalhes sobre isso são fornecidos em nossa <a href="/pages/politica-de-privacidade">política e privacidade</a>.</p>

@@ -289,6 +289,7 @@ import {
               this.$nextTick(() => setTimeout(() => {
                 this.mustSkipLoadMore = false
                 this.loadObserver.observe()
+                window.listingImage()
               }, 300))
             }
           })
@@ -423,6 +424,7 @@ import {
           this.$nextTick(() => {
             setTimeout(() => {
               this.hasSearched = true
+              window.listingImage()
             }, 100)
           })
         }
@@ -435,6 +437,7 @@ import {
             setTimeout(() => {
               this.fetchItems()
               this.isScheduled = false
+              window.listingImage()
             }, 30)
           })
         }
@@ -539,6 +542,10 @@ import {
         
         const { selectedOptions } = this
         console.log('up',filter,option,isSet, selectedOptions)
+        if(isSet){
+          selectedOptions[filter] = []
+          selectedOptions[filter].indexOf(option) > -1
+        }
         const optionsList = selectedOptions[filter]
         if (optionsList) {
           const optionIndex = optionsList.indexOf(option)
@@ -604,8 +611,11 @@ import {
           this.$nextTick(() => {
             if (!this.mustSkipLoadMore) {
               this.loadObserver.observe()
+              window.listingImage()
             } else {
-              setTimeout(() => scrollToElement(this.$refs.pageAnchor[0], 40), 100)
+              // setTimeout(() => 
+              // scrollToElement(this.$refs.pageAnchor[0], 40),
+              // window.listingImage(), 100)
             }
           })
         }
@@ -629,11 +639,8 @@ import {
           this.selectedOptions['colecao'].indexOf(colecao) > -1
           this.setFilterOption('colecao',colecao,true)
         }, "1000");
-        
-        
-        
-        //alert(colecao)
       }
       window.listingImage()
+      
     }
   }

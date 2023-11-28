@@ -67,8 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.category-banner + .page-title').appendTo('.hero-banner.category-banner')
 });
 $('header#header').css('--header-vh', $('header#header').innerHeight() + 'px');
+$('body').css('--header-vh-main', $('header#header').innerHeight() + 'px');
 if($('#page-products').length > 0){
     $('.sticky').css('--header-vh', $('header#header').innerHeight() + 'px');
+    
 
     $('body').on('click','[data-tab]',function(){
         let tab = $(this).attr('data-tab');
@@ -135,6 +137,24 @@ $(window).resize(function(){
 });
 $(window).scroll(function(){
     window.listingImage();
+});
+
+$('body').on('submit','.apx-newsletter form', function(e){
+    e.preventDefault();
+    let form = $(this);
+    let mail = form.find('[type="mail"]');
+    
+    axios.post('https://us-central1-marketingtools-ecomplus.cloudfunctions.net/app/alpix/apx_newsletter', {
+        storeId : storefront.settings.store_id,
+        mail : mail.val()
+    })
+    .then(function(response) {
+        alert(response.data.msg)   
+        mail.val('') 
+
+    }, function(error) {
+        alert(error)
+    });
 })
 
 
