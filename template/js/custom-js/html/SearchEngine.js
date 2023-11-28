@@ -536,7 +536,9 @@ import {
       },
   
       setFilterOption (filter, option, isSet) {
+        
         const { selectedOptions } = this
+        console.log('up',filter,option,isSet, selectedOptions)
         const optionsList = selectedOptions[filter]
         if (optionsList) {
           const optionIndex = optionsList.indexOf(option)
@@ -553,6 +555,7 @@ import {
               this.lastSelectedFilter = null
             }
           }
+          //console.log('a',filter,option,isSet)
           this.updateSearchFilter(filter)
           this.scheduleFetch()
         }
@@ -615,6 +618,22 @@ import {
       resetEcomSearch(this)
       this.handlePresetedOptions()
       this.fetchItems()
+      let url = window.location.href;
+      let params = new URLSearchParams(url.split('?')[1]);
+      let colecao = params.get('colecao');
+
+
+      if(colecao){
+        setTimeout(() => {
+          //this.selectedOptions['colecao'] = [...[colecao]]
+          this.selectedOptions['colecao'].indexOf(colecao) > -1
+          this.setFilterOption('colecao',colecao,true)
+        }, "1000");
+        
+        
+        
+        //alert(colecao)
+      }
       window.listingImage()
     }
   }

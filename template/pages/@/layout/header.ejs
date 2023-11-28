@@ -109,12 +109,13 @@ let marketingStripeStyle = ''
                                 <li class="<%= mega ? 'col bordered mx-md-2' : '' %>">
                                   <a href="<%= item.url %>">
                                     <%= item.title %>
+                                    <% let main = item.url %>
                                   </a>
                                   <% if (item.list) { %>
                                     <ul>
                                     <% item.list.forEach(({ item })=> { %>
                                       <li>
-                                        <a href="<%= item.url %>">
+                                        <a href="<%= item.url.startsWith('?') ? main + item.url : item.url %>">
                                           <%= item.title %>
                                         </a>
                                       </li>

@@ -207,7 +207,7 @@
                 v-bind="{ totalSearchResults, toggleFilters }"
             >
                 <div class="search-engine__count col">
-                  <h1 v-if="pageTitle()">{{pageTitle()}}</h1>
+                  <h1 v-if="pageTitle()">{{pageTitle()}} {{selectedOptions['colecao'] && selectedOptions['colecao'][0] ? ' | ' + selectedOptions['colecao'][0] : ''}}</h1>
                   <strong>{{ totalSearchResults }}</strong>
                   produtos
                   <div
@@ -221,7 +221,7 @@
                 <!-- <p>{{filters}}</p> -->
                 <div
               v-for="({ filter, options, isSpec }, i) in filters"
-              v-if="options.length && filter == 'linha'"
+              v-if="options.length && filter == 'material'"
               :key="`filters-${filter}`"
               class="search-engine__filter apx-centered-filter col text-center align-items-center justify-content-center"
               :class="`search-engine__filter--${filter}`"

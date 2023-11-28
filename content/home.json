@@ -50,7 +50,7 @@
           "mask_opacity_m": 0,
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
-          "btn_url": "/",
+          "btn_url": "/oculos-de-sol/masculino?colecao=Gold",
           "content_position": "center_center",
           "mask_color": "#000000",
           "btn_text": "MASCULINO",
@@ -59,7 +59,7 @@
           "mask_opacity": 5,
           "title": "Gold",
           "title_color": "#ffffff",
-          "btn_url_2": "/"
+          "btn_url_2": "/oculos-de-sol/feminino?colecao=Gold"
         },
         {
           "btn_text_2": "FEMININO",
@@ -69,7 +69,7 @@
           "mask_opacity_m": 0,
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
-          "btn_url": "/",
+          "btn_url": "/oculos-de-sol/masculino?colecao=Classic",
           "content_position": "center_center",
           "mask_color": "#000000",
           "btn_text": "MASCULINO",
@@ -78,7 +78,7 @@
           "mask_opacity": 0,
           "title": "Classic",
           "title_color": "#ffffff",
-          "btn_url_2": "/"
+          "btn_url_2": "/oculos-de-sol/feminino?colecao=Classic"
         }
       ],
       "padding_bottom_m": "2",
@@ -103,7 +103,7 @@
           "mask_opacity_m": 0,
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
-          "btn_url": "/",
+          "btn_url": "/oculos-de-grau/masculino",
           "content_position": "center_center",
           "btn_text": "MASCULINO",
           "btn_background": "#ffffff",
@@ -111,7 +111,7 @@
           "mask_opacity": 0,
           "title": "Vision",
           "title_color": "#ffffff",
-          "btn_url_2": "/"
+          "btn_url_2": "/oculos-de-grau/feminino"
         }
       ],
       "padding_bottom_m": "2",

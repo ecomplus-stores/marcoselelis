@@ -8,30 +8,18 @@
         {
           "item": {
             "title": "Masculino",
-            "url": "/",
+            "url": "/oculos-de-grau/masculino",
             "list": [
               {
                 "item": {
-                  "title": "Sub categoria 1",
-                  "url": "/teste"
+                  "title": "Class",
+                  "url": "?colecao=Class"
                 }
               },
               {
                 "item": {
-                  "title": "Sub categoria 2",
-                  "url": "/"
-                }
-              },
-              {
-                "item": {
-                  "title": "Sub categoria 4",
-                  "url": "/"
-                }
-              },
-              {
-                "item": {
-                  "title": "Sub categoria 5",
-                  "url": "/"
+                  "title": "Gold",
+                  "url": "?colecao=Gold"
                 }
               }
             ]
@@ -40,24 +28,18 @@
         {
           "item": {
             "title": "Feminino",
-            "url": "/",
+            "url": "/oculos-de-grau/feminino",
             "list": [
               {
                 "item": {
-                  "title": "Sub categoria 1",
-                  "url": "/"
+                  "title": "Class",
+                  "url": "?colecao=Class"
                 }
               },
               {
                 "item": {
-                  "title": "Sub categoria 2",
-                  "url": "/"
-                }
-              },
-              {
-                "item": {
-                  "title": "Sub categoria 3",
-                  "url": "/"
+                  "title": "Gold",
+                  "url": "?colecao=Gold"
                 }
               }
             ]
@@ -83,27 +65,63 @@
     },
     {
       "title": "Óculos de Sol",
-      "url": "/roupas",
+      "url": "/oculos-de-sol",
       "image": "",
       "list": [
         {
           "item": {
             "title": "Masculino",
-            "url": "/",
-            "image": ""
+            "url": "/oculos-de-sol/masculino",
+            "list": [
+              {
+                "item": {
+                  "title": "Class",
+                  "url": "?colecao=Class"
+                }
+              },
+              {
+                "item": {
+                  "title": "Gold",
+                  "url": "?colecao=Gold"
+                }
+              }
+            ]
           }
         },
         {
           "item": {
             "title": "Feminino",
+            "url": "/oculos-de-sol/feminino",
+            "list": [
+              {
+                "item": {
+                  "title": "Class",
+                  "url": "?colecao=Class"
+                }
+              },
+              {
+                "item": {
+                  "title": "Gold",
+                  "url": "?colecao=Gold"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "images": [
+        {
+          "item": {
+            "image": "/img/uploads/card-2-1-.png",
+            "title": "Comprar",
             "url": "/"
           }
         },
         {
           "item": {
-            "title": "Unissex",
+            "title": "Ver Catálogo",
             "url": "/",
-            "image": ""
+            "image": "/img/uploads/card-1-1-.png"
           }
         }
       ]
