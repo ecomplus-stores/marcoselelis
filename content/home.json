@@ -127,11 +127,13 @@
       "carrossel_sm": "Sim",
       "container": "container_90",
       "products": [
-        "6501c4712cd6b659594a3c10",
-        "6501c4722cd6b659594a3c14",
-        "6501c4732cd6b659594a3c18",
         "6501c4750719b1149eebfbc4",
-        "64af60a45e60690370620b11"
+        "6501c4760719b1149eebfbcb",
+        "6501c4770719b1149eebfbd2",
+        "6501c4780719b1149eebfbd8",
+        "6501c4790719b1149eebfbdd",
+        "6501c47a0719b1149eebfbe2",
+        "6501c47b0719b1149eebfbe7"
       ],
       "margin_top": "5",
       "carrossel_dots_md": "Sim",
@@ -149,7 +151,7 @@
       "type": "apx_productList_A",
       "margin_bottom": "5",
       "description": "",
-      "btn_link": "/",
+      "btn_link": "/produtos",
       "list": "description_last",
       "carrossel_md": "Sim"
     }
