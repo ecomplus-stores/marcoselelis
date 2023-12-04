@@ -3,7 +3,7 @@ if (_.state.products && _.state.products.length) {
   const search = new _.EcomSearch()
   search.setProductIds(_.state.products.slice(0, 70))
   %>
-  <div class="collection-retail">
+  <div class="category-retail">
     <%- await include('@/sections/inc/retail-grid', {
       _, opt: {
         search,

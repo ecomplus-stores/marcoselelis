@@ -49,16 +49,16 @@
       "images": [
         {
           "item": {
-            "image": "/img/uploads/card-2-1-.png",
+            "image": "/img/uploads/bn_menu_1.png",
             "title": "Comprar",
-            "url": "/"
+            "url": "/oculos-de-grau"
           }
         },
         {
           "item": {
             "title": "Ver Catálogo",
-            "url": "/",
-            "image": "/img/uploads/card-1-1-.png"
+            "url": "/oculos-de-grau",
+            "image": "/img/uploads/bn_menu_2.png"
           }
         }
       ]
@@ -112,16 +112,16 @@
       "images": [
         {
           "item": {
-            "image": "/img/uploads/card-2-1-.png",
+            "image": "/img/uploads/bn_menu_1.png",
             "title": "Comprar",
-            "url": "/"
+            "url": "/oculos-de-sol"
           }
         },
         {
           "item": {
             "title": "Ver Catálogo",
-            "url": "/",
-            "image": "/img/uploads/card-1-1-.png"
+            "url": "/oculos-de-sol",
+            "image": "/img/uploads/bn_menu_2.png"
           }
         }
       ]

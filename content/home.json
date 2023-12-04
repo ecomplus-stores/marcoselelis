@@ -15,8 +15,8 @@
       "padding_top": "0",
       "btn_text_color_2": "#000000",
       "content_order": "inside_image",
-      "link_url": "/",
-      "btn_url": "/",
+      "link": "/produtos",
+      "btn_url": "/produtos/masculino",
       "content_position": "bottom_right",
       "mask_color": "#000000",
       "btn_text": "MASCULINO",
@@ -35,7 +35,7 @@
       "title_color": "#ffffff",
       "description": "",
       "mask_color_m": "#000000",
-      "btn_url_2": "/"
+      "btn_url_2": "/produtos/feminino"
     },
     {
       "container": "container_90",
@@ -50,7 +50,7 @@
           "mask_opacity_m": 0,
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
-          "btn_url": "/oculos-de-sol/masculino?colecao=Gold",
+          "btn_url": "/masculino?colecao=Gold",
           "content_position": "center_center",
           "mask_color": "#000000",
           "btn_text": "MASCULINO",
@@ -58,8 +58,9 @@
           "btn_text_color": "#000000",
           "mask_opacity": 5,
           "title": "Gold",
+          "link": "/produtos/masculino?colecao=Gold",
           "title_color": "#ffffff",
-          "btn_url_2": "/oculos-de-sol/feminino?colecao=Gold"
+          "btn_url_2": "/produtos/feminino?colecao=Gold"
         },
         {
           "btn_text_2": "FEMININO",
@@ -69,7 +70,7 @@
           "mask_opacity_m": 0,
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
-          "btn_url": "/oculos-de-sol/masculino?colecao=Classic",
+          "btn_url": "/produtos/masculino?colecao=Classic",
           "content_position": "center_center",
           "mask_color": "#000000",
           "btn_text": "MASCULINO",
@@ -78,7 +79,8 @@
           "mask_opacity": 0,
           "title": "Classic",
           "title_color": "#ffffff",
-          "btn_url_2": "/oculos-de-sol/feminino?colecao=Classic"
+          "link": "/produtos?colecao=Classic",
+          "btn_url_2": "/produtos/feminino?colecao=Classic"
         }
       ],
       "padding_bottom_m": "2",
@@ -111,6 +113,7 @@
           "mask_opacity": 0,
           "title": "Vision",
           "title_color": "#ffffff",
+          "link": "/oculos-de-grau/",
           "btn_url_2": "/oculos-de-grau/feminino"
         }
       ],
