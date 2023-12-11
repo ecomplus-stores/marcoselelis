@@ -17,11 +17,10 @@
       {{ i19retry }}
     </a>
   </a-alert>
-
     <div 
       id="custom_customizations"
       :class="customizationPanel ? 'visible' : ''"
-      v-if="cms_customizations"
+      v-if="cms_customizations && body.customizations"
     >
     <button type="button"
     class="custom_back" 

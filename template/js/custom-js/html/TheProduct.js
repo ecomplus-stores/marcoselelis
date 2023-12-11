@@ -480,6 +480,7 @@ export default {
       this.customizationPanel = false
     },
     buy (option) {
+      //alert('aa')
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
       let variationId
@@ -493,46 +494,49 @@ export default {
       product.pictures = this.productToGallery.pictures
       //const customizations = [...this.customizations]
       let customCustomizations = []
-      for (const item of this.current_customization) {
-        let customizationFromBody = this.body.customizations.find(el => el.grid_id == Object.keys(item)[0])
-        if(customizationFromBody){        
-          customCustomizations.push({
-            _id: customizationFromBody._id,
-            label: customizationFromBody.label,
-            add_to_price: {
-              type: (Object.values(item)[0].type == "Fixo" ? 'fixed' : 'percent'),
-              addition: Object.values(item)[0].value
-            },
-            option:  {text:Object.values(item)[0].title}
-          })
+      if(this.body.customizations){
+        for (const item of this.current_customization) {
+          let customizationFromBody = this.body.customizations.find(el => el.grid_id == Object.keys(item)[0])
+          if(customizationFromBody){        
+            customCustomizations.push({
+              _id: customizationFromBody._id,
+              label: customizationFromBody.label,
+              add_to_price: {
+                type: (Object.values(item)[0].type == "Fixo" ? 'fixed' : 'percent'),
+                addition: Object.values(item)[0].value
+              },
+              option:  {text:Object.values(item)[0].title}
+            })
+          }
         }
-      }
+      }  
       
       
-      
-
-      if(this.cms_customizations && option != "customized"){
-        this.customizationPanel = true;
-        //alert('Selecione as opções para prosseguir')
+      if(this.body.customizations && this.cms_customizations){
+        if(this.cms_customizations && option != "customized"){
+          this.customizationPanel = true;
+        }else{
+          this.$emit('buy', { product, variationId, customizations : customCustomizations })
+          if (this.canAddToCart) {
+            this.current_customization = []
+            this.customizationPanel = false
+            this.cms_customizations_step = 1
+            ecomCart.addProduct({ ...product, customizations : customCustomizations }, variationId, this.qntToBuy)          
+          }
+          this.isOnCart = true
+        }
       }else{
-        // console.log('customCustomizations',customCustomizations)
-        // console.log('add', { ...product, customizations : customCustomizations })
-        this.$emit('buy', { product, variationId, customizations : customCustomizations })
+        const customizations = [...this.customizations]
+        this.$emit('buy', { product, variationId, customizations })
         if (this.canAddToCart) {
-          this.current_customization = []
-          this.customizationPanel = false
-          this.cms_customizations_step = 1
-          ecomCart.addProduct({ ...product, customizations : customCustomizations }, variationId, this.qntToBuy)          
+          console.log({ ...product, customizations })
+          ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
         }
         this.isOnCart = true
       }
+      
 
-        // this.$emit('buy', { product, variationId, customizations })
-        // if (this.canAddToCart) {
-        //   console.log({ ...product, customizations })
-        //   ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
-        // }
-        // this.isOnCart = true
+        
       
     },
 
@@ -689,7 +693,7 @@ export default {
 
   created () {
     this.cms_customizations = [...($('[data-customizations]').length > 0 && $('[data-customizations]').attr('data-customizations') != '' ? JSON.parse($('[data-customizations]').attr('data-customizations')) : [])]
-    
+    console.log(this.cms_customizations)
     const presetQntToBuy = () => {
       this.qntToBuy = this.body.min_quantity || 1
     }
