@@ -535,7 +535,7 @@ export default {
         this.isOnCart = true
       }
       
-
+ 
         
       
     },
