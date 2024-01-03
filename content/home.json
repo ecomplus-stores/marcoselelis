@@ -7,10 +7,10 @@
       "container": "container-fluid",
       "animate": null,
       "btn_text_2": "FEMININO",
-      "img": "/img/uploads/fb1.png",
+      "img": "/img/uploads/campanhahera-957-1-[1](Personalizado).jpg",
       "btn_background_2": "#ffffff",
       "margin_top": "0",
-      "mobile_img": "/img/uploads/header_bg.png",
+      "mobile_img": "/img/uploads/campanhahera-753_(1)[1](Personalizado).jpg",
       "mask_opacity_m": 1,
       "padding_top": "0",
       "btn_text_color_2": "#000000",
@@ -44,43 +44,51 @@
       "banners": [
         {
           "btn_text_2": "FEMININO",
-          "img": "/img/uploads/card-2.png",
+          "img": "/img/uploads/editado2.jpg",
           "btn_background_2": "#ffffff",
-          "mobile_img": "/img/uploads/design_img.png",
-          "mask_opacity_m": 0,
+          "mobile_img": "/img/uploads/editado2.jpg",
+          
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
           "btn_url": "/masculino?colecao=Gold",
           "content_position": "center_center",
-          "mask_color": "#000000",
+          
           "btn_text": "MASCULINO",
           "btn_background": "#ffffff",
           "btn_text_color": "#000000",
-          "mask_opacity": 5,
+          
           "title": "Gold",
           "link": "/produtos/masculino?colecao=Gold",
           "title_color": "#ffffff",
-          "btn_url_2": "/produtos/feminino?colecao=Gold"
+          "btn_url_2": "/produtos/feminino?colecao=Gold",
+          "mask_opacity": 3,
+          "mask_opacity_m": 3,
+          "mask_color": "#000000",
+          "mask_color_m": "#000000"
         },
         {
           "btn_text_2": "FEMININO",
-          "img": "/img/uploads/card-1.png",
+          "img": "/img/uploads/editado1.jpg",
           "btn_background_2": "#ffffff",
-          "mobile_img": "/img/uploads/solar_img.png",
-          "mask_opacity_m": 0,
+          "mobile_img": "/img/uploads/editado1.jpg",
+          
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
           "btn_url": "/produtos/masculino?colecao=Classic",
           "content_position": "center_center",
-          "mask_color": "#000000",
+          
           "btn_text": "MASCULINO",
           "btn_background": "#ffffff",
           "btn_text_color": "#000000",
-          "mask_opacity": 0,
+          
           "title": "Classic",
           "title_color": "#ffffff",
           "link": "/produtos?colecao=Classic",
-          "btn_url_2": "/produtos/feminino?colecao=Classic"
+          "btn_url_2": "/produtos/feminino?colecao=Classic",
+          "mask_opacity": 3,
+          "mask_opacity_m": 3,
+          "mask_color": "#000000",
+          "mask_color_m": "#000000"
         }
       ],
       "padding_bottom_m": "2",
@@ -99,10 +107,10 @@
       "banners": [
         {
           "btn_text_2": "FEMININO",
-          "img": "/img/uploads/card-3.png",
+          "img": "/img/uploads/editado3.jpg",
           "btn_background_2": "#ffffff",
-          "mobile_img": "/img/uploads/CampanhaHERA-1001.png",
-          "mask_opacity_m": 0,
+          "mobile_img": "/img/uploads/editado5.jpg",
+          "mask_opacity_m": 1,
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
           "btn_url": "/oculos-de-grau/masculino",
@@ -110,7 +118,10 @@
           "btn_text": "MASCULINO",
           "btn_background": "#ffffff",
           "btn_text_color": "#000000",
-          "mask_opacity": 0,
+          "mask_opacity": 3,
+          "mask_opacity_m": 3,
+          "mask_color": "#000000",
+          "mask_color_m": "#000000",
           "title": "Vision",
           "title_color": "#ffffff",
           "link": "/oculos-de-grau/",
