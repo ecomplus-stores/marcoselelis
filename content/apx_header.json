@@ -49,7 +49,7 @@
       "images": [
         {
           "item": {
-            "image": "/img/uploads/bn_menu_1.png",
+            "image": "/img/uploads/topo1.jpg",
             "title": "Comprar",
             "url": "/oculos-de-grau"
           }
@@ -58,7 +58,7 @@
           "item": {
             "title": "Ver Catálogo",
             "url": "/oculos-de-grau",
-            "image": "/img/uploads/bn_menu_2.png"
+            "image": "/img/uploads/topo2.jpg"
           }
         }
       ]
@@ -112,16 +112,16 @@
       "images": [
         {
           "item": {
-            "image": "/img/uploads/bn_menu_1.png",
+            "image": "/img/uploads/topo1.jpg",
             "title": "Comprar",
-            "url": "/oculos-de-sol"
+            "url": "/oculos-de-grau"
           }
         },
         {
           "item": {
             "title": "Ver Catálogo",
-            "url": "/oculos-de-sol",
-            "image": "/img/uploads/bn_menu_2.png"
+            "url": "/oculos-de-grau",
+            "image": "/img/uploads/topo2.jpg"
           }
         }
       ]
