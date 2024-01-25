@@ -3559,3 +3559,7 @@ header#header{
 }
 
 .apx_banner-content{z-index:10}
+.minicart .backdrop,
+.login-modal .backdrop{
+    pointer-events:none!important
+}
