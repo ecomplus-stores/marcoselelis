@@ -297,7 +297,7 @@ export default {
       if (this.variationImages.length) {
         window.mainProductGallery = [...this.variationImages]
         this.variationImagesKey = Math.random().toString()
-        console.log('update',window.mainProductGallery)
+        //console.log('update',window.mainProductGallery)
         return {
           ...this.body,
           pictures: this.variationImages
@@ -371,7 +371,7 @@ export default {
     setDeepCustomizationOption(index,grid_id,item){
 
       this.current_customization[index] = {[grid_id] : item}
-      //console.log(this.current_customization)
+      ////console.log(this.current_customization)
       this.cms_customizations_step++
     },
     totalWithCustomization(){
@@ -383,17 +383,17 @@ export default {
       //     return
       //   }
       // }
-      // console.log(variationId)
+      // //console.log(variationId)
 
       let price = this.body.price
-      console.log('current',this.current_customization)
+      //console.log('current',this.current_customization)
       for (const item of this.current_customization) {
         
         const value = Object.values(item)[0].value;
         price += value;
       }
-      console.log(this.body.price, price)
-      //console.log(this.body)
+      //console.log(this.body.price, price)
+      ////console.log(this.body)
       return price.toLocaleString('pt-br', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}) 
     },
     setCustomizationOption (customization, text) {
@@ -416,7 +416,7 @@ export default {
     },
 
     setCustomCustomization (customization, text) {
-      //console.log(customization, text, this.customizations)
+      ////console.log(customization, text, this.customizations)
       const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
       if (text) {
         if (index > -1) {
@@ -450,8 +450,8 @@ export default {
           return _id === variation.picture_id
         })
 
-        console.log('body', this.body)
-        console.log('customBody', this.variantGalleryImages)
+        //console.log('body', this.body)
+        //console.log('customBody', this.variantGalleryImages)
 
         this.currentGalleyImg = pictureIndex + 1
       }
@@ -529,7 +529,7 @@ export default {
         const customizations = [...this.customizations]
         this.$emit('buy', { product, variationId, customizations })
         if (this.canAddToCart) {
-          console.log({ ...product, customizations })
+          //console.log({ ...product, customizations })
           ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
         }
         this.isOnCart = true
@@ -562,7 +562,7 @@ export default {
     //       pathname,
     //       searchParams
     //     }, '', `${pathname}?${searchParams.toString()}`)
-    //     console.log(this.selectedVariation)
+    //     //console.log(this.selectedVariation)
     //     this.showVariationPicture(this.selectedVariation)
     //   }
     // },
@@ -588,7 +588,7 @@ export default {
         window.history.pushState(newState, '', `${pathname}?${searchParams.toString()}`);
     
         // Logging the selected variation (make sure this.selectedVariation is updated somewhere)
-        //console.log(this.selectedVariation);
+        ////console.log(this.selectedVariation);
     
         // Calling your function to show the variation picture
         this.showVariationPicture(this.selectedVariation);
@@ -692,8 +692,9 @@ export default {
   },
 
   created () {
+    
     this.cms_customizations = [...($('[data-customizations]').length > 0 && $('[data-customizations]').attr('data-customizations') != '' ? JSON.parse($('[data-customizations]').attr('data-customizations')) : [])]
-    console.log(this.cms_customizations)
+    console.log(`customizations`,this.cms_customizations)
     const presetQntToBuy = () => {
       this.qntToBuy = this.body.min_quantity || 1
     }
