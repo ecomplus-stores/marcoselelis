@@ -155,6 +155,19 @@ $('body').on('submit','.apx-newsletter form', function(e){
     }, function(error) {
         alert(error)
     });
-})
+});
+
+$('body').on('click', '.top_cta button', function(){
+    sessionStorage.setItem('stripe','true');
+    $('.top_cta').hide();
+});
+$(document).ready(function(){
+    let stripe = sessionStorage.getItem('stripe');
+    if(stripe == "true"){
+        $('.top_cta').hide();
+    }else{
+        $('.top_cta').show();
+    }
+});
 
 

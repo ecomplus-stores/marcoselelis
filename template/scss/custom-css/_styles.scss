@@ -368,16 +368,32 @@ header#header{
 }
 
 #header{
+    .top_cta[style="display: none;"]{display:none!important}
+    .top_cta[style="display: block;"]{display:block!important}
     .top_cta{
         background: #000;
+        position: relative;
     }
+    .apx-close{
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        right: 3rem;
+        translate: 0 -50%;
+        background: transparent;
+        opacity: 1;
+        border: 0;
+        padding: 0;
+    }
+   
     .apx_top_cta{
         font-size: var(--f11);
         color: #fff;
         a{
             font-size: var(--f11);
             color: #fff;
-            letter-spacing: 2px;
+            letter-spacing: 0.16em;
+            line-height: 16px;
             font-weight: 300;
             text-transform: uppercase;
         }
@@ -3027,6 +3043,21 @@ body #cart-quickview .cart-item .cart-item__data .cart-item__mini-price .cart-it
 
 .retail-grid{
     margin: 0;
+    .search-engine__terms{
+        h1{
+            font-size: var(--f13);
+            font-family: var(--f-family-1);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-right: 1px solid #e1e1e1;
+            padding-right: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 0;
+            margin-top: 0;
+            color: #000;
+        }
+    }
     .search-engine__nav{
         padding: 1rem 0;
         background: transparent;
