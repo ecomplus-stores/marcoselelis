@@ -194,7 +194,7 @@
       enter-active-class="animated fadeInDown"
       leave-active-class="animated fadeOutUp fast position-absolute"
     >
-    <div  class="container-fluid px-0">
+      <div  class="container-fluid px-0">
             
         <div
             v-if="isNavVisible"
@@ -312,137 +312,152 @@
     </transition>
   
     <transition enter-active-class="animated fadeIn slower">
-      <div
-        class="search-engine__results fade"
-        :style="{ opacity: isSearching && !isLoadingMore ? 0.4 : 1 }"
-        v-if="isResultsVisible"
-      >
-        <div
-        :class="(dataContainer && !isPopup ? (dataContainer.container + ' ' + dataContainer.padding_sm + ' ' + dataContainer.padding_md) : (isPopup ? '' : 'container')) + ' ' + (isPopup ? 'container-fluid px-md-4 px-5 popupSearch' : '')"
-        >
-          <div class="search-engine__info"
-            v-if="!isPopup"
-          >
-            <template v-if="term">
-              <div
-                v-if="hasEmptyResult"
-                class="search-engine__no-results"
-              >
-                <div class="lead mb-2">
-                  <span v-if="suggestedTerm">
-                    {{ i19didYouMean }}
-                    <a
-                      href="#"
-                      @click.prevent="$emit('update:term', suggestedTerm)"
-                      v-text="suggestedTerm"
-                    ></a>
-                    ?
-                  </span>
-                  {{ i19noResultsFor }}
-                  <em>{{ term }}</em>
-                </div>
-                <h4 v-if="popularItems.length">
-                  {{ i19popularProducts }}
-                </h4>
-              </div>
-  
-              <div
-                v-else
-                class="search-engine__terms"
-              >
-                <span
-                  v-if="noResultsTerm"
-                  class="d-none d-lg-inline"
-                >
-                  {{ i19noResultsFor }}
-                  <s>{{ noResultsTerm }}</s>.
-                </span>
-                <span class="d-none x-d-md-inline">
-                  {{ i19searchingFor }}:
-                </span>
-                <h1>{{ term }}</h1>
-              </div>
-            </template>
-  
-            <h3 v-else-if="hasEmptyResult && popularItems.length">
-              {{ i19popularProducts }}
-            </h3>
-  
-            <transition
-              enter-active-class="animated fadeInDown"
-              leave-active-class="animated fadeOutUp"
+      <div>
+        <div  class="container-fluid px-0 py-4" v-if="!isNavVisible">
+          <div class="search-engine__info p-0"
+              v-if="!isPopup"
             >
-              <div v-if="hasSelectedOptions && isFilterable && 1 != 1">
-                <button
-                  class="btn btn-sm btn-outline-secondary"
-                  type="button"
-                  @click="clearFilters"
+              <template v-if="term">
+                <div
+                  v-if="hasEmptyResult"
+                  class="search-engine__no-results"
                 >
-                  <i class="i-trash mr-1"></i>
-                  {{ i19clearFilters }}
-                </button>
-  
-                <template v-for="(options, filter) in selectedOptions">
-                  <button
-                    class="search-engine__selected btn btn-sm btn-light"
-                    type="button"
-                    v-for="option in options"
-                    @click="setFilterOption(filter, option, false)"
+                  <div class="lead mb-2">
+                    <span v-if="suggestedTerm">
+                      {{ i19didYouMean }}
+                      <a
+                        href="#"
+                        @click.prevent="$emit('update:term', suggestedTerm)"
+                        v-text="suggestedTerm"
+                      ></a>
+                      ?
+                    </span>
+                    {{ i19noResultsFor }}
+                    <em>{{ term }}</em>
+                  </div>
+                  <h4 v-if="popularItems.length">
+                    {{ i19popularProducts }}
+                  </h4>
+                </div>
+                <div
+                  v-else
+                  class="search-engine__count col px-0"
+                >
+                  <h1>'{{ term }}'</h1>
+                  <strong>{{totalSearchResults}} produtos</strong>
+                  
+                </div>
+                <!--
+                <div
+                  v-else
+                  class="search-engine__terms"
+                >
+                  <span
+                    v-if="noResultsTerm"
+                    class="d-none d-lg-inline"
                   >
-                    <i class="i-times mr-1"></i>
-                    {{ option }}
-                    <small>{{ getFilterLabel(filter) }}</small>
+                    {{ i19noResultsFor }}
+                    <s>{{ noResultsTerm }}</s>.
+                  </span>
+                  <span class="d-none x-d-md-inline">
+                    {{ i19searchingFor }}:
+                  </span>
+                  <h1>'{{ term }}'</h1>
+                  
+                </div>
+                -->
+              </template>
+    
+              <h3 v-else-if="hasEmptyResult && popularItems.length">
+                {{ i19popularProducts }}
+              </h3>
+    
+              <transition
+                enter-active-class="animated fadeInDown"
+                leave-active-class="animated fadeOutUp"
+              >
+                <div v-if="hasSelectedOptions && isFilterable && 1 != 1">
+                  <button
+                    class="btn btn-sm btn-outline-secondary"
+                    type="button"
+                    @click="clearFilters"
+                  >
+                    <i class="i-trash mr-1"></i>
+                    {{ i19clearFilters }}
                   </button>
-                </template>
+    
+                  <template v-for="(options, filter) in selectedOptions">
+                    <button
+                      class="search-engine__selected btn btn-sm btn-light"
+                      type="button"
+                      v-for="option in options"
+                      @click="setFilterOption(filter, option, false)"
+                    >
+                      <i class="i-times mr-1"></i>
+                      {{ option }}
+                      <small>{{ getFilterLabel(filter) }}</small>
+                    </button>
+                  </template>
+                </div>
+              </transition>
+            </div>
+        </div>
+        <div
+          class="search-engine__results fade"
+          :style="{ opacity: isSearching && !isLoadingMore ? 0.4 : 1 }"
+          v-if="isResultsVisible"
+        >
+          <div
+          :class="(dataContainer && !isPopup ? (dataContainer.container + ' ' + dataContainer.padding_sm + ' ' + dataContainer.padding_md) : (isPopup ? '' : 'container')) + ' ' + (isPopup ? 'container-fluid px-md-4 px-5 popupSearch' : '')"
+          >
+            
+    
+            <article
+              v-if="canShowItems"
+              class="search-engine__retail"
+            >
+              <div class="row">
+                <div
+                  :class="dataContainer ? ('col-md-' + (12/dataContainer.num_col_md) + ' col-' + (12/dataContainer.num_col_sm) + ' ' + dataContainer.padding_md + ' ' + dataContainer.padding_sm) : 'col-6 col-md-4 col-lg-3' "
+                  :data="true"
+                  v-for="(product, i) in suggestedItems"
+                  :key="product._id"
+                  :ref="i === pageAnchorIndex ? 'pageAnchor' : null"
+                >
+                  
+                  <slot
+                    name="product-card"
+                    v-bind="{ product }"
+                  >
+                    <product-card
+                      class="search-engine__item"
+                      v-bind="productCardProps"
+                      :product="product"
+                    />
+                  </slot>
+                  
+                </div>              
+              </div>
+            </article>
+    
+            <transition enter-active-class="animated fadeInDown">
+              <div
+                class="alert alert-warning"
+                role="alert"
+                v-if="hasNetworkError"
+              >
+                <i class="i-wifi mr-2"></i>
+                {{ i19searchOfflineErrorMsg }}
+                <a
+                  href="#"
+                  class="alert-link"
+                  @click.prevent="fetchItems"
+                >
+                  {{ i19searchAgain }}
+                </a>
               </div>
             </transition>
           </div>
-  
-          <article
-            v-if="canShowItems"
-            class="search-engine__retail"
-          >
-            <div class="row">
-              <div
-                :class="dataContainer ? ('col-md-' + (12/dataContainer.num_col_md) + ' col-' + (12/dataContainer.num_col_sm) + ' ' + dataContainer.padding_md + ' ' + dataContainer.padding_sm) : 'col-6 col-md-4 col-lg-3' "
-                :data="true"
-                v-for="(product, i) in suggestedItems"
-                :key="product._id"
-                :ref="i === pageAnchorIndex ? 'pageAnchor' : null"
-              >
-                
-                <slot
-                  name="product-card"
-                  v-bind="{ product }"
-                >
-                  <product-card
-                    class="search-engine__item"
-                    v-bind="productCardProps"
-                    :product="product"
-                  />
-                </slot>
-                
-              </div>              
-            </div>
-          </article>
-  
-          <transition enter-active-class="animated fadeInDown">
-            <div
-              class="alert alert-warning"
-              role="alert"
-              v-if="hasNetworkError"
-            >
-              <i class="i-wifi mr-2"></i>
-              {{ i19searchOfflineErrorMsg }}
-              <a
-                href="#"
-                class="alert-link"
-                @click.prevent="fetchItems"
-              >
-                {{ i19searchAgain }}
-              </a>
-            </div>
-          </transition>
         </div>
       </div>
     </transition>

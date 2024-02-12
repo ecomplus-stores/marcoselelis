@@ -65,17 +65,48 @@ document.addEventListener('DOMContentLoaded', function() {
     window.listingImage();
 
     $('.category-banner + .page-title').appendTo('.hero-banner.category-banner')
+
+   
 });
-$('header#header').css('--header-vh', $('header#header').innerHeight() + 'px');
-$('body').css('--header-vh-main', $('header#header').innerHeight() + 'px');
+window.addEventListener('load', function(event) {
+    $('header#header').css('--header-vh', $('header#header').innerHeight() + 'px');
+    $('body').css('--header-vh-main', $('header#header').innerHeight() + 'px');
+
+});
 if($('#page-products').length > 0){
-    $('.sticky').css('--header-vh', $('header#header').innerHeight() + 'px');
-    
+    window.addEventListener('load', function(event) {
+        $('.sticky').css('--header-vh', $('header#header').innerHeight() + 'px');
+    });
 
     $('body').on('click','[data-tab]',function(){
         let tab = $(this).attr('data-tab');
         $('._'+tab).toggleClass('visible')
+    });
+
+    $(window).on('scroll', function() {
+        var scrollPos = $(window).scrollTop();
+        $('.slide').each(function() {
+            var offsetTop = $(this).offset().top;
+            if (scrollPos >= offsetTop && scrollPos < offsetTop + $(this).outerHeight()) {
+                var slideId = $(this).attr('id');
+                $('.apx_gallery_dots .apx_gallery_dot').removeClass('active');
+                $('.apx_gallery_dots .apx_gallery_dot:eq(' + (parseInt(slideId.slice(-1))) + ')').addClass('active');
+            }
+        });
+    });
+    
+    $('body').on('click','.apx_gallery_dots .apx_gallery_dot', function() {
+        var index = $(this).index();
+        var targetSlide = $('.apx_gallery__item:eq(' + index + ')');
+        var scrollTop = targetSlide.offset().top;
+        $('html, body').scrollTop(scrollTop);
+        $(window).trigger('scroll');
+    });
+
+    $(document).ready(function(){
+        $(window).trigger('scroll');
     })
+    
 }
 
 window.addEventListener('load', function() {
@@ -162,12 +193,12 @@ $('body').on('click', '.top_cta button', function(){
     $('.top_cta').hide();
 });
 $(document).ready(function(){
-    let stripe = sessionStorage.getItem('stripe');
-    if(stripe == "true"){
-        $('.top_cta').hide();
-    }else{
-        $('.top_cta').show();
+    if(window.innerWidth > 990){
+        let stripe = sessionStorage.getItem('stripe');
+        if(stripe == "true"){
+            $('.top_cta').hide();
+        }else{
+            $('.top_cta').show();
+        }
     }
 });
-
-

@@ -709,6 +709,14 @@ export default {
       this.fetchProduct().then(presetQntToBuy)
     }
     this.isFavorite = checkFavorite(this.body._id || this.productId, this.ecomPassport)
+
+    setTimeout(() => {
+      const { $ } = window
+      $('.variations > div:nth-child(1) button:not(.disabled)').first().click()
+      setTimeout(() => {
+        $('.variations > div:nth-child(2) button:not(.disabled)').first().click()
+      }, 200)
+    }, 200)
   },
 
   mounted () {
