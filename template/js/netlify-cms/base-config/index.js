@@ -1094,7 +1094,13 @@ export default options => {
                             label: "Nome da opção",
                             name: "title",
                             widget: "string"          
-                          },      
+                          },   
+                          {
+                            label: "Descrição",
+                            name: "description",
+                            widget: "string",
+                            required:false,          
+                          },    
                           {
                             label: "Tipo de Custo",
                             name:"type",
