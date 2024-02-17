@@ -1070,7 +1070,13 @@ export default options => {
                   {
                     label: "ID do grid",
                     name: "title",
-                    widget: "string"          
+                    widget: 'select',
+                    hint:"Lembre-se que o grid deverá estar atribuido ao produto no painel app.e-com.plus para que a personalização funcione. Personalizações do tipo texto/gravação devem ter somente uma opção cadastrada por bloco",
+                    options: window.storefront.data.grids
+                      .map(({ grid_id, title }) => ({
+                        label: title,
+                        value: grid_id
+                      }))        
                   },
                   {
                     label:"Opções",
