@@ -1036,7 +1036,24 @@ export default options => {
           {
             label: 'SKU',
             name: 'title',
-            widget: 'string'
+            widget: 'select',
+                multiple: true,
+                options: [
+                  {label: 'Default / Padrão / Todos os Produtos',
+                value: 'default'},
+                  ...options.state.routes
+                  .filter(({ sku }) => typeof sku === 'string')
+                  .map(({ sku }) => ({
+                    label: 'Produto - ' + sku,
+                    value: sku
+                  })),
+                  ...options.state.routes
+                  .filter(el => el.resource === 'categories')
+                  .map((el) => ({
+                    label: 'Categoria - ' + el.name,
+                    value: 'cat_'+el._id
+                  }))
+                ]    
           },         
           {
             label:"Personalização",
