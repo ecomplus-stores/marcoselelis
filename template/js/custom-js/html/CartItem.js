@@ -48,7 +48,7 @@ import {
   
     data () {
       return {
-        quantity: 0,
+        quantity: 1,
         canInputSelect: false
       }
     },
@@ -82,7 +82,7 @@ import {
       },
   
       isIntegerQnt () {
-        return Number.isInteger(this.maxQuantity) && Number.isInteger(this.quantity)
+        return Number.isInteger(this.maxQuantity) && Number.isInteger(this.quantity);
       },
   
       minQuantity () {
@@ -117,6 +117,7 @@ import {
       },
   
       validateQuantity () {
+        console.log(this.quantity);
         if (this.minQuantity <= this.maxQuantity) {
           if (this.quantity < this.minQuantity) {
             this.quantity = this.minQuantity
@@ -146,10 +147,12 @@ import {
   
     watch: {
       'item.quantity': {
-        handler (qnt) {
-          if (this.quantity || qnt > 1) {
-            this.quantity = qnt || 0
+        handler(qnt) {
+          console.log('Watcher - item.quantity:', qnt);
+          if (!isNaN(qnt) && qnt >= 0) {
+            this.quantity = qnt;
           }
+          console.log(`Item _id: ${this.item._id}, Name: ${this.item.name}, Type: ${typeof this.item._id}`);
         },
         immediate: true
       },

@@ -366,13 +366,81 @@ export default {
       return ''
     },
     customizationStepBack(){
-      this.cms_customizations_step--
-    },
-    setDeepCustomizationOption(index,grid_id,item){
+      const product = sanitizeProductBody(this.body);
 
-      this.current_customization[index] = {[grid_id] : item}
-      //console.log(this.current_customization)
-      this.cms_customizations_step++
+      if (this.cms_customizations_step === 3) {
+        if (this.current_customization[0] && this.current_customization[0].tipo_de_oculos) {
+          if (this.current_customization[0].tipo_de_oculos.title === "Sem grau") {
+            this.cms_customizations_step = 2;
+          }
+        }
+      } 
+
+      if (this.cms_customizations_step === 4) {
+        if (this.current_customization[0] && this.current_customization[0].tipo_de_oculos) {
+          if (this.current_customization[0].tipo_de_oculos.title === "Sem grau") {
+            this.cms_customizations_step = 2;
+          } else {
+            this.cms_customizations_step = 3;
+          }
+        }
+        if (product.categories[0].name === "Óculos de Sol") {
+          this.cms_customizations_step = 2;
+        }
+      } 
+
+      else {
+        this.cms_customizations_step--
+      }
+    },
+    setDeepCustomizationOption(index, grid_id, item) {
+      const product = sanitizeProductBody(this.body);
+
+      this.current_customization[index] = { [grid_id]: item };
+      console.log(this.current_customization);
+      console.log(this.cms_customizations_step);
+
+      console.log(product.categories[0].name);
+      
+      if (this.cms_customizations_step === 1) {
+        if (this.current_customization[0] && this.current_customization[0].tipo_de_oculos) {
+          if (this.current_customization[0].tipo_de_oculos.title === "Sem grau") {
+            this.current_customization[1] = { 'lente': { title: '-', type: 'Fixo', value: 0 }};
+            this.current_customization[2] = { 'tipo_da_lente': { title: '-', type: 'Fixo', value: 0 }};
+            
+            this.cms_customizations_step = 2;
+          }
+          if (product.categories[0].name === "Óculos de Sol" && this.current_customization[0].tipo_de_oculos.title === "Sem grau") {
+            this.current_customization[1] = { 'lente': { title: '-', type: 'Fixo', value: 0 }};
+            this.current_customization[2] = { 'tipo_da_lente': { title: '-', type: 'Fixo', value: 0 }};
+            
+            this.cms_customizations_step = 3;
+          }
+        }
+      }
+      if (this.cms_customizations_step === 2) {
+        if (product.categories[0].name === "Óculos de Sol") {    
+          this.current_customization[2] = { 'tipo_da_lente': { title: '-', type: 'Fixo', value: 0 }};
+          this.cms_customizations_step = 3;
+        }
+      } 
+      if (this.cms_customizations_step === 3) {
+        this.cms_customizations_step++;
+      } 
+      else {
+        this.cms_customizations_step++;
+      }
+    },
+    shouldShowButton(option) {
+      if (this.cms_customizations_step === 3 && this.current_customization[0].tipo_de_oculos.title === "Sem grau") {
+        return option.title === 'Somente armação' || option.title === 'Antirreflexo';
+      } 
+      if (this.cms_customizations_step === 3 && this.current_customization[0].tipo_de_oculos.title === "Com grau") {
+        return option.title === 'Antirreflexo' || option.title === 'Antirreflexo + Proteção Luz Azul' || option.title === 'Antirreflexo + Fotosensível' || option.title === 'Antirreflexo + Fotosensível + Protecao Luz Azul';
+      }
+      else {
+        return option.title !== '-';
+      }
     },
     totalWithCustomization(){
       // let variationId
@@ -457,7 +525,10 @@ export default {
       }
     },
 
-    
+    getCustomizationLabel(gridId) {
+      const customization = this.body.customizations.find(el => el.grid_id === gridId);
+      return customization ? customization.label : 'Label não encontrado';
+    },
 
     handleGridOption ({ gridId, gridIndex, optionText }) {
       if (gridIndex === 0) {
@@ -477,13 +548,15 @@ export default {
     },
 
     closeCustomizations() {
-      this.customizationPanel = false
+      this.customizationPanel = false;
+      this.hasClickedBuy = false;
     },
     buy (option) {
       //alert('aa')
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
       let variationId
+      
       if (this.hasVariations) {
         if (this.selectedVariationId) {
           variationId = this.selectedVariationId
@@ -491,6 +564,7 @@ export default {
           return
         }
       }
+      
       product.pictures = this.productToGallery.pictures
       //const customizations = [...this.customizations]
       let customCustomizations = []
@@ -533,10 +607,7 @@ export default {
           ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
         }
         this.isOnCart = true
-      }
-      
- 
-        
+      } 
       
     },
 
@@ -597,6 +668,7 @@ export default {
 
     fixedPrice (price) {
       if (price > 0 && !this.isQuickview) {
+        console.log(sanitizeProductBody(this.body));
         addIdleCallback(() => {
           modules({
             url: '/list_payments.json',
@@ -656,7 +728,7 @@ export default {
                   if (quantity) {
                     item.min_quantity = item.max_quantity = quantity
                   } else {
-                    item.quantity = 0
+                    item.quantity = 1
                   }
                   this.kitItems.push({
                     ...item,

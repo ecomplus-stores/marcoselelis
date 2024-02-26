@@ -28,7 +28,7 @@
       "btn_text_color_2_m": "#000000",
       "link_text_color": "#000000",
       "mask_opacity": 2,
-      "title": "Spring-Summer<br><b>2023 HERA</b>",
+      "title": "SPRING-SUMMER<br><b>2023 HERA</b>",
       "padding_bottom": "0",
       "type": "apx_responsive-banner",
       "margin_bottom": "0",
@@ -147,7 +147,9 @@
         "6501c4780719b1149eebfbd8",
         "6501c4790719b1149eebfbdd",
         "6501c47a0719b1149eebfbe2",
-        "6501c47b0719b1149eebfbe7"
+        "6501c47b0719b1149eebfbe7",
+        "6570cac12cd6b65959cffc0e",
+        "6501c4cb2cd6b659594a3db0"
       ],
       "margin_top": "5",
       "carrossel_dots_md": "Sim",

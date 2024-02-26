@@ -40,27 +40,20 @@
   "customizations": [
     {
       "item": {
-        "title": "lente",
+        "title": "tipo_de_oculos",
         "list": [
           {
             "option": {
-              "title": "Sem Grau",
+              "title": "Com grau",
               "type": "Fixo",
               "value": 0
             }
           },
           {
             "option": {
-              "title": "Grau Baixo",
+              "title": "Sem grau",
               "type": "Fixo",
               "value": 0
-            }
-          },
-          {
-            "option": {
-              "title": "Grau Alto",
-              "type": "Fixo",
-              "value": 300
             }
           }
         ]
@@ -68,37 +61,87 @@
     },
     {
       "item": {
+        "title": "lente",
         "list": [
           {
             "option": {
-              "title": "AR",
+              "title": "-",
               "type": "Fixo",
               "value": 0
             }
           },
           {
             "option": {
-              "title": "AR + Azul",
+              "title": "Grau baixo",
+              "description": "Lentes em resina de alta qualidade e resistente a impactos. Indicada para esféricos de até +/-3.00 e cilíndricos de até -2.00",
               "type": "Fixo",
-              "value": 200
+              "value": 0
             }
           },
           {
             "option": {
-              "title": "AR + Solar",
+              "title": "Grau médio",
+              "description": "Lentes de policarbonato mais finas e leves. Indicada para esféricos de até +/-6.00 e cilíndricos de até -4.00",
               "type": "Fixo",
-              "value": 200
+              "value": 180
             }
           },
           {
             "option": {
-              "title": "AR + Azul + Solar",
-              "type": "%",
-              "value": 50
+              "title": "Grau alto",
+              "description": "Lentes ultrafinas recomendadas para prescrições muito fortes. Indicada para esféricos de até +6.00/-8.00 e cilíndricos de até -4.00",
+              "type": "Fixo",
+              "value": 450
             }
           }
-        ],
-        "title": "tipo_da_lente"
+        ]
+      }
+    },
+    {
+      "item": {
+        "title": "tipo_da_lente",
+        "list": [
+          {
+            "option": {
+              "title": "Somente armação",
+              "description": "Sem lentes. Não desejo nenhuma lente, somente armação (serão enviadas lentes de acrílico, apenas para estética, sem correção da visão).",
+              "type": "Fixo",
+              "value": 0
+            }
+          },
+          {
+            "option": {
+              "title": "Antirreflexo",
+              "description": "Lentes anti-reflexo e resistentes a arranhões que protegem contra raios UV",
+              "type": "Fixo",
+              "value": 0
+            }
+          },
+          {
+            "option": {
+              "title": "Antirreflexo + Proteção Luz Azul",
+              "description": "Lentes anti-reflexo e resistentes a arranhões que protegem contra raios UV com tratamento especial que ajuda a bloquear a luz azul potencialmente incômoda que ocorre natural e digitalmente",
+              "type": "Fixo",
+              "value": 130
+            }
+          },
+          {
+            "option": {
+              "title": "Antirreflexo + Fotosensível",
+              "description": "Lentes anti-reflexo e resistentes a arranhões que bloqueiam 100% dos raios UV e fazem a transição de uma tonalidade transparente para uma cor mais escura em ambientes externos (escolha entre cinza, marrom ou verde). Elas também filtram mais luz azul do que nossas lentes clássicas",
+              "type": "Fixo",
+              "value": 200
+            }
+          },
+          {
+            "option": {
+              "title": "Antirreflexo + Fotosensível + Protecao Luz Azul",
+              "description": "Lentes anti-reflexo e resistentes a arranhões que bloqueiam 100% dos raios UV e fazem a transição de uma tonalidade transparente para uma cor mais escura em ambientes externos (escolha entre cinza, marrom ou verde). Elas também filtram mais luz azul do que nossas lentes clássicas",
+              "type": "Fixo",
+              "value": 290
+            }
+          }
+        ]
       }
     },
     {

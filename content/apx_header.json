@@ -13,7 +13,7 @@
               {
                 "item": {
                   "title": "Class",
-                  "url": "?colecao=Class"
+                  "url": "?colecao=Classic"
                 }
               },
               {
@@ -33,7 +33,7 @@
               {
                 "item": {
                   "title": "Class",
-                  "url": "?colecao=Class"
+                  "url": "?colecao=Classic"
                 }
               },
               {
@@ -49,7 +49,7 @@
       "images": [
         {
           "item": {
-            "image": "/img/uploads/topo1.jpg",
+            "image": "/img/uploads/topo-grau1.jpg",
             "title": "Comprar",
             "url": "/oculos-de-grau"
           }
@@ -58,7 +58,7 @@
           "item": {
             "title": "Ver Catálogo",
             "url": "/oculos-de-grau",
-            "image": "/img/uploads/topo2.jpg"
+            "image": "/img/uploads/topo-grau2.jpg"
           }
         }
       ]
@@ -76,7 +76,7 @@
               {
                 "item": {
                   "title": "Class",
-                  "url": "?colecao=Class"
+                  "url": "?colecao=Classic"
                 }
               },
               {
@@ -96,7 +96,7 @@
               {
                 "item": {
                   "title": "Class",
-                  "url": "?colecao=Class"
+                  "url": "?colecao=Classic"
                 }
               },
               {
