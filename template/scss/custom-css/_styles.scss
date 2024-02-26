@@ -3631,3 +3631,20 @@ header#header{
 @media(max-width:990px){
     .apx_gallery_dots{display: none;}
 }
+
+.page--home > .sections > .apx_responsive-banner:first-child{
+    .container-fluid{max-height: calc(100vh - var(--header-vh-main));
+        .apx_banner{
+            max-height: calc(100vh - var(--header-vh-main));
+            width:100%;
+            picture{width:100%;max-height: calc(100vh - var(--header-vh-main));}
+            picture img{
+                object-fit: cover;
+                max-height: calc(100vh - var(--header-vh-main));
+                width: 100%;
+                
+            }
+        }
+    }
+
+}
