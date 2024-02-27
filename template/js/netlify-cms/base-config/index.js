@@ -1036,24 +1036,7 @@ export default options => {
           {
             label: 'SKU',
             name: 'title',
-            widget: 'select',
-                multiple: true,
-                options: [
-                  {label: 'Default / Padrão / Todos os Produtos',
-                value: 'default'},
-                  ...options.state.routes
-                  .filter(({ sku }) => typeof sku === 'string')
-                  .map(({ sku }) => ({
-                    label: 'Produto - ' + sku,
-                    value: sku
-                  })),
-                  ...options.state.routes
-                  .filter(el => el.resource === 'categories')
-                  .map((el) => ({
-                    label: 'Categoria - ' + el.name,
-                    value: 'cat_'+el._id
-                  }))
-                ]    
+            widget: 'string'
           },         
           {
             label:"Personalização",
@@ -1070,13 +1053,7 @@ export default options => {
                   {
                     label: "ID do grid",
                     name: "title",
-                    widget: 'select',
-                    hint:"Lembre-se que o grid deverá estar atribuido ao produto no painel app.e-com.plus para que a personalização funcione. Personalizações do tipo texto/gravação devem ter somente uma opção cadastrada por bloco",
-                    options: window.storefront.data.grids
-                      .map(({ grid_id, title }) => ({
-                        label: title,
-                        value: grid_id
-                      }))        
+                    widget: "string"          
                   },
                   {
                     label:"Opções",
@@ -1094,13 +1071,7 @@ export default options => {
                             label: "Nome da opção",
                             name: "title",
                             widget: "string"          
-                          },   
-                          {
-                            label: "Descrição",
-                            name: "description",
-                            widget: "string",
-                            required:false,          
-                          },    
+                          },      
                           {
                             label: "Tipo de Custo",
                             name:"type",

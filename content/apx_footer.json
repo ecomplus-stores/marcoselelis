@@ -6,37 +6,25 @@
         {
           "item": {
             "title": "Óculos de Sol",
-            "url": "/"
+            "url": "/oculos-de-sol"
           }
         },
         {
           "item": {
             "title": "Óculos de Grau",
-            "url": "/"
-          }
-        },
-        {
-          "item": {
-            "title": "Armação Gatinho",
-            "url": "/"
-          }
-        },
-        {
-          "item": {
-            "title": "Armação Aviador",
-            "url": "/"
+            "url": "/oculos-de-grau"
           }
         },
         {
           "item": {
             "title": "Óculos de Sol Masculino",
-            "url": "/"
+            "url": "/oculos-de-sol/masculino"
           }
         },
         {
           "item": {
             "title": "Óculos de Sol Feminino",
-            "url": "/"
+            "url": "/oculos-de-sol/feminino"
           }
         }
       ]

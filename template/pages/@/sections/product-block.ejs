@@ -23,7 +23,7 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
       </div>
 
       <div class="row">
-        <div class="col-12 col-md-7 mb-4 mb-md-0">
+        <div class="col-12 col-md-7 mb-4">
           <div id="product-gallery"></div>
         </div>
 
@@ -142,8 +142,8 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
 
     
   </div>
-  <!-- <div class="sections pb-1 pb-sm-2 pb-lg-4 mt-md-5 pt-5 d-none">
-    
+  <div class="sections pb-1 pb-sm-2 pb-lg-4 mt-md-5 pt-5">
+    <!-- <%
     const sku_ = _.state.sku.toLowerCase()
     let cms_product = (_.cms(`apx_products/${sku_}`))
     console.log(cms_product)
@@ -151,32 +151,20 @@ if (stamps && Array.isArray(stamps.stamps_list) && stamps.stamps_list.length) {
       cms_product = (_.cms(`apx_products/default`))
     }
     const { sections, customizations } = cms_product
-  </div> -->
-  <% 
-    let customizations;
-    const apx_products = _.cms('apx_products')
-      if (Array.isArray(apx_products) && apx_products.length > 0) {      
-        apx_products.forEach(item => { 
-          const lib = (_.cms(`apx_products/${item}`))
-          if(_.state.categories && _.state.categories.length > 0){
-            _.state.categories.forEach(cat => {
-              if(lib.title.find(el => el == 'cat_'+ cat._id)){
-                customizations = lib.customizations            
-                return
-              }
-            })
-          }          
-        })
-        apx_products.forEach(item => { 
-          const lib = (_.cms(`apx_products/${item}`))
-          if(lib.title.find(el => el == _.state.sku)){
-            customizations = lib.customizations   
-            return         
-          }                
-        })
+    if (Array.isArray(sections)) {
+      for (let i = 0; i < sections.length; i++) {
+        const opt = sections[i]
+        // quando houver o arquivo specifications.ejs dentro de sections, você pode remover a condição: && opt.type !== 'specifications'
+        if (opt && opt.enabled !== false) {
+          %>
+          <%- await include(`@/sections/${opt.type}`, { _, opt }) %>
+          <%
+        }
       }
-  %>
-  <div data-customizations="<%= JSON.stringify(customizations) %>"></div>  
+    }      
+    %> -->
+    <div data-customizations="<%= JSON.stringify(customizations) %>"></div>
+  </div>  
 </div>
 <div class="apx_tabs_content">
   <% if (_.state.body_html) { %>

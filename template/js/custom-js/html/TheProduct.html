@@ -4,7 +4,6 @@
   :data-sku="body.sku"
   :data-selected-variation="selectedVariationId"
 >
-  
   <a-alert
     :can-show="hasLoadError"
     variant="danger"
@@ -50,7 +49,7 @@
           </button>
         </div>
       </div>
-     
+
       <div class="customizations_body px-md-3">
         <div class="step px-md-3"
         v-for="(item, index) in cms_customizations"
@@ -59,8 +58,7 @@
         > 
         <div class="option_title text-center mb-5">
           <small>Selecione a opção para</small>
-          
-          <h4>{{body.customizations.find(el => el.grid_id.toLowerCase() == item.item.title.toLowerCase()).label}}</h4>
+          <h4>{{ getCustomizationLabel(item.item.title) }}</h4>
         </div>
         <div class="option_options">
           
@@ -79,9 +77,6 @@
               {{item_.option.description}}
             </p>
           </div>
-          <p class="mt-3">
-            {{item_.option.description || 'Sem descrição'}}
-          </p>
           </div>
         </div>  
         </div>
