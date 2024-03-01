@@ -1,7 +1,7 @@
 {
   "marketing_stripe": {
-    "text": "Garanta <b>R$ 100 de desconto</b> em seu primeiro pedido ",
-    "link": "/promotion",
+    "text": "Garanta <b>R$ 100 de desconto</b> em seu primeiro pedido ao usar o cupom <b>PRIMEIRACOMPRA</b>",
+    "link": "#",
     "color": "#000000"
   },
   "contacts_stripe": {

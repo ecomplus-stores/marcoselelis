@@ -384,7 +384,10 @@ export default {
             this.cms_customizations_step = 3;
           }
         }
-        if (product.categories[0].name === "Óculos de Sol") {
+        if (product.categories[0].name === "Óculos de Sol" && this.current_customization[0].tipo_de_oculos.title === "Sem grau") {
+          this.cms_customizations_step = 1;
+        }
+        if (product.categories[0].name === "Óculos de Sol" && this.current_customization[0].tipo_de_oculos.title === "Com grau (apenas um campo)") {
           this.cms_customizations_step = 2;
         }
       } 
@@ -435,8 +438,8 @@ export default {
       if (this.cms_customizations_step === 3 && this.current_customization[0].tipo_de_oculos.title === "Sem grau") {
         return option.title === 'Somente armação' || option.title === 'Antirreflexo';
       } 
-      if (this.cms_customizations_step === 3 && this.current_customization[0].tipo_de_oculos.title === "Com grau") {
-        return option.title === 'Antirreflexo' || option.title === 'Antirreflexo + Proteção Luz Azul' || option.title === 'Antirreflexo + Fotosensível' || option.title === 'Antirreflexo + Fotosensível + Protecao Luz Azul';
+      if (this.cms_customizations_step === 3 && this.current_customization[0].tipo_de_oculos.title === "Com grau (apenas um campo)") {
+        return option.title === 'Antirreflexo' || option.title === 'Antirreflexo + Proteção Luz Azul' || option.title === 'Antirreflexo + Fotosensível (escurece no Sol)' || option.title === 'Antirreflexo + Fotosensível (escurece no Sol) + Protecao Luz Azul';
       }
       else {
         return option.title !== '-';
