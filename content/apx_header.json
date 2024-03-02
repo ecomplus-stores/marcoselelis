@@ -12,7 +12,7 @@
             "list": [
               {
                 "item": {
-                  "title": "Class",
+                  "title": "Classic",
                   "url": "?colecao=Classic"
                 }
               },
@@ -20,6 +20,12 @@
                 "item": {
                   "title": "Gold",
                   "url": "?colecao=Gold"
+                }
+              },
+              {
+                "item": {
+                  "title": "Ver todos",
+                  "url": "/oculos-de-grau/masculino"
                 }
               }
             ]
@@ -32,7 +38,7 @@
             "list": [
               {
                 "item": {
-                  "title": "Class",
+                  "title": "Classic",
                   "url": "?colecao=Classic"
                 }
               },
@@ -40,6 +46,12 @@
                 "item": {
                   "title": "Gold",
                   "url": "?colecao=Gold"
+                }
+              },
+              {
+                "item": {
+                  "title": "Ver todos",
+                  "url": "/oculos-de-grau/feminino"
                 }
               }
             ]
@@ -75,7 +87,7 @@
             "list": [
               {
                 "item": {
-                  "title": "Class",
+                  "title": "Classic",
                   "url": "?colecao=Classic"
                 }
               },
@@ -83,6 +95,12 @@
                 "item": {
                   "title": "Gold",
                   "url": "?colecao=Gold"
+                }
+              },
+              {
+                "item": {
+                  "title": "Ver todos",
+                  "url": "/oculos-de-sol/masculino"
                 }
               }
             ]
@@ -95,7 +113,7 @@
             "list": [
               {
                 "item": {
-                  "title": "Class",
+                  "title": "Classic",
                   "url": "?colecao=Classic"
                 }
               },
@@ -103,6 +121,12 @@
                 "item": {
                   "title": "Gold",
                   "url": "?colecao=Gold"
+                }
+              },
+              {
+                "item": {
+                  "title": "Ver todos",
+                  "url": "/oculos-de-sol/feminino"
                 }
               }
             ]

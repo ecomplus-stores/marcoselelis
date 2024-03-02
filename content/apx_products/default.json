@@ -44,7 +44,7 @@
         "list": [
           {
             "option": {
-              "title": "Com grau",
+              "title": "Com grau (para corrigir minha visão para apenas um campo)",
               "type": "Fixo",
               "value": 0
             }
@@ -127,7 +127,7 @@
           },
           {
             "option": {
-              "title": "Antirreflexo + Fotosensível",
+              "title": "Antirreflexo + Fotosensível (escurece no Sol)",
               "description": "Lentes anti-reflexo e resistentes a arranhões que bloqueiam 100% dos raios UV e fazem a transição de uma tonalidade transparente para uma cor mais escura em ambientes externos (escolha entre cinza, marrom ou verde). Elas também filtram mais luz azul do que nossas lentes clássicas",
               "type": "Fixo",
               "value": 200
@@ -135,7 +135,7 @@
           },
           {
             "option": {
-              "title": "Antirreflexo + Fotosensível + Protecao Luz Azul",
+              "title": "Antirreflexo + Fotosensível (escurece no Sol) + Protecao Luz Azul",
               "description": "Lentes anti-reflexo e resistentes a arranhões que bloqueiam 100% dos raios UV e fazem a transição de uma tonalidade transparente para uma cor mais escura em ambientes externos (escolha entre cinza, marrom ou verde). Elas também filtram mais luz azul do que nossas lentes clássicas",
               "type": "Fixo",
               "value": 290
