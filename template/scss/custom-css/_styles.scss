@@ -3466,19 +3466,6 @@ header#header{
         font-size: var(--f11)!important;
     }
     body #cart-quickview .minicart__aside{right: 0;}
-    .retail-grid{
-        .search-engine{
-            .search-engine__results{
-                .search-engine__retail > .row {
-                    margin: 0 -0.5rem;
-                }
-                .search-engine__retail > .row > div:first-child{
-                    flex: 0 0 100%;
-                    max-width: 100%;
-                }
-            }
-        }
-    }
 }
 .product-card{
     .product-card__pictures{
