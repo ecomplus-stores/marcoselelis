@@ -1059,6 +1059,7 @@ header#header{
     box-shadow: 0px 0px 20px rgba(0,0,0,.3);
     right: -460px;
     transition: right .3s ease-in-out;
+    overflow: scroll;
     .custom_close:before,
     .custom_close:after{display: none;}
     .customizations_header{
