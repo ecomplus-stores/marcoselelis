@@ -610,10 +610,10 @@ header#header{
     --banner-aspect-ratio-mobile:1!important;
 }
 
-.apx_banner{
-    position:relative;
-    width: 100%;
-}
+// .apx_banner{
+//     position:relative;
+//     width: 100%;
+// }
 .apx_banner .apx_banner-content h3{
     font-size:var(--f40);
     font-family:var(--f-family-1), sans-serif;
@@ -3635,4 +3635,9 @@ header#header{
         }
     }
 
+}
+
+.banner picture img {
+    height: auto!important;
+    width: auto!important;
 }
