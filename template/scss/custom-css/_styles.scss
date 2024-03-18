@@ -3495,9 +3495,11 @@ header#header{
 .product-card{
     .product-card__pictures{
         picture{
+            width: 100%;
             img{    
                 width: 100%;
-                object-fit: cover;}
+                object-fit: cover;
+            }
         }
     }
 }
