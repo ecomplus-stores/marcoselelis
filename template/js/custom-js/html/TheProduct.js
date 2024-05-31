@@ -746,7 +746,7 @@ export default {
                 } else {
                   addKitItem()
                 }
-              })
+              });
             })
             .catch(console.error)
         }
@@ -786,7 +786,13 @@ export default {
   },
 
   mounted () {
-    
+
+    $(document).ready(function() {
+      console.log("Entrei no mounted document ready.");
+      if($(".variations__option").length > 1) {
+        $(".variations__option").first().click();
+      }
+    })
     //console.log(this.body.customizations)
     if (this.$refs.sticky && !this.isWithoutPrice) {
       let isBodyPaddingSet = false
