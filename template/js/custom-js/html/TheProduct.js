@@ -789,7 +789,7 @@ export default {
 
     $(document).ready(function() {
       console.log("Entrei no mounted document ready.");
-      if($(".variations__option").length > 1) {
+      if($(".variations__option").length > 0) {
         $(".variations__option").first().click();
       }
     })
