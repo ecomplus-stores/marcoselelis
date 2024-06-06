@@ -2022,6 +2022,12 @@ $("body").on("click", ".product-card_colors", function (event) {
     $(event.target).addClass("active");
     let src = $(event.target).attr("data-image");
     let img = colors.closest(".product-card").find(".product-card__pictures img");
+    let sources = colors.closest(".product-card").find(".product-card__pictures source");
+    sources.each(function() {
+      if(src != "") {
+        $(this).attr("srcset", src);
+      }
+    });
     img.attr("src", src);
   }
 });
