@@ -138,13 +138,13 @@
           "item": {
             "image": "/img/uploads/topo1.jpg",
             "title": "Comprar",
-            "url": "/oculos-de-grau"
+            "url": "/oculos-de-sol"
           }
         },
         {
           "item": {
             "title": "Ver Catálogo",
-            "url": "/oculos-de-grau",
+            "url": "/oculos-de-sol",
             "image": "/img/uploads/campanhahera-110-crop.jpg"
           }
         }

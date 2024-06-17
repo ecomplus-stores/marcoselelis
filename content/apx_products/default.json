@@ -143,27 +143,6 @@
           }
         ]
       }
-    },
-    {
-      "item": {
-        "title": "embalagem",
-        "list": [
-          {
-            "option": {
-              "title": "Convencional",
-              "type": "Fixo",
-              "value": 0
-            }
-          },
-          {
-            "option": {
-              "title": "Presente",
-              "type": "Fixo",
-              "value": 0
-            }
-          }
-        ]
-      }
     }
   ]
 }
