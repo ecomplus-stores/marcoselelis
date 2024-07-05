@@ -1796,8 +1796,7 @@ background: #131313;
         .payment__gateway {
             margin-top: 1rem;
             border-radius: 5px!important;
-            border:1px solid #f5f5f5!important;
-            img{display: none;}
+            border:1px solid #77d48c!important;
             .payment__badges{
                 .badge{
                     height: 30px;
@@ -1816,7 +1815,6 @@ background: #131313;
                 font-size:var(--f-size-5);
                 line-height: 29px;
             }
-            .payment__icon{display: none;}
         }
     }
     .btn-success{
