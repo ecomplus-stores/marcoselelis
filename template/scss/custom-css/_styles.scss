@@ -1799,14 +1799,14 @@ background: #131313;
             border:1px solid #77d48c!important;
             .payment__badges{
                 .badge{
-                    height: 30px;
-                    font-weight: 600;
-                    background: #000;
-                    font-size: 14px;
-                    display: flex;
                     align-items: center;
-                    padding: 0 1rem;
+                    background: #000;
+                    display: flex;
+                    font-size: 12px;
+                    font-weight: 600;
+                    height: 25px;
                     margin: 0;
+                    padding: 0 0.5rem;
                 }
                 
             }
@@ -2189,7 +2189,7 @@ background: #131313;
 }
 
 .checkout__app .checkout__steps{
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto 2rem auto;
 }
 .checkout__app .checkout__steps .checkout__step{
@@ -2198,35 +2198,26 @@ background: #131313;
     font-weight:600;
     position:relative;
 }
-.checkout__app .checkout__steps .checkout__step.checkout__step--current:after,
-.checkout__app .checkout__steps .checkout__step.checkout__step--past:after{
-    content: "";
-    height: 3px;
-    position: absolute;
-    width: calc(100% - 3px);
-    background: #131313;
-    bottom: 1px;
-    right: 50%;
-}
-.checkout__app .checkout__steps .checkout__step .fa-arrow-left{display:none}
-.checkout__app .checkout__steps .checkout__step:before{
-    background: #131313;
-    // border-radius: 50%;
-    content: "";
-    height: 16px;
-    left: 50%;
-    position: absolute;
-    width: 16px;
-    translate: -50% 0;
-    bottom: -5px;
-}
+// .checkout__app .checkout__steps .checkout__step.checkout__step--current:after,
+// .checkout__app .checkout__steps .checkout__step.checkout__step--past:after{
+//     content: "";
+//     height: 3px;
+//     position: absolute;
+//     width: calc(100% - 3px);
+//     background: #131313;
+//     bottom: 1px;
+//     right: 50%;
+// }
 .checkout__app .checkout__steps .checkout__step *{color:var(--body-color);opacity:1;}
 .checkout__app .checkout__steps .checkout__step small{display:none}
-.checkout__app .checkout__steps .checkout__step--past,
-.checkout__app .checkout__steps .checkout__step--current{color:#000}
+.checkout__app .checkout__steps .checkout__step--past {color:#000}
+.checkout__app .checkout__steps .checkout__step--current{color:#2dbb39}
 .checkout__app .checkout__steps .checkout__step--next{opacity: .3;}
 .checkout__app .checkout__steps .checkout__step--disabled:before{background: #e1e1e1;}
 .checkout__app .checkout__steps .checkout__step--disabled{border-color:#e1e1e1}
+.checkout__app .checkout__steps a:first-child:after {
+    content: " Voltar ao Carrinho";
+}
 
 #apx-mobile-functions{
     button:before,
