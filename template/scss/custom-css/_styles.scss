@@ -3633,7 +3633,7 @@ header#header{
     text-decoration: none!important;
     position: fixed;
     bottom: 1rem;
-    right: 1rem;
+    left: 1rem;
     align-items: center;
     background: #18d940;
     border-radius: 50%;
@@ -3649,13 +3649,26 @@ header#header{
       font-size: 36px;
       color: #fff;
     }
-  }
+}
+.floating-whatsapp-link:after{
+    content: "Converse com nossa equipe";
+    position: absolute;
+    white-space: nowrap;
+    background: #fff;
+    padding: .25rem .5rem;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
+    left: calc(100% + 10px);
+    font-size: 12px;
+    top: 50%;
+    translate: 0 -50%;
+}
 
   @media(max-width:990px){
     .floating-whatsapp-link{
         height: 36px;
         width: 36px;
-        bottom: 3rem;
+        bottom: 1rem;
         i{font-size:20px}
       }
   }
