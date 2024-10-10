@@ -3651,6 +3651,7 @@ header#header{
     }
 }
 .floating-whatsapp-link:after{
+    display: none;
     content: "Converse com a nossa equipe";
     position: absolute;
     white-space: nowrap;
