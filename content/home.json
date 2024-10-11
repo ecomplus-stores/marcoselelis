@@ -38,6 +38,40 @@
       "btn_url_2": "/produtos/feminino"
     },
     {
+      "carrossel_sm": "Sim",
+      "container": "container_90",
+      "products": [
+        "6501c4c62cd6b659594a3d97",
+        "6501c4b42cd6b659594a3d33",
+        "6501c4cc2cd6b659594a3db9",
+        "6501c4790719b1149eebfbdd",
+        "66464466f4e6d85ab287cde2",
+        "6501c4912cd6b659594a3ca6",
+        "6501c4c62cd6b659594a3d97",
+        "6501c47a0719b1149eebfbe2",
+        "6501c4cc2cd6b659594a3db9"
+      ],
+      "margin_top": "5",
+      "carrossel_dots_md": "Sim",
+      "carrossel_arrows_md": "Sim",
+      "padding_top": "5",
+      "carrossel_dots_sm": "Sim",
+      "carrossel_arrows_sm": "Sim",
+      "padding_sm": "px-2",
+      "num_col_md": "4",
+      "btn_text": "Ver Mais",
+      "padding": "px-md-2",
+      "num_col_sm": "1",
+      "title": "Em Destaque",
+      "padding_bottom": "5",
+      "type": "apx_productList_A",
+      "margin_bottom": "5",
+      "description": "",
+      "btn_link": "/produtos",
+      "list": "description_last",
+      "carrossel_md": "Sim"
+    },
+    {
       "container": "container_90",
       "margin_top": "4",
       "padding_top": "4",
@@ -129,40 +163,6 @@
       "padding_bottom": "4",
       "type": "apx_banners-grid",
       "margin_bottom": "4"
-    },
-    {
-      "carrossel_sm": "Sim",
-      "container": "container_90",
-      "products": [
-        "6501c4c62cd6b659594a3d97",
-        "6501c4b42cd6b659594a3d33",
-        "6501c4cc2cd6b659594a3db9",
-        "6501c4790719b1149eebfbdd",
-        "66464466f4e6d85ab287cde2",
-        "6501c4912cd6b659594a3ca6",
-        "6501c4c62cd6b659594a3d97",
-        "6501c47a0719b1149eebfbe2",
-        "6501c4cc2cd6b659594a3db9"
-      ],
-      "margin_top": "5",
-      "carrossel_dots_md": "Sim",
-      "carrossel_arrows_md": "Sim",
-      "padding_top": "5",
-      "carrossel_dots_sm": "Sim",
-      "carrossel_arrows_sm": "Sim",
-      "padding_sm": "px-2",
-      "num_col_md": "4",
-      "btn_text": "Ver Mais",
-      "padding": "px-md-2",
-      "num_col_sm": "1",
-      "title": "Em Destaque",
-      "padding_bottom": "5",
-      "type": "apx_productList_A",
-      "margin_bottom": "5",
-      "description": "",
-      "btn_link": "/produtos",
-      "list": "description_last",
-      "carrossel_md": "Sim"
     }
   ]
 }
