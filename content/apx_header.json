@@ -7,7 +7,15 @@
         {
           "item": {
             "url": "/oculos-de-grau/masculino",
-            "title": "Masculino"
+            "title": "Masculino",
+            "list": [
+              {
+                "item": {
+                  "title": "Ver todos",
+                  "url": "/oculos-de-grau/masculino"
+                }
+              }
+            ]
           }
         },
         {
