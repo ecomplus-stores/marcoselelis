@@ -177,7 +177,21 @@
     },
     {
       "title": "Best Sellers",
-      "url": "/best-sellers"
+      "url": "/best-sellers",
+      "list": [
+        {
+          "item": {
+            "url": "/oculos-de-sol",
+            "title": "Óculos de Sol"
+          }
+        },
+        {
+          "item": {
+            "url": "/oculos-de-grau",
+            "title": "Óculos de grau"
+          }
+        }
+      ]
     },
     {
       "title": "Acessórios",
