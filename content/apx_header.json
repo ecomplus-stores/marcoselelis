@@ -1,6 +1,10 @@
 {
   "links": [
     {
+      "url": "https://heraeyewear.com.br/new-in",
+      "title": "New In"
+    },
+    {
       "title": "Óculos de Grau",
       "url": "/oculos-de-grau",
       "image": "",
@@ -151,12 +155,12 @@
       ]
     },
     {
-      "url": "https://heraeyewear.com.br/new-in",
-      "title": "New In"
-    },
-    {
       "title": "Acessórios",
       "url": "/acessorios"
+    },
+    {
+      "title": "Best Sellers",
+      "url": "https://heraeyewear.com.br/best-sellers"
     }
   ]
 }
