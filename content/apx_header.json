@@ -13,7 +13,15 @@
         {
           "item": {
             "url": "/oculos-de-grau/feminino",
-            "title": "Feminino"
+            "title": "Feminino",
+            "list": [
+              {
+                "item": {
+                  "title": "Ver todos",
+                  "url": "/oculos-de-grau/feminino"
+                }
+              }
+            ]
           }
         }
       ]
