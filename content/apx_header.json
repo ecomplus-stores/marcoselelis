@@ -151,12 +151,12 @@
       ]
     },
     {
-      "title": "Acessórios",
-      "url": "/acessorios"
-    },
-    {
       "url": "https://heraeyewear.com.br/new-in",
       "title": "New In"
+    },
+    {
+      "title": "Acessórios",
+      "url": "/acessorios"
     }
   ]
 }
