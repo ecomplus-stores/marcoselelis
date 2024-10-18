@@ -9,6 +9,12 @@
             "url": "/oculos-de-grau/masculino",
             "title": "Masculino"
           }
+        },
+        {
+          "item": {
+            "url": "/oculos-de-grau/feminino",
+            "title": "Feminino"
+          }
         }
       ]
     },
