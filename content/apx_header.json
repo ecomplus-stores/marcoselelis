@@ -173,7 +173,20 @@
     {
       "title": "Armações e Solares",
       "url": "/armacoes-e-solares",
-      "list": []
+      "list": [
+        {
+          "item": {
+            "url": "/masculino",
+            "title": "Masculino"
+          }
+        },
+        {
+          "item": {
+            "url": "/feminino",
+            "title": "Femininos"
+          }
+        }
+      ]
     },
     {
       "title": "Best Sellers",
@@ -181,14 +194,14 @@
       "list": [
         {
           "item": {
-            "url": "/oculos-de-sol",
-            "title": "Óculos de Sol"
+            "url": "/oculos-de-grau",
+            "title": "Óculos de grau"
           }
         },
         {
           "item": {
-            "url": "/oculos-de-grau",
-            "title": "Óculos de grau"
+            "url": "/oculos-de-sol",
+            "title": "Óculos de Sol"
           }
         }
       ]
