@@ -8,28 +8,14 @@
           "item": {
             "url": "/oculos-de-grau/masculino",
             "title": "Masculino",
-            "list": [
-              {
-                "item": {
-                  "title": "Ver todos",
-                  "url": "/oculos-de-grau/masculino"
-                }
-              }
-            ]
+            "list": []
           }
         },
         {
           "item": {
             "url": "/oculos-de-grau/feminino",
             "title": "Feminino",
-            "list": [
-              {
-                "item": {
-                  "title": "Ver todos",
-                  "url": "/oculos-de-grau/feminino"
-                }
-              }
-            ]
+            "list": []
           }
         }
       ]
