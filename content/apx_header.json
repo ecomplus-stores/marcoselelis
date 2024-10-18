@@ -2,7 +2,15 @@
   "links": [
     {
       "url": "/new-in",
-      "title": "New In"
+      "title": "New In",
+      "list": [
+        {
+          "item": {
+            "url": "/oculos-de-grau/masculino",
+            "title": "Masculino"
+          }
+        }
+      ]
     },
     {
       "title": "Óculos de Grau",
