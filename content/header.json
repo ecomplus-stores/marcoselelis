@@ -10,7 +10,10 @@
     "socials": false
   },
   "categories_list": {
-    "featured": [],
+    "featured": [
+      "/best-sellers?Best Sellers",
+      "/new-in?New In"
+    ],
     "random": 0,
     "full_width": false
   },
