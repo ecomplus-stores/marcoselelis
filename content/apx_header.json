@@ -173,20 +173,7 @@
     {
       "title": "Armações e Solares",
       "url": "/armacoes-e-solares",
-      "list": [
-        {
-          "item": {
-            "url": "/oculos-de-grau",
-            "title": "Óculos de grau"
-          }
-        },
-        {
-          "item": {
-            "url": "/oculos-de-sol",
-            "title": "Óculos de Sol"
-          }
-        }
-      ]
+      "list": []
     },
     {
       "title": "Best Sellers",
