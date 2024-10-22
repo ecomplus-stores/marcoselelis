@@ -84,7 +84,7 @@
           "mask_opacity_m": 3,
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
-          "btn_url": "/masculino?colecao=Gold",
+          "btn_url": "/masculino",
           "content_position": "center_center",
           "mask_color": "#000000",
           "btn_text": "MASCULINO",
@@ -95,7 +95,7 @@
           "link": "/new-in",
           "title_color": "#ffffff",
           "mask_color_m": "#000000",
-          "btn_url_2": "/produtos/feminino?colecao=Gold"
+          "btn_url_2": "/feminino"
         },
         {
           "btn_text_2": "FEMININO",
