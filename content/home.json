@@ -98,17 +98,17 @@
           "btn_url_2": "/feminino"
         },
         {
-          "btn_text_2": "FEMININO",
+          "btn_text_2": "ÓCULOS DE SOL",
           "img": "/img/uploads/editado1.jpg",
           "btn_background_2": "#ffffff",
           "mobile_img": "/img/uploads/editado1.jpg",
           "mask_opacity_m": 3,
           "btn_text_color_2": "#000000",
           "content_order": "inside_image",
-          "btn_url": "/produtos/masculino?colecao=Classic",
+          "btn_url": "r/oculos-de-grau",
           "content_position": "center_center",
           "mask_color": "#000000",
-          "btn_text": "MASCULINO",
+          "btn_text": "ÓCULOS DE GRAU",
           "btn_background": "#ffffff",
           "btn_text_color": "#000000",
           "mask_opacity": 3,
@@ -116,7 +116,7 @@
           "link": "/best-sellers",
           "title_color": "#ffffff",
           "mask_color_m": "#000000",
-          "btn_url_2": "/produtos/feminino?colecao=Classic"
+          "btn_url_2": "/oculos-de-sol"
         }
       ],
       "padding_bottom_m": "2",
