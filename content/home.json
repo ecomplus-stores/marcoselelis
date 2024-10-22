@@ -91,8 +91,8 @@
           "btn_background": "#ffffff",
           "btn_text_color": "#000000",
           "mask_opacity": 3,
-          "title": "Gold",
-          "link": "/produtos/masculino?colecao=Gold",
+          "title": "NEW IN",
+          "link": "/new-in",
           "title_color": "#ffffff",
           "mask_color_m": "#000000",
           "btn_url_2": "/produtos/feminino?colecao=Gold"
