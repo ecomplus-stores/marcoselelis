@@ -1,14 +1,4 @@
 {
-  "marketing_stripe": {
-    "text": "Garanta <b>R$ 100 de desconto</b> em seu primeiro pedido ao usar o cupom <b>PRIMEIRACOMPRA</b>",
-    "link": "#",
-    "color": "#000000"
-  },
-  "contacts_stripe": {
-    "pages": [],
-    "phone_wpp": false,
-    "socials": false
-  },
   "categories_list": {
     "featured": [
       "/best-sellers?Best Sellers",
@@ -19,8 +9,19 @@
     "full_width": false
   },
   "centralized_logo": true,
-  "desktop_megamenu": false,
-  "search_input": true,
+  "marketing_stripe": {
+    "text": "Garanta <b>R$ 100 de desconto</b> em seu primeiro pedido ao usar o cupom <b>PRIMEIRACOMPRA</b>",
+    "link": "#",
+    "color": "#000000"
+  },
   "alphabetical_order_submenu": false,
-  "full_width_submenu": false
+  "popup": "<script id=\"mcjs\">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,\"script\",\"https://chimpstatic.com/mcjs-connected/js/users/19323a54bda52e05c05f539cf/d5cf13e709fb89da0db9dba92.js\");</script>",
+  "search_input": true,
+  "desktop_megamenu": false,
+  "full_width_submenu": false,
+  "contacts_stripe": {
+    "pages": [],
+    "phone_wpp": false,
+    "socials": false
+  }
 }
