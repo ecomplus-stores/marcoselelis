@@ -48,6 +48,6 @@
   },
   "devDependencies": {
     "browser-sync": "^2.29.3",
-    "standard": "^17.1.0"
+    "standard": "^17.1.2"
   }
 }
