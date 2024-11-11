@@ -25,6 +25,9 @@ module.exports = () => ({
     //   './html/QuantitySelector.html': path.resolve(__dirname, 'template/js/custom-js/html/QuantitySelector.html'),   
     //   './js/QuantitySelector.js': path.resolve(__dirname, 'template/js/custom-js/html/QuantitySelector.js'),   
        './html/CartQuickview.html': path.resolve(__dirname, 'template/js/custom-js/html/CartQuickview.html'),   
+       './helpers/favorite-products': path.resolve(__dirname, 'template/js/custom-js/html/favorite-products.js'),   
+      './helpers/favorite-products.js': path.resolve(__dirname, 'template/js/custom-js/html/favorite-products.js'),   
+      '@ecomplus/storefront-components/src/js/helpers/favorite-products': path.resolve(__dirname, 'template/js/custom-js/html/favorite-products.js'), 
     }
   }
 })

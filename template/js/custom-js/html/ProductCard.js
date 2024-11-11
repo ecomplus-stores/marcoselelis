@@ -242,9 +242,14 @@ export default {
       this.fetchItem()
     }
 
-    window.productListColors(this.body._id)
+    if (typeof window.productListColors !== "undefined") { 
+      window.productListColors(this.body._id)
+    }
+    
   },
   mounted(){
-    window.productListColors(this.body._id)
+    if (typeof window.productListColors !== "undefined") { 
+      window.productListColors(this.body._id)
+    }
   }
 }

@@ -217,6 +217,7 @@ let marketingStripeStyle = ''
           >
             <img src="/assets/search.svg"/>
           </button>
+          
           <!-- <span class="divider d-md-block d-none"></span> -->
           <!-- <a
             href="/page/onde-encontrar"
@@ -228,12 +229,24 @@ let marketingStripeStyle = ''
           <!-- <span class="divider d-md-block d-none"></span> -->
           <a
             id="user-button"
-            class="btn btn-lg d-md-block d-none"
+            class="btn btn-lg d-md-block d-none username_"
             role="button"
             href="/app/#/account/"
             title="<%= _.dictionary('myAccount') %>"
           >
             Entrar
+          </a>
+          <a
+            id="fav-button"
+            class="btn btn-lg"
+            role="button"
+            href="/app/#/account/favorites"
+            title="Favoritos"
+          >
+          <svg width="20" height="20" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.3147 2.00182C13.6705 0.356817 11.0038 0.356816 9.35962 2.00182L8.54826 2.81318L7.73689 2.00182C6.09244 0.357364 3.42626 0.357365 1.7818 2.00182C0.137348 3.64627 0.137349 6.31246 1.7818 7.95691L2.59316 8.76827L8.54826 14.7234L14.5033 8.76827L15.3147 7.95691C16.9597 6.31268 16.9597 3.64604 15.3147 2.00182Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          <span class="favorite-count badge-primary">0</span>
           </a>
           <!-- <span class="divider d-md-block d-none"></span> -->
           <a
