@@ -73,22 +73,96 @@
         </slot>
         
         <div class="mt-3">
-          <a-link
-          class="product-card__link"
-          :href="`/${body.slug}`"
-          :title="name"
-          >
+          
             <div class="text-left">
-              <slot name="title">
-                <component
-                  :is="headingTag"
-                  class="product-card__name"
-                  v-html="name"
-                >
-                  
-                </component>
-              </slot>
+              <div class="d-flex justify-content-between d-prices">
+                <div class="d-flex d-colors">
+                  <a-link
+                  class="product-card__link"
+                  :href="`/${body.slug}`"
+                  :title="name"
+                  >
+                <slot name="title">
+                  <component
+                    :is="headingTag"
+                    class="product-card__name"
+                    v-html="name"
+                  >
+                    
+                  </component>
+                </slot>
+                </a-link>
+                  <div class="product-card_colors"
+                    :data-product="JSON.stringify(body)">
+                      
+                    </div>
+                </div>
+               
 
+                <a-link
+                  class="product-card__link"
+                  :href="`/${body.slug}`"
+                  :title="name"
+                  >
+                <slot
+                  name="without-price"
+                  v-if="isWithoutPrice"
+                >
+                  <p class="badge badge-info mt-auto">
+                    {{ i19uponRequest }}
+                  </p>
+                </slot>
+          
+                <template v-else>
+                  <slot name="prices">
+                    <a-prices
+                      class="product-card__prices mt-2"
+                      :product="body"
+                      :installments-option="installmentsOption"
+                      :discount-option="discountOption"
+                    />
+                  </slot>
+          
+                  <div
+                    @click="buy"
+                    class="product-card__buy fade"
+                    v-if="1 != 1"
+                  >
+                    <slot name="buy">
+                      <div
+                        v-if="buyHtml"
+                        v-html="buyHtml"
+                      ></div>
+          
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        :class="isSmall ? 'btn-sm': 'btn-block'"
+                        :disabled="isWaitingBuy"
+                      >
+                        <span
+                          v-if="isWaitingBuy"
+                          class="product-card__buy-loading spinner-grow spinner-grow-sm"
+                          role="status"
+                        >
+                          <span class="sr-only">Loading...</span>
+                        </span>
+          
+                        <slot name="buy-button-content">
+                          <i class="i-shopping-bag mr-1"></i>
+                          {{ strBuy }}
+                        </slot>
+                      </button>
+                    </slot>
+                  </div>
+                </template>    
+                </a-link>
+              </div>
+              <a-link
+                  class="product-card__link"
+                  :href="`/${body.slug}`"
+                  :title="name"
+                  >
               <slot name="rating">
                 <div
                   v-once
@@ -115,65 +189,11 @@
                   {{ i19outOfStock }}
                 </p>
               </slot>
-        
-              <slot
-                name="without-price"
-                v-if="isWithoutPrice"
-              >
-                <p class="badge badge-info mt-auto">
-                  {{ i19uponRequest }}
-                </p>
-              </slot>
-        
-              <template v-else>
-                <slot name="prices">
-                  <a-prices
-                    class="product-card__prices mt-2"
-                    :product="body"
-                    :installments-option="installmentsOption"
-                    :discount-option="discountOption"
-                  />
-                </slot>
-        
-                <div
-                  @click="buy"
-                  class="product-card__buy fade"
-                  v-if="1 != 1"
-                >
-                  <slot name="buy">
-                    <div
-                      v-if="buyHtml"
-                      v-html="buyHtml"
-                    ></div>
-        
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      :class="isSmall ? 'btn-sm': 'btn-block'"
-                      :disabled="isWaitingBuy"
-                    >
-                      <span
-                        v-if="isWaitingBuy"
-                        class="product-card__buy-loading spinner-grow spinner-grow-sm"
-                        role="status"
-                      >
-                        <span class="sr-only">Loading...</span>
-                      </span>
-        
-                      <slot name="buy-button-content">
-                        <i class="i-shopping-bag mr-1"></i>
-                        {{ strBuy }}
-                      </slot>
-                    </button>
-                  </slot>
-                </div>
-              </template>    
+            </a-link>
+              
             </div>
-          </a-link>
-          <div class="product-card_colors"
-          :data-product="JSON.stringify(body)">
-            
-          </div>
+          
+          
         </div>
         
 

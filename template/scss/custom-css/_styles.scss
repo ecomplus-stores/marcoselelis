@@ -832,6 +832,7 @@ header#header{
         display: flex;
         flex-direction: column;
         font-family: var(--f-family-1);
+        //font-size: var(--f13);
         font-size: var(--f13);
         gap: 5px;
         text-transform: uppercase;
@@ -3389,17 +3390,17 @@ header#header{
             width: 50%;
         }
     }
-    .product-card{
-        .mt-3{
-            .text-left,
-            .text-left *{
-                align-items: center;
-                justify-content: center;
-                text-align: center!important;
-            }
-        }
-        .product-card_colors{margin-bottom:1rem;justify-content: center;}
-    }
+    // .product-card{
+    //     .mt-3{
+    //         .text-left,
+    //         .text-left *{
+    //             align-items: center;
+    //             justify-content: center;
+    //             text-align: center!important;
+    //         }
+    //     }
+    //     .product-card_colors{margin-bottom:1rem;justify-content: center;}
+    // }
 
     .page--products{
         section#product{overflow-x: hidden;}
@@ -3867,3 +3868,44 @@ text-align: left;
   @media(max-width:990px){
     #apx-functions .header__buttons{gap: 1rem;}
   }
+
+ [title_attr="BLACK NOVEMBER"] {
+    color:#ad2619
+  }
+
+.product-card{
+    .mt-3 .text-left {
+        .d-colors{
+            justify-content: space-between!important;
+            flex-direction: column!important;
+        }
+    }
+    .d-colors{
+        flex-direction: column;
+        justify-content: space-between;
+
+        .product-card_colors{margin-top: 0!important;margin-bottom: 0!important;}
+        .product-card_colors button {
+            height: 16px;
+            width: 16px;
+        }
+    }
+    .d-prices{
+        padding: 0 0.75rem;
+        justify-content: space-between!important;
+        .prices__value{
+            span{
+                font-size: var(--f15);
+            }
+        }
+    }
+    .d-flex{
+        .product-card__prices{
+            justify-content: flex-end;
+            align-items: flex-end;
+            margin-top: .15rem!important;
+
+            *{text-align: right!important;}
+        }
+    }
+}
