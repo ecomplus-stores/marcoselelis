@@ -1801,7 +1801,7 @@ background: #131313;
             .payment__badges{
                 .badge{
                     align-items: center;
-                    background: #000;
+                    background: #2dbb39;
                     display: flex;
                     font-size: 12px;
                     font-weight: 600;
@@ -3904,4 +3904,8 @@ text-align: left;
             *{text-align: right!important;}
         }
     }
+}
+
+code {
+    color: #000!important;
 }
