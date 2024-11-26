@@ -1801,13 +1801,15 @@ background: #131313;
             .payment__badges{
                 .badge{
                     align-items: center;
-                    background: #2dbb39;
+                    background: #fff;
                     display: flex;
                     font-size: 12px;
                     font-weight: 600;
                     height: 25px;
                     margin: 0;
                     padding: 0 0.5rem;
+                    color: #000;
+                    border: 1px solid #000;
                 }
                 
             }
@@ -1866,6 +1868,9 @@ background: #131313;
         display: flex;
         align-items: center;
         font-weight: 700!important;     
+    }
+    .login__email-btn > span > .d-none {
+        display: inline!important;
     }
     .login{max-width: 600px;}
     .app__header{
