@@ -969,6 +969,29 @@ export default options => {
       getExtraPages(options),
       getWidgets(options),
       {
+        name: 'apx_properties',        
+        label: '[alpix.dev] - Imagem de Cor p/ Listagem de Produto',
+        description: 'Substitua as cores solidas por imagens nas bolinhas de cor da lista de produtos',
+        folder: `${options.baseDir}content/apx_properties`,
+        extension: 'json',
+        create: true,
+        slug: '{{slug}}',
+        fields: [
+          {
+            label: "Nome da Cor",
+            hint:"Exatamente como cadastrado no painel E-com.plus",
+            name: "title",
+            widget: "string"          
+          }, 
+          {
+            label: 'Imagem',
+            name: 'img',
+            widget: 'image',
+            required:false,
+          }   
+        ]
+      },
+      {
         name: 'apx_products_content',        
         label: '[alpix.dev] - Produtos - Abas de Conteúdo',
         description: 'Configure as opções disponíveis para personalização e sugestões de produtos.',
