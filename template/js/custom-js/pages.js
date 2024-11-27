@@ -1955,6 +1955,16 @@ window.setImageOnProductCard = function (el, img) {
 };
 
 window.productListColors = function (_id) {
+  $(`.variations__grid--colors`).each(function(){
+    console.log(`aahahahah`)
+    $(this).find(`.variations__option`).each(function(){
+      let color_name = $(this).attr(`class`).split(`--`)[1].toLowerCase().trim();
+      let q = window.apx_properties.find(el => el.title.toLowerCase().trim() == color_name.toLowerCase().trim())
+      if(q){
+        $(this).css(`background`,`url(${q.img})`)       
+      }
+    })
+  });
   $(".product-card[data-product-id=" + _id + "]").each(function () {
     let me = $(this);
     let colors = me.find(".product-card_colors:not(.loaded)");
@@ -1969,6 +1979,7 @@ window.productListColors = function (_id) {
       itemData.variationsGrids &&
       itemData.variationsGrids.colors
     ) {
+      console.log(itemData.variationsGrids.colors)
       me.find(".product-card__info").after(
         '<div class="product-card_colors"></div>'
       );
@@ -1985,13 +1996,26 @@ window.productListColors = function (_id) {
         }
 
         if (opt) {
-          colors.append(
-            '<button type="button" data-image="' +
-              (image ? image.normal.url : "") +
-              '" style="background-color:' +
-              opt.specifications.colors[0].value +
-              '"></button>'
-          );
+          let color_name = opt.specifications.colors[0].text
+          let q = window.apx_properties.find(el => el.title.toLowerCase().trim() == color_name.toLowerCase().trim())
+          if(q){
+            colors.append(
+              '<button type="button" data-image="' +
+                (image ? image.normal.url : "") +
+                '" style="background-size:cover;background-image:url(' +
+                q.img +
+                ')"></button>'
+            );
+          }else{
+            colors.append(
+              '<button type="button" data-image="' +
+                (image ? image.normal.url : "") +
+                '" style="background-color:' +
+                opt.specifications.colors[0].value +
+                '"></button>'
+            );
+          }
+          
         }
       }
       colors.addClass("loaded");

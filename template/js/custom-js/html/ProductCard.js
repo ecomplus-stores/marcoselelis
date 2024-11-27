@@ -153,9 +153,12 @@ export default {
   },
 
   methods: {
+    // getCMSPropInfo(color){
+    //   return window.apx_properties.find(el => el.title.trim() == color.trim())
+    // },
     setBody (data) {
       this.body = Object.assign({}, data)
-      //console.log(this.body)
+      console.log(`aaabody`,this.body)
       delete this.body.body_html
       delete this.body.body_text
       delete this.body.inventory_records

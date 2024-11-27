@@ -4,7 +4,20 @@ const footer = _.cms('footer') || {}
 const apx_footer = _.cms('apx_footer') || {}
 const contacts = _.cms('contacts') || {}
 const themeCustom = _.settings.theme.custom || ''
+
+const productProperties = [];
+const apx_products = _.cms('apx_properties')
+if (Array.isArray(apx_products) && apx_products.length > 0) {      
+  apx_products.forEach(item => { 
+    const lib = (_.cms(`apx_properties/${item}`))
+    productProperties.push(lib)    
+  })
+}
+
 %>
+<script>
+  window.apx_properties = JSON.parse(<%- JSON.stringify(JSON.stringify(productProperties)) %>);  
+</script>
 <div id="message-container"></div>
 <div id="favorites-quickview">
   <div class="backdrop"></div>

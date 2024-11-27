@@ -305,7 +305,7 @@ export default {
         }
       }
       return this.body
-    },
+    }
   },
 
   methods: {
@@ -456,13 +456,15 @@ export default {
       // }
       // console.log(variationId)
 
-      let price = this.body.price
+      let price = getPrice(this.body)
+      console.log(this.body)
       console.log('current',this.current_customization)
       for (const item of this.current_customization) {
-        
+        console.log(Object.values(item)[0])  
         const value = Object.values(item)[0].value;
         price += value;
       }
+      
       console.log(this.body.price, price)
       //console.log(this.body)
       return price.toLocaleString('pt-br', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}) 
@@ -788,10 +790,19 @@ export default {
   mounted () {
 
     $(document).ready(function() {
-      console.log("Entrei no mounted document ready.");
+      //console.log("Entrei no mounted document ready.");
       if($(".variations__option").length > 0) {
         $(".variations__option").first().click();
       }
+      $(`.variations__grid--colors`).each(function(){
+        $(this).find(`.variations__option`).each(function(){
+          let color_name = $(this).attr(`class`).split(`--`)[1].toLowerCase().trim();
+          let q = window.apx_properties.find(el => el.title.toLowerCase().trim() == color_name.toLowerCase().trim())
+          if(q){
+            $(this).css(`background`,`url(${q.img})`)       
+          }
+        })
+      });
     })
     //console.log(this.body.customizations)
     if (this.$refs.sticky && !this.isWithoutPrice) {
