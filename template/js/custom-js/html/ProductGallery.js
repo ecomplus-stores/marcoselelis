@@ -233,15 +233,14 @@ export default {
     // glide.mount()
     // this.glide = glide
     //$('.apx_gallery.slick-slider').slick('unslick');
-    if(window.innerWidth  < 990){
-      $('.apx_gallery .slicked').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows:false,
-        dots:true        
-      });
-    }
+    $('.apx_gallery .slicked').slick({
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows:false,
+      dots:true,
+      autoplay: true    
+    });
     //console.log('aiai')
   },
 
