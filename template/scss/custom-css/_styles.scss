@@ -1138,9 +1138,11 @@ header#header{
                         border-radius: 30px;
                         display: flex;
                         font-weight: 700;
-                        height: 32px;
-                        padding: 0 1rem;
-                        align-items: center;                 
+                        // height: 32px;
+                        height: fit-content;
+                        padding: .25rem 1rem;
+                        align-items: center;   
+                        text-align: left;              
                     }
                     button:hover{
                         background: #1e1e1e;
@@ -3932,4 +3934,61 @@ code {
 
 .slick-prev {
     left: 5px!important;
+}
+#custom_customizations  .aviso-checkout{
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    font-size: 12px;
+}
+.aviso-checkout{
+    background: #cfdde6;
+    padding: .25rem;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.option_options .option:empty{display:none}
+.checkout__app .checkout__steps{
+    flex-wrap: wrap;
+}
+.checkout__app .checkout__steps:after{
+    content:"Após o pagamento, nossa equipe entrará em contato para solicitar o envio da receita e calcular a DNP para produção das lentes";
+    background: #cfdde6;
+    padding: .5rem;
+    display: block;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+@media(min-width:990px){
+    .apx_gallery{
+        .slicked{
+            .slick-arrow{
+                opacity:1!important;
+                top: auto!important;
+                bottom: 1rem!important;
+                width: 30px!important;
+                height: 30px!important;
+                left: 1rem!important;
+            }
+            .slick-arrow.slick-next{right: auto!important;left: 3.5rem!important;}
+            .slick-arrow:before{
+                color: #000!important;
+                opacity: .25!important;
+                font-size: 30px!important;
+            }
+        }
+        .slick-dots{
+            bottom: 2.2rem;
+            width: fit-content;
+            left: 6rem;
+        }
+    }
+}
+@media(max-width:990px){
+    .apx_gallery .slick-arrow{display: none;}
 }

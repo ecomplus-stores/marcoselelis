@@ -37,7 +37,7 @@
       >
       <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="1.70711" x2="0.707107" y2="13" stroke="black" stroke-linecap="round" stroke-linejoin="round"></line> <line x1="0.707107" y1="1" x2="12" y2="12.2929" stroke="black" stroke-linecap="round" stroke-linejoin="round"></line></svg>
       </button>
-      <div class="customizations_header mt-4 mb-5 px-5"
+      <div class="customizations_header mt-4 mb-0 px-5"
         v-if="cms_customizations_step < cms_customizations.length + 1"
       >
         <div class="button_cover"
@@ -49,7 +49,10 @@
           </button>
         </div>
       </div>
-
+      <div class="aviso-checkout mt-3 mb-4">
+        Após o pagamento, você poderá enviar sua receita e calcular sua DNP.
+      </div>
+      
       <div class="customizations_body px-md-3">
         <div class="step px-md-3"
         v-for="(item, index) in cms_customizations"
@@ -84,7 +87,7 @@
           v-if="cms_customizations_step > cms_customizations.length"
             :class="cms_customizations_step > cms_customizations.length  ? 'current' : ''"
         >
-          <div class="option_title text-center mb-5 mt-5">
+          <div class="option_title text-center mb-5 mt-3">
             <small></small>
             <h4>Confirme sua personalização</h4>
           </div>
