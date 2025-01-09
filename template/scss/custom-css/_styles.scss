@@ -3990,5 +3990,15 @@ code {
     }
 }
 @media(max-width:990px){
-    .apx_gallery .slick-arrow{display: none;}
+    .apx_gallery .slick-arrow{display: none!important;}
+}
+
+@media(max-width:990px){
+    #custom_customizations .aviso-checkout{
+        margin-left: -.5rem;
+        margin-right:-.5rem;
+        margin-top:3rem;
+        font-size: 11px;
+    }
+    #custom_customizations .customizations_header + .aviso-checkout{margin-top: 1rem;}
 }
