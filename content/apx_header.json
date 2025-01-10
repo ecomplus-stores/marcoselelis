@@ -86,6 +86,10 @@
     {
       "title": "Acessórios",
       "url": "/acessorios"
-    }
+    },
+    {
+      "title": "SALE",
+      "url": "/sale"
+    }    
     ]
 }
