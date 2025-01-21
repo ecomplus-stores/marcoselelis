@@ -1,5 +1,5 @@
 {
-  "css": ".page--products .variations__grid{\n  text-align: left!important;\n}",
+  "css": "@media (max-width: 990px){\n  .page--products .variations__grid{\n  text-align: left!important;\n  }\n}",
   "html_head": "<meta name=\"facebook-domain-verification\" content=\"nxcrbcppdq4jchc0mwyypv2ftb4nv5\" />\n<script id=\"mcjs\">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,\"script\",\"https://chimpstatic.com/mcjs-connected/js/users/19323a54bda52e05c05f539cf/d5cf13e709fb89da0db9dba92.js\");</script>",
   "html_body": ""
 }
