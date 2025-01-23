@@ -776,6 +776,12 @@
     </url>
   
     <url>
+      <loc>https://heraeyewear.com.br/pages/quem-somos</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
       <loc>https://heraeyewear.com.br/pages/termos</loc>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
@@ -783,12 +789,6 @@
   
     <url>
       <loc>https://heraeyewear.com.br/pages/trocas-e-devolucoes</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-  
-    <url>
-      <loc>https://heraeyewear.com.br/pages/quem-somos</loc>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
