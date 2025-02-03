@@ -121,7 +121,7 @@ export default {
       //     small_title = "<small>"+ small_text[i] +"</small>"
       //   }
       // }
-      //console.log(title, small_text, small_title)
+      ////console.log(title, small_text, small_title)
       // return (small_title + title)
       return getName(this.body)
     },
@@ -158,7 +158,7 @@ export default {
     // },
     setBody (data) {
       this.body = Object.assign({}, data)
-      console.log(`aaabody`,this.body)
+      //console.log(`aaabody`,this.body)
       delete this.body.body_html
       delete this.body.body_text
       delete this.body.inventory_records
@@ -189,9 +189,9 @@ export default {
     },
 
     toggleFavorite () {
-      if (this.isLogged) {
+      //if (this.isLogged) {
         this.isFavorite = toggleFavorite(this.body._id, this.ecomPassport)
-      }
+      //}
     },
 
     buy () {

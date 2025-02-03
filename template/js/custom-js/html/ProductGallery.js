@@ -241,7 +241,7 @@ export default {
       dots:true,
       autoplay: true    
     });
-    //console.log('aiai')
+    ////console.log('aiai')
   },
 
   beforeDestroy () {

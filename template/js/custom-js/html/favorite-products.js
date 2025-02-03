@@ -1,10 +1,11 @@
 import _ecomPassport from '@ecomplus/passport-client'
 
-const toggleFavorite = (productId, ecomPassport = _ecomPassport) => {
+const toggleFavorite = (productId, ecomPassport = _ecomPassport) => {  
+  
   const customer = ecomPassport.getCustomer()
   const favorites = customer.favorites || []
   const isFavorite = checkFavorite(productId, ecomPassport)
-  console.log(`aaa`)
+  
   if(customer.display_name){
     if (!isFavorite) {
       favorites.push(productId)
@@ -46,13 +47,20 @@ const checkFavorite = (productId, ecomPassport) => {
   const customer = ecomPassport.getCustomer()
   if(customer.display_name){
     const { favorites } = ecomPassport.getCustomer()
+    
     return favorites && favorites.includes(productId)
   }else{
+    ////console.log('b',productId)
+
     let localFavorites = localStorage.getItem(`apxLocalFavorites`)
-    if(localFavorites){
+    if(localFavorites == null){
+      localFavorites = []
+      
+    }else{
       localFavorites = JSON.parse(localFavorites)
-      return localFavorites && localFavorites.includes(productId)
-    }    
+    }
+    
+    return localFavorites && localFavorites.includes(productId)
   }  
 }
 

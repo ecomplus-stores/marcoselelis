@@ -128,7 +128,7 @@ import {
             
         },
         selectedProp(prop, isDenied){
-            console.log(isDenied)
+            //console.log(isDenied)
             if(isDenied){
               this.selectedOption = []
             }
@@ -152,21 +152,21 @@ import {
             
             let readyToBuy = false
             let options = []
-            //console.log(this.selectedOption)
-            //console.log($('.variations__option--selected').length)
-            //console.log(Object.keys(this.kitParameters))
-            //console.log(Object.keys(this.selectedOption))
+            ////console.log(this.selectedOption)
+            ////console.log($('.variations__option--selected').length)
+            ////console.log(Object.keys(this.kitParameters))
+            ////console.log(Object.keys(this.selectedOption))
 
             //selectedOptions.shift()
-            //console.log(this.selectedOption)
+            ////console.log(this.selectedOption)
             if(Object.keys(this.selectedOption).length == Object.keys(this.kitParameters).length + 1){
               for(let option in this.selectedOption){
                 if(option != 0){
                   let prop = this.selectedOption[option].value
                   let index = option
-                  console.log('xxx')
-                  console.log(index)
-                  console.log(prop)
+                  //console.log('xxx')
+                  //console.log(index)
+                  //console.log(prop)
 
                   options.push({key: index, value : prop})
                   
@@ -178,7 +178,7 @@ import {
                   }
                 }
               }
-              console.log(readyToBuy)
+              //console.log(readyToBuy)
             }
 
             if(readyToBuy){
@@ -187,7 +187,7 @@ import {
 
                 let flag = true
                 for (let selectedOpt of options){
-                  console.log(specifications[selectedOpt.key][0].value == selectedOpt.value)
+                  //console.log(specifications[selectedOpt.key][0].value == selectedOpt.value)
                   if(specifications[selectedOpt.key][0].value == selectedOpt.value){
                   }else{
                     flag = false
@@ -294,13 +294,13 @@ import {
       }
     },
     mounted(){
-        console.log(this.kitUniqueItens)
-        console.log(this.kitParameters)
+        //console.log(this.kitUniqueItens)
+        //console.log(this.kitParameters)
     },
   
     created () {
         
-        //console.log(this.kitUniqueItems)
+        ////console.log(this.kitUniqueItems)
         if (this.max < this.items.length) {
             this.items.forEach(item => this.changeQnt(item))
         }

@@ -541,7 +541,7 @@ import {
       setFilterOption (filter, option, isSet) {
         
         const { selectedOptions } = this
-        console.log('up',filter,option,isSet, selectedOptions)
+        //console.log('up',filter,option,isSet, selectedOptions)
         if(isSet){
           selectedOptions[filter] = []
           selectedOptions[filter].indexOf(option) > -1
@@ -562,7 +562,7 @@ import {
               this.lastSelectedFilter = null
             }
           }
-          //console.log('a',filter,option,isSet)
+          ////console.log('a',filter,option,isSet)
           this.updateSearchFilter(filter)
           this.scheduleFetch()
         }

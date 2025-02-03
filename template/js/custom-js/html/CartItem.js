@@ -117,7 +117,7 @@ import {
       },
   
       validateQuantity () {
-        console.log(this.quantity);
+        //console.log(this.quantity);
         if (this.minQuantity <= this.maxQuantity) {
           if (this.quantity < this.minQuantity) {
             this.quantity = this.minQuantity
@@ -148,11 +148,11 @@ import {
     watch: {
       'item.quantity': {
         handler(qnt) {
-          console.log('Watcher - item.quantity:', qnt);
+          //console.log('Watcher - item.quantity:', qnt);
           if (!isNaN(qnt) && qnt >= 0) {
             this.quantity = qnt;
           }
-          console.log(`Item _id: ${this.item._id}, Name: ${this.item.name}, Type: ${typeof this.item._id}`);
+          //console.log(`Item _id: ${this.item._id}, Name: ${this.item.name}, Type: ${typeof this.item._id}`);
         },
         immediate: true
       },

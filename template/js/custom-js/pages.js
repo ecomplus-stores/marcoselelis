@@ -1951,12 +1951,12 @@ toggleButton.addEventListener("click", () => {
 });
 
 window.setImageOnProductCard = function (el, img) {
-  //console.log(img)
+  ////console.log(img)
 };
 
 window.productListColors = function (_id) {
   $(`.variations__grid--colors`).each(function(){
-    console.log(`aahahahah`)
+    //console.log(`aahahahah`)
     $(this).find(`.variations__option`).each(function(){
       let color_name = $(this).attr(`class`).split(`--`)[1].toLowerCase().trim();
       let q = window.apx_properties.find(el => el.title.toLowerCase().trim() == color_name.toLowerCase().trim())
@@ -1979,7 +1979,7 @@ window.productListColors = function (_id) {
       itemData.variationsGrids &&
       itemData.variationsGrids.colors
     ) {
-      console.log(itemData.variationsGrids.colors)
+      //console.log(itemData.variationsGrids.colors)
       me.find(".product-card__info").after(
         '<div class="product-card_colors"></div>'
       );
@@ -2028,14 +2028,14 @@ window.productListColors = function (_id) {
 //   colors.find("button").removeClass("active");
 //   $(this).addClass("active");
 //   let src = $(this).attr("data-image");
-//   console.log("Valor de src antes:", src);
+//   //console.log("Valor de src antes:", src);
 //   let img = $(this).closest(".product-card").find("picture img");
-//   console.log("Elemento de imagem antes:", img);
+//   //console.log("Elemento de imagem antes:", img);
 //   let srcset = $(this).closest(".product-card").find("picture source");
 //   img.attr("src", src);
 //   srcset.attr("srcset", src);
-//   console.log("Valor de src depois:", src); // Log depois de atribuir
-//   console.log("Elemento de imagem depois:", img);
+//   //console.log("Valor de src depois:", src); // Log depois de atribuir
+//   //console.log("Elemento de imagem depois:", img);
 // });
 
 $("body").on("click", ".product-card_colors", function (event) {
@@ -2150,7 +2150,7 @@ const { toggleFavorite, checkFavorite } = require('@ecomplus/storefront-componen
 const search = new EcomSearch()
 const EcomPassport = require('@ecomplus/passport-client');
 const client = EcomPassport.ecomPassport.getCustomer();   
-console.log(client)
+
 
 if(client.display_name){
   $(`.username_`).text(`Minha Conta`)
@@ -2186,7 +2186,6 @@ $("body").on("submit", ".apx-newsletter form", function (e) {
 $(`body`).on(`click`,`[href="/app/#/account/favorites"], #favorites-toggle`,function(e){
   e.preventDefault();  
   //let client = EcomPassport.ecomPassport.getCustomer();   
-  
   if(!client.display_name){
     window.location.href = "/app/#/account/";
     return false
@@ -2231,9 +2230,9 @@ window.messageBullet = function(message) {
   }, 3000);
 }
 
-
-placeFavorites();
 syncFavorites();
+placeFavorites();
+
 
 
 async function placeFavorites(){  
@@ -2253,7 +2252,7 @@ async function placeFavorites(){
     }
     
     search.setProductIds(favoriteList).fetch().then(result => {
-      //console.log(result)
+      ////console.log(result)
       $(`.favorites__body`).empty()
       $.each(result.hits.hits, function(k,i){
         let item = i._source;        
@@ -2269,21 +2268,23 @@ async function placeFavorites(){
     })
     
   }catch(e){
-    console.log(e)
+    //console.log(e)
     $(`.favorites__body`).html('<p class="h5 d-block m-4 text-center">Ocorreu um erro ao carregar os favoritos :(</p>');
     $(`#favorites-toggle span`).text(`0`)
   }
 }
 
 async function syncFavorites(){
-  
-  // if(client.display_name && localStorage.getItem(`apxLocalFavorites`)){
-  //   const localFavorites = JSON.parse(localStorage.getItem(`apxLocalFavorites`));
-  //   const { favorites } = await EcomPassport.ecomPassport.getCustomer(); 
-  //   const newFavorites = localFavorites.concat(favorites.filter(item => !localFavorites.includes(item)));
-  //   EcomPassport.ecomPassport.requestApi('/me.json', 'patch', { newFavorites })
-  //   localStorage.removeItem(`apxLocalFavorites`)
-  // }
+  if(client.display_name && localStorage.getItem(`apxLocalFavorites`)){
+    const localFavorites = JSON.parse(localStorage.getItem(`apxLocalFavorites`));
+    const { favorites } = await EcomPassport.ecomPassport.getCustomer(); 
+    const newFavorites = localFavorites.concat(favorites.filter(item => !localFavorites.includes(item)));
+    ////console.log('newFavorites',newFavorites)
+    EcomPassport.ecomPassport.requestApi('/me.json', 'patch', { favorites: newFavorites })
+    localStorage.removeItem(`apxLocalFavorites`)
+
+    placeFavorites();
+  }
 }
 
 
@@ -2291,5 +2292,4 @@ async function syncFavorites(){
 $('body').on('click','#favorites-quickview button[data-product-id]', function(){
   toggleFavorite($(this).data(`product-id`), EcomPassport.ecomPassport)
   $(this).closest(`.item`).remove();
-  //checkFavoriteLocal()
 });

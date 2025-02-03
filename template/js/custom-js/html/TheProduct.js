@@ -297,7 +297,7 @@ export default {
       if (this.variationImages.length) {
         window.mainProductGallery = [...this.variationImages]
         this.variationImagesKey = Math.random().toString()
-        console.log('update',window.mainProductGallery)
+        //console.log('update',window.mainProductGallery)
         return {
           ...this.body,
           pictures: this.variationImages
@@ -400,10 +400,10 @@ export default {
       const product = sanitizeProductBody(this.body);
 
       this.current_customization[index] = { [grid_id]: item };
-      console.log(this.current_customization);
-      console.log(this.cms_customizations_step);
+      //console.log(this.current_customization);
+      //console.log(this.cms_customizations_step);
 
-      console.log(product.categories[0].name);
+      //console.log(product.categories[0].name);
       
       if (this.cms_customizations_step === 1) {
         if (this.current_customization[0] && this.current_customization[0].tipo_de_oculos) {
@@ -454,19 +454,19 @@ export default {
       //     return
       //   }
       // }
-      // console.log(variationId)
+      // //console.log(variationId)
 
       let price = getPrice(this.body)
-      console.log(this.body)
-      console.log('current',this.current_customization)
+      //console.log(this.body)
+      //console.log('current',this.current_customization)
       for (const item of this.current_customization) {
-        console.log(Object.values(item)[0])  
+        //console.log(Object.values(item)[0])  
         const value = Object.values(item)[0].value;
         price += value;
       }
       
-      console.log(this.body.price, price)
-      //console.log(this.body)
+      //console.log(this.body.price, price)
+      ////console.log(this.body)
       return price.toLocaleString('pt-br', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}) 
     },
     setCustomizationOption (customization, text) {
@@ -489,7 +489,7 @@ export default {
     },
 
     setCustomCustomization (customization, text) {
-      //console.log(customization, text, this.customizations)
+      ////console.log(customization, text, this.customizations)
       const index = this.customizations.findIndex(({ _id }) => _id === customization._id)
       if (text) {
         if (index > -1) {
@@ -523,8 +523,8 @@ export default {
           return _id === variation.picture_id
         })
 
-        console.log('body', this.body)
-        console.log('customBody', this.variantGalleryImages)
+        //console.log('body', this.body)
+        //console.log('customBody', this.variantGalleryImages)
 
         this.currentGalleyImg = pictureIndex + 1
       }
@@ -608,7 +608,7 @@ export default {
         const customizations = [...this.customizations]
         this.$emit('buy', { product, variationId, customizations })
         if (this.canAddToCart) {
-          console.log({ ...product, customizations })
+          //console.log({ ...product, customizations })
           ecomCart.addProduct({ ...product, customizations }, variationId, this.qntToBuy)
         }
         this.isOnCart = true
@@ -638,7 +638,7 @@ export default {
     //       pathname,
     //       searchParams
     //     }, '', `${pathname}?${searchParams.toString()}`)
-    //     console.log(this.selectedVariation)
+    //     //console.log(this.selectedVariation)
     //     this.showVariationPicture(this.selectedVariation)
     //   }
     // },
@@ -664,7 +664,7 @@ export default {
         window.history.pushState(newState, '', `${pathname}?${searchParams.toString()}`);
     
         // Logging the selected variation (make sure this.selectedVariation is updated somewhere)
-        //console.log(this.selectedVariation);
+        ////console.log(this.selectedVariation);
     
         // Calling your function to show the variation picture
         this.showVariationPicture(this.selectedVariation);
@@ -673,7 +673,7 @@ export default {
 
     fixedPrice (price) {
       if (price > 0 && !this.isQuickview) {
-        console.log(sanitizeProductBody(this.body));
+        //console.log(sanitizeProductBody(this.body));
         addIdleCallback(() => {
           modules({
             url: '/list_payments.json',
@@ -770,7 +770,7 @@ export default {
 
   created () {
     this.cms_customizations = [...($('[data-customizations]').length > 0 && $('[data-customizations]').attr('data-customizations') != '' ? JSON.parse($('[data-customizations]').attr('data-customizations')) : [])]
-    console.log(this.cms_customizations)
+    //console.log(this.cms_customizations)
     const presetQntToBuy = () => {
       this.qntToBuy = this.body.min_quantity || 1
     }
@@ -790,7 +790,7 @@ export default {
   mounted () {
 
     $(document).ready(function() {
-      //console.log("Entrei no mounted document ready.");
+      ////console.log("Entrei no mounted document ready.");
       if($(".variations__option").length > 0) {
         $(".variations__option").first().click();
       }
@@ -804,7 +804,7 @@ export default {
         })
       });
     })
-    //console.log(this.body.customizations)
+    ////console.log(this.body.customizations)
     if (this.$refs.sticky && !this.isWithoutPrice) {
       let isBodyPaddingSet = false
       const setStickyBuyObserver = (isToVisible = true) => {
