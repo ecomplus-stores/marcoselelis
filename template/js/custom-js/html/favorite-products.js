@@ -3,8 +3,11 @@ import _ecomPassport from '@ecomplus/passport-client'
 const toggleFavorite = (productId, ecomPassport = _ecomPassport) => {  
   
   const customer = ecomPassport.getCustomer()
+  const search = new EcomSearch()
   const favorites = customer.favorites || []
   const isFavorite = checkFavorite(productId, ecomPassport)
+  console.log('favorite-products',customer.favorites, customer.favorites ? true : false)
+
   
   if(customer.display_name){
     if (!isFavorite) {
@@ -16,8 +19,10 @@ const toggleFavorite = (productId, ecomPassport = _ecomPassport) => {
       window.messageBullet(`Removido dos favoritos`)
     }
   
-    ecomPassport.requestApi('/me.json', 'patch', { favorites })    
-    $(`.favorite-count`).text(favorites.length)  
+    ecomPassport.requestApi('/me.json', 'patch', { favorites })   
+    search.setProductIds(favorites).fetch().then(result => {
+      $(`.favorite-count`).text(result.hits.hits.length)
+    })
 
     return !isFavorite
   }else{
@@ -37,12 +42,15 @@ const toggleFavorite = (productId, ecomPassport = _ecomPassport) => {
       window.messageBullet(`Removido dos favoritos`)
     }
     localStorage.setItem(`apxLocalFavorites`,JSON.stringify(localFavorites))
-    $(`.favorite-count`).text(localFavorites.length)
+
+    search.setProductIds(localFavorites).fetch().then(result => {
+      $(`.favorite-count`).text(result.hits.hits.length)
+    })
+    //$(`.favorite-count`).text(localFavorites.length)
     return !isFavorite
   }
   
 }
-
 const checkFavorite = (productId, ecomPassport) => {
   const customer = ecomPassport.getCustomer()
   if(customer.display_name){

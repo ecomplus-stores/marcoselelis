@@ -2243,29 +2243,36 @@ async function placeFavorites(){
     if(client.display_name){
       const { favorites } = await EcomPassport.ecomPassport.getCustomer();  
       favoriteList = favorites  
+      console.log('placeFavorites - logged in')
+      console.log(favoriteList)
     }else{
       let localFavorites = localStorage.getItem(`apxLocalFavorites`)
       if(localFavorites){
         localFavorites = JSON.parse(localFavorites)
         favoriteList = localFavorites
+        console.log('placeFavorites - logged out')
       }
     }
-    
-    search.setProductIds(favoriteList).fetch().then(result => {
-      ////console.log(result)
-      $(`.favorites__body`).empty()
-      $.each(result.hits.hits, function(k,i){
-        let item = i._source;        
-        $(`<div class="item"><a href=/${item.slug}><img alt="${item.pictures ? item.pictures[0].normal.alt : ''}"src="${item.pictures ? item.pictures[0].normal.url : '/assets/img-placeholder.png'}"><h3 class=product-card__name>${item.name}</h3></a><button type="button" data-product-id=${i._id}><i class="i-trash"></i></button></div>`).appendTo(`.favorites__body`);
-      });  
-      
-      if(result.hits.hits.length == 0){
+    if(favoriteList && favoriteList > 0){
+      search.setProductIds(favoriteList).fetch().then(result => {
+        console.log('favorite-search',result)
+        $(`.favorites__body`).empty()
+        $.each(result.hits.hits, function(k,i){
+          let item = i._source;        
+          $(`<div class="item"><a href=/${item.slug}><img alt="${item.pictures ? item.pictures[0].normal.alt : ''}"src="${item.pictures ? item.pictures[0].normal.url : '/assets/img-placeholder.png'}"><h3 class=product-card__name>${item.name}</h3></a><button type="button" data-product-id=${i._id}><i class="i-trash"></i></button></div>`).appendTo(`.favorites__body`);
+        });  
         
-        $(`.favorites__body`).html('<p class="m-4 text-center h5 font-small d-block">Ops... você não adicionou nenhum produto a sua lista de favoritos</p>');
-      }
-
-      $(`.favorite-count`).text(result.hits.hits.length)
-    })
+        if(result.hits.hits.length == 0){
+          
+          $(`.favorites__body`).html('<p class="m-4 text-center h5 font-small d-block">Ops... você não adicionou nenhum produto a sua lista de favoritos</p>');
+        }
+  
+        $(`.favorite-count`).text(result.hits.hits.length)
+      })
+    }else{
+      $(`.favorite-count`).text(0)
+    }
+    
     
   }catch(e){
     //console.log(e)
@@ -2280,8 +2287,11 @@ async function syncFavorites(){
     const { favorites } = await EcomPassport.ecomPassport.getCustomer(); 
     const newFavorites = localFavorites.concat(favorites.filter(item => !localFavorites.includes(item)));
     ////console.log('newFavorites',newFavorites)
-    EcomPassport.ecomPassport.requestApi('/me.json', 'patch', { favorites: newFavorites })
-    localStorage.removeItem(`apxLocalFavorites`)
+    EcomPassport.ecomPassport.requestApi('/me.json', 'patch', { favorites: newFavorites }).then(() => {
+      localStorage.removeItem(`apxLocalFavorites`)
+      console.log('favorite list synced')
+    })
+    
 
     placeFavorites();
   }
