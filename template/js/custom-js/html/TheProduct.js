@@ -804,10 +804,10 @@ export default {
         })
       });
 
-      if(window.innerWidth < 990){
+      //if(window.innerWidth < 990){
         $('.product-content .variations, .product-content .product__name').wrapAll('<div class="mobile-group_"></div>')
         $('.product-content .product__prices, .mobile-group_').wrapAll('<div class="mobile-group d-flex align-items-start"></div>')
-      }
+      //}
     })
     ////console.log(this.body.customizations)
     if (this.$refs.sticky && !this.isWithoutPrice) {

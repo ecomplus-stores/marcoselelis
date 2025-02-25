@@ -4031,59 +4031,60 @@ code {
 #account > .account > div > ul > li:nth-child(3){display: none;}
 
 
-@media(max-width:990px){
-    #page-products{
-        .page--products{
-            .product-content{
-                padding:0 2.5rem;
-                h1.product__name{text-align: left;}    
+#page-products{
+    .page--products{
+        .product-content{
+            padding:0 2.5rem;
+            h1.product__name{text-align: left;}    
+        }
+
+        .mobile-group{
+            h1.product__name{margin: 0;}
+            justify-content: space-between;
+            .product__prices{
+                margin: 0!important;
+                .prices{
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    *{text-align: right;}
+
+                    .prices__value,
+                    .prices__value *{
+                        font-size: var(--f18)!important;
+                        font-weight: 400;
+                        color: #000;
+                    }
+                    .prices__installments{
+                        small{display: none!important;}
+                    }
+                    .prices__installments,
+                    .prices__installments *,
+                    .prices__discount,
+                    .prices__discount * {
+                        font-weight: 300;
+                        font-size: var(--f13) !important;
+                        font-weight: 300;
+                        color: #000;
+                    }
+
+                }
             }
 
-            .mobile-group{
-                h1.product__name{margin: 0;}
-                justify-content: space-between;
-                .product__prices{
-                    margin: 0!important;
-                    .prices{
-                        display: flex;
-                        flex-direction: column;
-                        gap: .5rem;
-                        justify-content: flex-end;
-                        align-items: flex-end;
-                        *{text-align: right;}
-
-                        .prices__value,
-                        .prices__value *{
-                            font-size: var(--f18)!important;
-                            font-weight: 400;
-                            color: #000;
-                        }
-                        .prices__installments{
-                            small{display: none!important;}
-                        }
-                        .prices__installments,
-                        .prices__installments *,
-                        .prices__discount,
-                        .prices__discount * {
-                            font-weight: 300;
-                            font-size: var(--f13) !important;
-                            font-weight: 300;
-                            color: #000;
-                        }
-
-                    }
-                }
-
-                .variations__grid{
-                    margin: 1rem 0 0 0 ;
-                    .variations__grid-title{display: none;}
-                    .variations__option{
-                        margin-left: 0!important;
-                        margin-right: .8rem!important;
-                    }
+            .variations__grid{
+                margin: 1rem 0 0 0 ;
+                .variations__grid-title{display: none;}
+                .variations__option{
+                    margin-left: 0!important;
+                    margin-right: .8rem!important;
                 }
             }
         }
     }
-    
 }
+// @media(max-width:990px){
+    
+    
+// }
