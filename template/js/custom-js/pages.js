@@ -2200,7 +2200,7 @@ $(`body`).on(`click`,`#favorites-quickview .close`,function(e){
 
 $(document).ready(function(){
   
-})
+});
 
 window.messageBullet = function(message) {
   const container = document.getElementById('message-container');
