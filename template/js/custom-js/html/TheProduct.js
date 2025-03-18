@@ -796,7 +796,8 @@ export default {
       }
       $(`.variations__grid--colors`).each(function(){
         $(this).find(`.variations__option`).each(function(){
-          let color_name = $(this).attr(`class`).split(`--`)[1].toLowerCase().trim();
+          let color_name = $(this).attr(`class`).split(' ')[$(this).attr(`class`).split(' ').length - 1].split(`--`)[1].toLowerCase().trim();
+          console.log(color_name)
           let q = window.apx_properties.find(el => el.title.toLowerCase().trim() == color_name.toLowerCase().trim())
           if(q){
             $(this).css(`background`,`url(${q.img})`)       
