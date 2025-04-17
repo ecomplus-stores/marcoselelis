@@ -878,6 +878,18 @@
     </url>
   
     <url>
+      <loc>https://heraeyewear.com.br/classic</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>
+  
+    <url>
+      <loc>https://heraeyewear.com.br/gold</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>
+  
+    <url>
       <loc>https://heraeyewear.com.br/oculos-de-grau</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -975,18 +987,6 @@
   
     <url>
       <loc>https://heraeyewear.com.br/sale</loc>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-    </url>
-  
-    <url>
-      <loc>https://heraeyewear.com.br/classic</loc>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-    </url>
-  
-    <url>
-      <loc>https://heraeyewear.com.br/gold</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
