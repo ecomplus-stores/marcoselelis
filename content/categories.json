@@ -7,7 +7,7 @@
     {
       "type": "category-retail",
       "enabled": true,
-      "sort": "news"
+      "sort": "highest_price"
     },
     {
       "type": "document-description",
