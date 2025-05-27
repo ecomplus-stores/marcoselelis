@@ -3421,7 +3421,8 @@ header#header{
                 gap: 1rem;
                 position: absolute;
                 bottom: 22px;
-                right: 0;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 margin: 0;
                 width: 100%;
                 display: flex;
@@ -3967,13 +3968,17 @@ code {
     .slicked{
         .slick-arrow{
             opacity:1!important;
-            top: auto!important;
+            top: 35vh!important;
             bottom: 1rem!important;
             width: 30px!important;
             height: 30px!important;
             left: 1rem!important;
         }
-        .slick-arrow.slick-next{right: auto!important;left: 3.5rem!important;}
+        .slick-arrow.slick-next{
+            top: 35vh!important;
+            right: -2rem!important;
+            left: auto!important;
+        }
         .slick-arrow:before{
             color: #000!important;
             opacity: .25!important;
@@ -3994,13 +3999,17 @@ code {
         .slicked{
             .slick-arrow{
                 opacity:1!important;
-                top: auto!important;
+                top: 35vh!important;
                 bottom: .5rem!important;
-                width: 20px!important;
-                height: 20px!important;
+                width: 30px!important;
+                height: 30px!important;
                 left: .5rem!important;
             }
-            .slick-arrow.slick-next{right: auto!important;left: 2.5rem!important;}
+            .slick-arrow.slick-next{
+                right: 0.5rem!important;
+                left: auto!important;
+                top: 35vh!important;
+            }
             .slick-arrow:before{
                 color: #000!important;
                 opacity: .25!important;
