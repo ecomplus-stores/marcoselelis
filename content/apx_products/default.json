@@ -103,14 +103,6 @@
         "list": [
           {
             "option": {
-              "title": "Somente armação",
-              "description": "Sem lentes. Não desejo nenhuma lente, somente armação (serão enviadas lentes de acrílico, apenas para estética, sem correção da visão).",
-              "type": "Fixo",
-              "value": 0
-            }
-          },
-          {
-            "option": {
               "title": "Antirreflexo",
               "description": "Lentes anti-reflexo e resistentes a arranhões que protegem contra raios UV",
               "type": "Fixo",
@@ -119,10 +111,10 @@
           },
           {
             "option": {
-              "title": "Antirreflexo + Proteção de Luz Azul | Brinde - mês dos Namorados",
+              "title": "Antirreflexo + Proteção de Luz Azul",
               "description": "Lentes anti-reflexo e resistentes a arranhões que protegem contra raios UV com tratamento especial que ajuda a bloquear a luz azul potencialmente incômoda que ocorre natural e digitalmente",
               "type": "Fixo",
-              "value": 0
+              "value": 130
             }
           },
           {

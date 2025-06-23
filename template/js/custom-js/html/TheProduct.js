@@ -435,9 +435,11 @@ export default {
       }
     },
     shouldShowButton(option) {
+      
       if (this.cms_customizations_step === 3 && this.current_customization[0].tipo_de_oculos.title === "Sem grau") {
         return option.title === 'Somente armação' || option.title === 'Antirreflexo';
       } 
+      return option.title !== '-';
       if (this.cms_customizations_step === 3 && this.current_customization[0].tipo_de_oculos.title === "Com grau (para corrigir minha visão para apenas um campo)") {
         return option.title === 'Antirreflexo' || option.title === 'Antirreflexo + Proteção Luz Azul' || option.title === 'Antirreflexo + Fotosensível (escurece no Sol)' || option.title === 'Antirreflexo + Fotosensível (escurece no Sol) + Protecao Luz Azul';
       }
