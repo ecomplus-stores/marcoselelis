@@ -1022,7 +1022,7 @@
     </url>
   
     <url>
-      <loc>https://heraeyewear.com.br/pages/termos</loc>
+      <loc>https://heraeyewear.com.br/pages/politica-de-privacidade</loc>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
@@ -1034,13 +1034,13 @@
     </url>
   
     <url>
-      <loc>https://heraeyewear.com.br/pages/trocas-e-devolucoes</loc>
+      <loc>https://heraeyewear.com.br/pages/termos</loc>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
-      <loc>https://heraeyewear.com.br/pages/politica-de-privacidade</loc>
+      <loc>https://heraeyewear.com.br/pages/trocas-e-devolucoes</loc>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
@@ -1082,15 +1082,15 @@
     </url>
   
     <url>
-      <loc>https://heraeyewear.com.br/maintenance/index</loc>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-    </url>
-  
-    <url>
       <loc>https://heraeyewear.com.br/app/index</loc>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
+    </url>
+  
+    <url>
+      <loc>https://heraeyewear.com.br/maintenance/index</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
     </url>
   
 </urlset>
