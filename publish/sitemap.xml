@@ -998,13 +998,13 @@
     </url>
   
     <url>
-      <loc>https://heraeyewear.com.br/pages/contato</loc>
+      <loc>https://heraeyewear.com.br/pages/faq</loc>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
-      <loc>https://heraeyewear.com.br/pages/faq</loc>
+      <loc>https://heraeyewear.com.br/pages/contato</loc>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
@@ -1058,21 +1058,27 @@
     </url>
   
     <url>
-      <loc>https://heraeyewear.com.br/</loc>
-      <changefreq>daily</changefreq>
-      <priority>1</priority>
-    </url>
-  
-    <url>
       <loc>https://heraeyewear.com.br/blog</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
   
     <url>
+      <loc>https://heraeyewear.com.br/</loc>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+    </url>
+  
+    <url>
       <loc>https://heraeyewear.com.br/search</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
+    </url>
+  
+    <url>
+      <loc>https://heraeyewear.com.br/app/index</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
     </url>
   
     <url>
@@ -1085,12 +1091,6 @@
       <loc>https://heraeyewear.com.br/maintenance/index</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
-    </url>
-  
-    <url>
-      <loc>https://heraeyewear.com.br/app/index</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
     </url>
   
 </urlset>
