@@ -1,0 +1,37 @@
+{
+  "icons": [
+    {
+      "src": "/icon_512x512.70e42b48597822758bfc13d0e57039a1.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icon_384x384.70e42b48597822758bfc13d0e57039a1.svg",
+      "sizes": "384x384",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icon_192x192.70e42b48597822758bfc13d0e57039a1.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icon_128x128.70e42b48597822758bfc13d0e57039a1.svg",
+      "sizes": "128x128",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icon_96x96.70e42b48597822758bfc13d0e57039a1.svg",
+      "sizes": "96x96",
+      "type": "image/svg+xml"
+    }
+  ],
+  "name": "HERA® Eyewear",
+  "short_name": "heraeyewear",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "High Fashion Eyewear & Accessories | Visit us at ",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}
