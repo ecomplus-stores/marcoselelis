@@ -30,8 +30,8 @@
       ]
     },
     {
-      "title": "Armações e Solares",
-      "url": "/armacoes-e-solares",
+      "title": "Óculos de grau",
+      "url": "/oculos-de-grau",
       "list": [
         {
           "item": {
@@ -57,19 +57,19 @@
       ]
     },
     {
-      "title": "Best Sellers",
-      "url": "/best-sellers",
+      "title": "Óculos de grau",
+      "url": "/oculos-de-grau",
       "list": [
         {
           "item": {
-            "url": "/oculos-de-grau",
-            "title": "Óculos de grau"
+            "url": "/masculino",
+            "title": "Masculino"
           }
         },
         {
           "item": {
-            "url": "/oculos-de-sol",
-            "title": "Óculos de Sol"
+            "url": "/feminino",
+            "title": "Feminino"
           }
         }
       ],
