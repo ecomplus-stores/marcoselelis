@@ -117,6 +117,13 @@
         "list": [
           {
             "option": {
+              "title": "Não desejo colocar / Somente armação ",
+              "value": 0,
+              "type": "Fixo"
+            }
+          },
+          {
+            "option": {
               "title": "Clássica",
               "description": "Lentes anti-reflexo e resistentes a arranhões que protegem contra raios UV",
               "type": "Fixo",
