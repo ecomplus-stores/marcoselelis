@@ -44,23 +44,17 @@
         "list": [
           {
             "option": {
-              "title": "Com grau",
+              "title": "Com grau (para corrigir minha visão para apenas um campo)",
               "type": "Fixo",
               "value": 0
             }
           },
           {
             "option": {
-              "title": "Sem grau com filtro de luz azul",
+              "title": "Sem grau",
               "type": "Fixo",
               "value": 0
-          },
-          {
-            "option": {
-              "title": "Somente armação",
-              "type": "Fixo",
-              "value": 0
-          }
+            }
           }
         ]
       }
@@ -109,7 +103,7 @@
         "list": [
           {
             "option": {
-              "title": "Antirreflexo",
+              "title": "Clássica",
               "description": "Lentes anti-reflexo e resistentes a arranhões que protegem contra raios UV",
               "type": "Fixo",
               "value": 0
