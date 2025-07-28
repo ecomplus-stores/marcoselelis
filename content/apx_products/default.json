@@ -44,17 +44,23 @@
         "list": [
           {
             "option": {
-              "title": "Com grau (para corrigir minha visão para apenas um campo)",
+              "title": "Com grau",
               "type": "Fixo",
               "value": 0
             }
           },
           {
             "option": {
-              "title": "Sem grau",
+              "title": "Sem grau com filtro de luz azul",
               "type": "Fixo",
               "value": 0
-            }
+          },
+          {
+            "option": {
+              "title": "Somente armação",
+              "type": "Fixo",
+              "value": 0
+          }
           }
         ]
       }
