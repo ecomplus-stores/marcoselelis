@@ -117,7 +117,7 @@
         "list": [
           {
             "option": {
-              "title": "Não desejo colocar / Somente armação ",
+              "title": "Somente armação ",
               "value": 0,
               "type": "Fixo"
             }
