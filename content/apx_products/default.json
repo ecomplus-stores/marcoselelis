@@ -51,7 +51,14 @@
           },
           {
             "option": {
-              "title": "Sem grau",
+              "title": "Sem Grau Com Filtro de Luz Azul",
+              "type": "Fixo",
+              "value": 0
+            }
+          },
+          {
+            "option": {
+              "title": "Somente a armação",
               "type": "Fixo",
               "value": 0
             }
