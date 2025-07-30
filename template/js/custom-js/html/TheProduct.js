@@ -419,6 +419,13 @@ export default {
             
             this.cms_customizations_step = 3;
           }
+          if (this.current_customization[0].tipo_de_oculos.title === "Sem Grau Com Filtro de Luz Azul" || this.current_customization[0].tipo_de_oculos.title === "Somente a armação") {
+            this.current_customization[1] = { 'lente': { title: '-', type: 'Fixo', value: 0 }};
+            this.current_customization[2] = { 'tipo_da_lente': { title: '-', type: 'Fixo', value: 0 }};
+            
+            this.cms_customizations_step = 3; 
+            this.buy('customized');
+          }
         }
       }
       if (this.cms_customizations_step === 2) {
@@ -435,7 +442,6 @@ export default {
       }
     },
     shouldShowButton(option) {
-      
       if (this.cms_customizations_step === 3 && this.current_customization[0].tipo_de_oculos.title === "Sem grau") {
         return option.title === 'Somente armação' || option.title === 'Antirreflexo';
       } 
@@ -559,7 +565,6 @@ export default {
       this.hasClickedBuy = false;
     },
     buy (option) {
-      //alert('aa')
       this.hasClickedBuy = true
       const product = sanitizeProductBody(this.body)
       let variationId
