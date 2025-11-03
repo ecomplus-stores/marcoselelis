@@ -102,10 +102,10 @@
           },
           {
             "option": {
-              "title": "Ultra fina | Grau alto acima de -6.00 e +6.00",
+              "title": "Ultra fina | Grau alto acima de -5.00 e +6.50.",
               "description": "Lentes ultra finas com tecnologia alto índice. Precisão, leveza e elegância. São indicadas para graus acima de -6.00 e +6.00.",
               "type": "Fixo",
-              "value": 450
+              "value": 580
             }
           }
         ]
