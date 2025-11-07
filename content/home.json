@@ -33,9 +33,9 @@
       "type": "apx_responsive-banner",
       "link": "",
       "margin_bottom": "0",
-      "title_color": "#ffffff",
+      "title_color": "#000000",
       "description": "",
-      "mask_color_m": "#000000",
+      "mask_color_m": "#e6b700",
       "btn_url_2": ""
     },
     {
