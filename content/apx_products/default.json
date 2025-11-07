@@ -87,7 +87,7 @@
           {
             "option": {
               "title": "Clássica | Grau leve de -2.75 a +2.75",
-              "description": "Lentes clássicas em resina. Resistentes a impactos e indicadas para graus entre -3.00 e +3.00.",
+              "description": "Lentes clássicas em resina. Resistentes a impactos e indicadas para graus entre -2.75 a +2.75.",
               "type": "Fixo",
               "value": 0
             }
@@ -95,7 +95,7 @@
           {
             "option": {
               "title": "Fina | Grau médio de -4.00 a +4.00",
-              "description": "Lentes finas em policarbonato. Mais leves, resistentes e indicadas para graus entre -5.00 e +5.00.",
+              "description": "Lentes finas em policarbonato. Mais leves, resistentes e indicadas para graus entre -4.00 a +4.00.",
               "type": "Fixo",
               "value": 280
             }
@@ -103,7 +103,7 @@
           {
             "option": {
               "title": "Ultra fina | Grau alto acima de -5.00 e +6.50.",
-              "description": "Lentes ultra finas com tecnologia alto índice. Precisão, leveza e elegância. São indicadas para graus acima de -6.00 e +6.00.",
+              "description": "Lentes ultra finas com tecnologia alto índice. Precisão, leveza e elegância. São indicadas para graus acima de -5.00 e +6.50.",
               "type": "Fixo",
               "value": 580
             }
