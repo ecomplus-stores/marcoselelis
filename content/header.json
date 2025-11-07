@@ -13,7 +13,8 @@
   "marketing_stripe": {
     "text": "BLACK NOVEMBER <b> TUDO até 60% OFF + BRINDE de LENTE com FILTRO AZUL  + FRETE GRÁTIS <b>",
     "link": "#",
-    "color": "#f4c100"
+    "color": "#f4c100",
+    "background": "#e6b700"
   },
   "alphabetical_order_submenu": false,
   "popup": null,
