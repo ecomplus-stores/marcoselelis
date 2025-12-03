@@ -20,7 +20,7 @@
   "alphabetical_order_submenu": false,
   "popup": null,
   "search_input": true,
-  "desktop_megamenu": false,
+  "desktop_megamenu": true,
   "full_width_submenu": false,
   "contacts_stripe": {
     "pages": [],
